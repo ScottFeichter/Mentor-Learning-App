@@ -295,7 +295,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.3);
+  border: 2px solid black;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -305,6 +305,5 @@
 }
 
 .theme-btn.active {
-  border-color: white;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }

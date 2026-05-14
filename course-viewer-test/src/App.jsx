@@ -11,11 +11,11 @@ import Content from './Content';
 import './App.css';
 
 const palettes = [
-  { id: 'grey', color: '#999', label: 'Grey' },
-  { id: 'royal', color: '#f5c518', label: 'Royal' },
   { id: 'ocean', color: '#0ea5e9', label: 'Ocean' },
+  { id: 'royal', color: '#f5c518', label: 'Royal' },
   { id: 'forest', color: '#22c55e', label: 'Forest' },
   { id: 'midnight', color: '#cba6f7', label: 'Midnight' },
+  { id: 'grey', color: '#999', label: 'Grey' },
 ];
 
 function Viewer() {
@@ -77,7 +77,7 @@ function Viewer() {
             <button
               key={p.id}
               className={`theme-btn${palette === p.id ? ' active' : ''}`}
-              style={{ background: p.color }}
+              style={{ background: p.color, borderColor: palette === p.id ? p.color : undefined }}
               onClick={() => setPalette(p.id)}
               title={p.label}
             />

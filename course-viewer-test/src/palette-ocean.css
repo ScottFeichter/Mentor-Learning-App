@@ -31,15 +31,15 @@
   /* Text */
   --color-text: #000000;
   --color-text-muted: #64748b;
-  --color-text-inverse: #ffffff;
-  --color-text-disabled: #dedede;
+  --color-text-inverse: var(--color-bg);
+  --color-text-disabled: var(--color-bg-disabled);
 
   /* Borders */
-  --color-border-light: white;
-  --color-border-medium: rgb(128, 127, 127);
-  --color-border-strong: #010101;
   --color-border: rgb(128, 127, 127);
-  --color-border-disabled: #dedede;
+  --color-border-light: var(--color-bg);
+  --color-border-medium: var(--color-border);
+  --color-border-strong: #010101;
+  --color-border-disabled: var(--color-bg-disabled);
 
   /* Code */
   --color-code-bg: #1e293b;
