@@ -1,0 +1,31 @@
+Static vs DHCP
+
+Static IP address assignment - does not change and the admin must manually configure:
+
+	IP address - identifies the host on the network
+	Subnet mask - identifies the network on which the host is connected
+Default gateway - identifies the networking device the host uses to    access internet
+
+	Static advantages:
+
+		Useful for printers, servers, and devices accessible to clients
+		Can provide increased control of network resources
+
+	Static disadvantages
+
+		Can be time consuming
+		More prone to errors
+		Must maintain accurate list of addresses
+
+Dynamic IP address assignment - automatically assigned via a DHCP server
+
+Various devices can be DHCP servers as long as they are running DHCP service software
+
+For example a router is often a DHCP client and server - client to ISP for its public address and servers its hosts to give them their private addresses
+
+Dynamic Host Control Protocol - a set of messages that go between the device wanting an IP address and the device that can assign it
+
+DHCP Discover - a broadcast to 255.255.255.255 from host looking for a DHCP server
+DHCP Offer - reply from server with an IP address for offer with subnet and default gateway
+DHCP Request - reply from host client that it is accepting
+DHCP Acknowledgement - reply from host server that it has now updated address

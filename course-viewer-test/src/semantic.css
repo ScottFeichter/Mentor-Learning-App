@@ -1,0 +1,230 @@
+:root {
+
+  /* ========================== TOP (1st) ================================ */
+
+  /* Top Banner */
+  --top-banner-bg: var(--color-primary);
+  --top-banner-text: var(--color-text);
+  --top-banner-border: var(--color-border);
+
+
+  /* ========================== SUBJECT (2nd) ================================ */
+
+   /* Subject Banner */
+  --subject-banner-bg: var(--color-secondary);
+  --subject-banner-text: var(--color-text-inverse);
+  --subject-banner-border: var(--color-border-light);
+
+
+  /* Subject Menu Toggle Button */
+  --subject-menu-toggle-bg: var(--color-text-inverse);
+  --subject-menu-toggle-text: var(--color-secondary);
+  --subject-menu-toggle-border: var(--color-secondary);
+  --subject-menu-toggle-hover-bg: var(--color-text);
+  --subject-menu-toggle-hover-text: var(--color-text-inverse);
+
+  --subject-menu-toggle-active-bg: var(--color-bg-active);
+  --subject-menu-toggle-active-text: var(--color-text-inverse);
+
+  --subject-menu-toggle-closed-bg: var(--color-secondary);
+  --subject-menu-toggle-closed-text: var(--color-text-inverse);
+  --subject-menu-toggle-closed-border: var(--color-text-inverse);
+  --subject-menu-toggle-closed-hover-bg: var(--color-bg-hover);
+  --subject-menu-toggle-closed-hover-text: var(--color-text-inverse);
+  --subject-menu-toggle-closed-hover-border: var(--color-border-strong);
+
+
+  /* Subject Menu */
+  --subject-menu-bg: var(--color-primary-light);
+  --subject-menu-text: var(--color-text);
+  --subject-menu-separator: var(--color-border-medium);
+  --subject-menu-hover-bg: var(--color-secondary-alt);
+  --subject-menu-active-bg: var(--color-secondary);
+  --subject-menu-active-text: var(--color-text-inverse);
+
+  /* Subject Menu Scrollbar */
+  --subject-menu-scrollbar-track: var(--color-bg-alt);
+  --subject-menu-scrollbar-thumb: var(--color-secondary);
+  --subject-menu-scrollbar-thumb-hover: var(--color-secondary);
+
+  /* Subject Menu Resize */
+  --subject-menu-resize-bg: var(--color-bg-alt);
+  --subject-menu-resize-border: var(--color-secondary);
+  --subject-menu-resize-dots: var(--color-secondary);
+
+  --subject-menu-resize-hover-bg: var(--color-secondary-alt);
+  --subject-menu-resize-hover-border: var(--color-secondary);
+  --subject-menu-resize-hover-dots: var(--color-text-inverse);
+
+
+
+  /* ========================== COURSE (3rd) ================================ */
+
+  /* Course Banner */
+  --course-banner-bg: var(--color-tertiary);
+  --course-banner-text: var(--color-text-inverse);
+  --course-banner-border: var(--color-border-light);
+
+  /* Course Menu Toggle Button */
+  --course-menu-toggle-bg: var(--color-text-inverse);
+  --course-menu-toggle-text: var(--color-tertiary);
+  --course-menu-toggle-border: var(--color-tertiary);
+  --course-menu-toggle-hover-bg: var(--color-text);
+  --course-menu-toggle-hover-text: var(--color-text-inverse);
+
+  --course-menu-toggle-active-bg: var(--color-bg-active);
+  --course-menu-toggle-active-text: var(--color-text-inverse);
+
+
+  --course-menu-toggle-closed-bg: var(--color-tertiary);
+  --course-menu-toggle-closed-text: var(--color-text-inverse);
+  --course-menu-toggle-closed-border: var(--color-text-inverse);
+  --course-menu-toggle-closed-hover-bg: var(--color-bg-hover);
+  --course-menu-toggle-closed-hover-text: var(--color-text-inverse);
+  --course-menu-toggle-closed-hover-border: var(--color-text);
+
+
+  /* Course Menu */
+  --course-menu-bg: var(--color-primary-lighter);
+  --course-menu-text: var(--color-text);
+  --course-menu-separator: var(--color-border);
+  --course-menu-hover-bg: var(--color-tertiary-alt);
+  --course-menu-active-bg: var(--color-tertiary);
+  --course-menu-active-text: var(--color-text-inverse);
+  --course-menu-border-right: var(--color-border);
+
+  /* Course Menu Scrollbar */
+  --course-menu-scrollbar-track: var(--color-bg-alt);
+  --course-menu-scrollbar-thumb: var(--color-tertiary);
+  --course-menu-scrollbar-thumb-hover: var(--color-tertiary);
+
+  /* Course Menu Resize */
+  --course-menu-resize-bg: var(--color-bg-alt);
+  --course-menu-resize-border: var(--color-tertiary);
+  --course-menu-resize-dots: var(--color-tertiary);
+
+  --course-menu-resize-hover-bg: var(--color-tertiary-alt);
+  --course-menu-resize-hover-border: var(--color-tertiary);
+  --course-menu-resize-hover-dots: var(--color-text-inverse);
+
+
+  /* ========================== TOPICS (4th) ================================ */
+
+    /* Topics Banner */
+  --topics-banner-bg: var(--color-quarternary);
+  --topics-banner-text: var(--color-text-inverse);
+  --topics-banner-border: var(--color-text-inverse);
+
+  /* Topics Menu Toggle Button */
+  --topics-menu-toggle-bg: var(--color-text-inverse);
+  --topics-menu-toggle-text: var(--color-quarternary);
+  --topics-menu-toggle-border: var(--color-quarternary);
+  --topics-menu-toggle-hover-bg: var(--color-text);
+  --topics-menu-toggle-hover-text: var(--color-text-inverse);
+
+  --topics-menu-toggle-active-bg: var(--color-bg-active);
+  --topics-menu-toggle-active-text: var(--color-text-inverse);
+
+  --topics-menu-toggle-closed-bg: var(--color-quarternary);
+  --topics-menu-toggle-closed-text: var(--color-text-inverse);
+  --topics-menu-toggle-closed-border: var(--color-text-inverse);
+  --topics-menu-toggle-closed-hover-bg: var(--color-bg-hover);
+  --topics-menu-toggle-closed-hover-text: var(--color-text-inverse);
+  --topics-menu-toggle-closed-hover-border: var(--color-border-strong);
+
+
+  /* Topics Menu Prev/Next Buttons */
+  --btn-bg: var(--color-text-inverse);
+  --btn-text: var(--color-quarternary);
+  --btn-border: var(--color-quarternary);
+
+  --btn-hover-bg: var(--color-text);
+  --btn-hover-text: var(--color-text-inverse);
+  --btn-hover-border: var(--color-text);
+
+  --btn-active-bg: var(--color-bg-active);
+  --btn-active-text: var(--color-bg-active);
+  --btn-active-border: var(--color-bg-active);
+
+  --btn-disabled-bg: var(--color-bg-disabled);
+  --btn-disabled-text: var(--color-quarternary);
+  --btn-disabled-border: var(--color-quarternary);
+
+  /* Topics Menu */
+  --topics-menu-bg: var(--color-primary-lightest);
+  --topics-menu-text: var(--color-text);
+  --topics-menu-separator: var(--color-border);
+  --topics-menu-hover-bg: var(--color-quarternary-alt);
+  --topics-menu-active-bg: var(--color-quarternary);
+  --topics-menu-active-text: var(--color-text-inverse);
+  --topics-menu-border-right: var(--color-border);
+
+  /* Topics Menu Scrollbar */
+  --topics-menu-scrollbar-track: var(--color-bg-alt);
+  --topics-menu-scrollbar-thumb: var(--color-quarternary);
+  --topics-menu-scrollbar-thumb-hover: var(--color-quarternary);
+
+  /* Topics Menu Resize */
+  --topics-menu-resize-bg: var(--color-bg-alt);
+  --topics-menu-resize-border: var(--color-quarternary);
+  --topics-menu-resize-dots: var(--color-quarternary);
+
+  --topics-menu-resize-hover-bg: var(--color-quarternary-alt);
+  --topics-menu-resize-hover-border: var(--color-quarternary);
+  --topics-menu-resize-hover-dots: var(--color-text-inverse);
+
+
+  /* ========================== CONTENT ================================ */
+
+  /* Content Area */
+  --content-bg: var(--color-text-inverse);
+  --content-text: var(--color-text);
+  --content-heading: var(--color-text);
+  --content-code-bg: var(--color-code-bg);
+  --content-code-text: var(--color-code-text);
+  --content-inline-code-bg: var(--color-bg-alt);
+  --content-table-border: var(--color-border);
+  --content-table-header-bg: var(--color-bg-alt);
+  --content-accent: var(--color-accent);
+  --content-accent-hover: var(--color-accent-hover);
+
+  /* Content Prev/Next, Top of Page Buttons  */
+  --content-nav-bg: var(--color-text-inverse);
+  --content-nav-text: var(--color-text);
+  --content-nav-border: var(--color-border);
+  --content-nav-hover-bg: var(--color-text);
+  --content-nav-hover-text: var(--color-text-inverse);
+
+  --content-nav-active-bg: var(--color-bg-active);
+  --content-nav-active-text: var(--color-text-inverse);
+  --content-nav-active-border: var(--color-bg-active);
+
+  --content-nav-disabled-bg: var(--color-bg-disabled);
+  --content-nav-disabled-text: var(--color-text-inverse);
+  --content-nav-disabled-border: var(--color-border-disabled);
+
+
+
+  /* ========================== TYPOGRAPHY ================================ */
+
+  /* Headings */
+  --heading-h1-color: var(--color-text);
+  --heading-h1-size: 2em;
+  --heading-h2-color: var(--color-secondary);
+  --heading-h2-size: 1.5em;
+  --heading-h3-color: var(--color-tertiary);
+  --heading-h3-size: 1.17em;
+  --heading-h4-color: var(--color-quarternary);
+  --heading-h4-size: 1em;
+
+  /* Paragraph */
+  --paragraph-color: var(--color-text);
+  --paragraph-line-height: 1.6;
+
+  /* Links */
+  --link-color: var(--color-accent);
+  --link-hover-color: var(--color-accent-hover);
+
+
+
+}

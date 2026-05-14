@@ -1,0 +1,80 @@
+Wireless Networks
+802.11 and Wi-Fi
+
+Wi-Fi is often used to refer to technology for transmitting information from computers and peripheral devices using radio waves instead of wires, and based on technical standards and protocols established by the Institute of Electrical and Electronics Engineers (IEEE).
+
+Since IEEE produces standards for hundreds of different technologies they label a standards family for a particular technology using numbers. 802 was an available number for a standards family first developed in February 1980 and is derived from the year (80) and the month (2).
+
+IEEE 802 concerns networking protocols for Local Area Networks (LAN) and Metropolitan Area Networks (MAN). By promoting standards for vendors to follow IEEE 802 helps ensure interoperability between network devices so equipment can work well together.
+
+The number after the decimal, for example, 802.11 refers to a particular amendment to the IEEE 802 standards, applicable to a specific area of the technology. In the case of 802.11, the protocols concern Wireless Local Area Networks (WLAN).
+
+IEEE 802.11 came to be commonly referred to as Wi-Fi. However, Wi-Fi began as a trademarked term owned by the Wi-Fi Alliance. The Wi-Fi Alliance provides testing and certification for products to verify the product conforms as needed to IEEE 802.11.
+
+Wi-Fi is sometimes thought to be a portmanteau of the words Wireless and Fidelity. Hi-Fi, which stands for High Fidelity, was a term used in the 20th Century to refer to high-quality and faithful reproduction of audio by sound reproduction technologies.
+
+While Wi-Fi is reminiscent of Hi-Fi, Wireless Fidelity is not a term used for anything. The term Wi-Fi was only invented so that the industry can have a more simple and appealing name to brand products conforming to IEEE 802.11.
+
+Since technologies develop and change rapidly the IEEE may append the standards name with additional numbers or letters (for example 802.11b). This distinguishes revisions, expansions, or further specifications of a standard over time.
+
+Some important 802.11 revisions still used today are:
+
+802.11b (1999)
+802.11g (2003)
+802.11n (2009)
+802.11ac (2013)
+802.11ax (2020) (also known as WiFi 6)
+
+As several iterations of 802.11 have developed the Wi-Fi Alliance has dropped the IEEE designation on their branding in favor of a simpler labeling scheme. They now use Wi-Fi 6 when certifying for IEEE 802.11ax as opposed to Wi-Fi 802.11ax.
+
+Understanding WLAN
+
+One fundamental principle for WLAN to work is
+
+The basic component behaviors identified by 802.11 are:
+
+Beacons
+Probe
+Authentication
+Association
+
+
+Other Wireless Technologies
+
+Because the most common WLAN is Wi-Fi, sometimes the term WLAN is also referred to as Wi-Fi. But it is important to note that Wi-Fi is only one kind of WLAN. Additionally, WLAN is only one kind of wireless networking technology.
+
+Now we compare WLAN with other common wireless technologies that also have IEEE standards associated with them:
+
+WPAN - Bluetooth short range
+
+WLAN - Wireless Local Area Network - IEEE 802.11
+
+Radio waves are used to connect devices wirelessly for short-medium range connections to an access point for internet connectivity.
+
+WMAN
+
+WWAN - Wireless Wide Area Network - IEEE 802.
+
+Large range interconnected networks aka internetwork aka internet
+
+
+Cell phones can connect wirelessly to many kinds of networks:
+
+4G/5G
+Wi-Fi
+Bluetooth
+GPS
+NFC
+
+Types of devices connected to LAN:
+
+Hosts (define)(Server vs Client, P2P)
+Peripherals (shared peripherals)
+Network Devices (Intermediary Devices)
+Network Media (cables, wires, radio waves)
+
+
+
+
+
+

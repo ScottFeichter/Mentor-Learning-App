@@ -1,0 +1,56 @@
+Computer has a permanent, unique, Media Access Control (MAC) address built in to the hardware (the physical address)
+
+The hardware piece containing the MAC is called the Network Interface Card
+
+An IP address is assigned, not permanent, and identifies a device on a network (the logical address)
+
+You may see it in a few formats based on different versions of IP:
+
+IPv4 - 192.0.2.1
+
+IPv6 - 2001:db8:3333:4444:5555:6666:1.2.3.4
+
+The format for internet addresses is the most visible of several things Internet Protocol standardizes
+
+
+Some characteristics of protocols include:
+Message format
+Message size
+Timing
+Encoding
+Encapsulation
+Message pattern
+
+
+
+
+
+
+
+
+IPv4 Unicast, Broadcast, and Multicast
+
+
+IPv4 Unicast - a packet which the IP addresses are single source single destination
+
+	IPv4 Unicast Range: 1.1.1.1 to 223.255.255.255
+
+IPv4 Broadcast - a packet whose IP addresses are single source to all destinations on the network (there are no broadcast packets in IPv6). Broadcasts are NOT forwarded by routers by default.
+
+	IPv4 Broadcast Range: 255.255.255.255 (entire network, not necessarily shown as subnet mask)
+
+IPv4 Multicast - a packet which the IP addresses are single source to multiple destinations but not all destinations on the network.
+
+	IPv4 Range: 224.0.0.0 to 239.255.255.255
+
+Broadcast Domain - all hosts on the same network segment
+Types of IPv4 Addresses
+
+
+IPv4 Public - globally routed between ISP routers
+
+IPv4 Private - blocks of addresses that cannot be used on the internet and are only used to assign addresses to internal hosts. These are also referred to as RFC 1918 address space.
+
+	10.0.0.0/8 prefix for 10.0.0.0 - 10.255.255.255
+	172.16.0.0/12 prefix for 172.16.0.0 - 172.31.255.255
+	192.168.0.0/16 prefix for 192.168.0.0- 192.168.255.255

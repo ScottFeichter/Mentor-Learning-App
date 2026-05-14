@@ -1,0 +1,1 @@
+NAT Network Address Translation - A private address of a host on the network can communicate on the public internet because the router keeps a table of the hosts private addresses and a public address for the hosts to use outside the LAN. The process of the router translating this for the incoming and outgoing packets is NAT. 

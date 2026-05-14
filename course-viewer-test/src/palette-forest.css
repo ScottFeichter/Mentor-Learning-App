@@ -1,0 +1,22 @@
+[data-palette="forest"] {
+  --color-primary: #166534;
+  --color-secondary: #22c55e;
+  --color-tertiary: #f59e0b;
+  --color-accent: #166534;
+  --color-accent-hover: #14532d;
+
+  --color-bg: #ffffff;
+  --color-bg-alt: #f0fdf4;
+  --color-bg-hover: #dcfce7;
+  --color-bg-active: #166534;
+
+  --color-text: #14532d;
+  --color-text-muted: #4b5563;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #a7f3d0;
+  --color-border-strong: #86efac;
+
+  --color-code-bg: #1a2e1a;
+  --color-code-text: #d1fae5;
+}

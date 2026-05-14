@@ -1,0 +1,1412 @@
+# SECURITY
+
+[TERMS	3](#terms)
+
+[INTRO TO WEB APPLICATION SECURITY	3](#intro-to-web-application-security)
+
+[Why is Security Import for Web Applications	3](#why-is-security-import-for-web-applications)
+
+[Difficulties and Intricacies of Web Security	3](#difficulties-and-intricacies-of-web-security)
+
+[Web Security at App Academy	4](#web-security-at-app-academy)
+
+[WHAT IS A CSRF ATTACK?	4](#what-is-a-csrf-attack?)
+
+[CSRF Attack	4](#csrf-attack)
+
+[HOW TO PREVENT CSRF ATTACKS IN EXPRESS	5](#how-to-prevent-csrf-attacks-in-express)
+
+[Preventing a CSRF Attack in Express	5](#preventing-a-csrf-attack-in-express)
+
+[WHAT IS CORS?	6](#what-is-cors?)
+
+[What is CORS?	6](#what-is-cors?-1)
+
+[Practical use cases for CORS	7](#practical-use-cases-for-cors)
+
+[Why CORS?	7](#why-cors?)
+
+[How does CORS work?	7](#how-does-cors-work?)
+
+[CORS IN EXPRESS	7](#cors-in-express)
+
+[Setting up CORS	7](#setting-up-cors)
+
+[WHAT IS XSS?	8](#what-is-xss?)
+
+[What is XSS?	8](#what-is-xss?-1)
+
+[How do XSS attacks happen?	8](#how-do-xss-attacks-happen?)
+
+[Preventing XSS attacks	8](#preventing-xss-attacks)
+
+[WHAT IS JWT?	9](#what-is-jwt?)
+
+[What is JWT?	9](#what-is-jwt?-1)
+
+[Background Information	9](#background-information)
+
+[Encoding vs Encrypting vs Hashing Information	9](#encoding-vs-encrypting-vs-hashing-information)
+
+[How Hash Functions Work	9](#how-hash-functions-work)
+
+[Conceptual Overview of a JWT: An Example	10](#conceptual-overview-of-a-jwt:-an-example)
+
+[Anatomy of a JWT: Three Components	11](#anatomy-of-a-jwt:-three-components)
+
+[The Header	11](#the-header)
+
+[The Payload	11](#the-payload)
+
+[The Signature	11](#the-signature)
+
+[Exploring The Full JWT	12](#exploring-the-full-jwt)
+
+[JWT Operations and Use Cases	12](#jwt-operations-and-use-cases)
+
+[JWT IN JAVASCRIPT	12](#jwt-in-javascript)
+
+[JWT in JavaScript	12](#jwt-in-javascript-1)
+
+[Parsing, Encoding, and Decoding with JavaScript	13](#parsing,-encoding,-and-decoding-with-javascript)
+
+[Parsing a JWT	13](#parsing-a-jwt)
+
+[Decoding a JWT	13](#decoding-a-jwt)
+
+[Encoding the JWT	14](#encoding-the-jwt)
+
+[A JWT is not secure	14](#a-jwt-is-not-secure)
+
+[Signing the JWT	14](#signing-the-jwt)
+
+[Verify the JWT	14](#verify-the-jwt)
+
+[Using Node Packages to Implement JWTs	14](#using-node-packages-to-implement-jwts)
+
+[Generate a Secret Token with crypto	14](#generate-a-secret-token-with-crypto)
+
+[Use jsonwebtoken to manage JWTs	15](#use-jsonwebtoken-to-manage-jwts)
+
+[2\. Decode a JWT Payload	16](#2.-decode-a-jwt-payload)
+
+[3\. Verify a JWT	16](#3.-verify-a-jwt)
+
+[Wrapping Up	16](#wrapping-up)
+
+[ROLES AND PERMISSIONS	17](#roles-and-permissions)
+
+[Roles and Permissions	17](#roles-and-permissions-1)
+
+[What are User Roles?	17](#what-are-user-roles?)
+
+[User Roles vs Permissions	17](#user-roles-vs-permissions)
+
+[SCOPING MODEL ATTRIBUTES	18](#scoping-model-attributes)
+
+[What are Scopes?	18](#what-are-scopes?)
+
+[Defining a Sequelize Scope on a Model	19](#defining-a-sequelize-scope-on-a-model)
+
+[Default vs. Non-Default Scopes	19](#default-vs.-non-default-scopes)
+
+[Include or Exclude attributes	20](#include-or-exclude-attributes)
+
+[Filtering Results	20](#filtering-results)
+
+[Dynamic Scopes	20](#dynamic-scopes)
+
+[Include Associations	21](#include-associations)
+
+[Defining Multiple Scopes	21](#defining-multiple-scopes)
+
+[Invoking Scopes	22](#invoking-scopes)
+
+[Invoking a Single Scope	22](#invoking-a-single-scope)
+
+[Invoking a Dynamic Scope	23](#invoking-a-dynamic-scope)
+
+[Invoking Multiple Scopes	23](#invoking-multiple-scopes)
+
+[HASHING PASSWORDS	23](#hashing-passwords)
+
+[Storing Plain-Text Passwords	23](#storing-plain-text-passwords)
+
+[How Hash Functions Work	23](#how-hash-functions-work-1)
+
+[Why Hashing Passwords is Important	24](#why-hashing-passwords-is-important)
+
+[WHAT IS A RAINBOW TABLE ATTACK?	24](#what-is-a-rainbow-table-attack?)
+
+[Rainbow Table Attacks	24](#rainbow-table-attacks)
+
+[How to prevent Rainbow Table Attacks	25](#how-to-prevent-rainbow-table-attacks)
+
+[SALT PASSWORDS BEFORE HASHING	26](#salt-passwords-before-hashing)
+
+[Salt Passwords Before Hashing	26](#salt-passwords-before-hashing-1)
+
+[How a Password is Salted	26](#how-a-password-is-salted)
+
+[Salted and Hashed Passwords vs Hashed Passwords	26](#salted-and-hashed-passwords-vs-hashed-passwords)
+
+[PREVENT HASHED PASSWORD LEAKS	26](#prevent-hashed-password-leaks)
+
+[Prevent Hashed Password Leaks	26](#prevent-hashed-password-leaks-1)
+
+[Create a Scope for Authentication	26](#create-a-scope-for-authentication)
+
+[Create a Default Scope to Exclude Hashed Password	27](#create-a-default-scope-to-exclude-hashed-password)
+
+[BCRYPT	28](#bcrypt)
+
+[bcrypt	28](#bcrypt-1)
+
+[What is bcrypt?	28](#what-is-bcrypt?)
+
+[Installing bcrypt	28](#installing-bcrypt)
+
+[Salt and Hash a Password Using bcrypt	28](#salt-and-hash-a-password-using-bcrypt)
+
+[Compare a Salted and Hashed Password with User Input Password	28](#compare-a-salted-and-hashed-password-with-user-input-password)
+
+##
+
+##
+
+## INTRO TO WEB APPLICATION SECURITY {#intro-to-web-application-security}
+
+### Why is Security Import for Web Applications {#why-is-security-import-for-web-applications}
+
+1. Breaches are expensive and bad for business
+
+### Difficulties and Intricacies of Web Security {#difficulties-and-intricacies-of-web-security}
+
+1. Many different kinds of vulnerabilities
+
+   1. SQL Injections
+   2. Cross-site Scripting (XSS)
+   3. Remote File Inclusion
+   4. Cross-site Request Forgery (CSRF)
+
+2. Firewalls help but not completely
+
+### Web Security at App Academy {#web-security-at-app-academy}
+
+1. Jr dev should understand basics
+2. Usually Sr dev will handle implementing high level
+
+## WHAT IS A CSRF ATTACK? {#what-is-a-csrf-attack?}
+
+### CSRF Attack {#csrf-attack}
+
+1. Cross-Site Request Forgery
+   1. Most common and dangerous
+   2. Tricks logged in user to perform malicious actions or expose information
+   3. Inherits identity of user to perform functions on user’s behalf
+   4. Targets state changes on the server
+   5. [More info](https://owasp.org/www-community/attacks/csrf)
+   6. Examples:
+      1. Example 1: spoof website
+         1) User submits form with personal information
+         2) Form sent to o.g. site
+      2. Example 2: spoof website
+         1) User surrenders log in info willingly
+         2) Info is captured
+2. Prevention
+   1. Set o.g. app apart from malicious one
+   2. Establish recognizable pattern
+   3. Make site user specific
+      1. have familiar photo like user personal watermark
+
+3. Securing your Application Against CSRF
+   1. Steps against example 1:
+      1. Create two CSRF tokens \- one encrypted and one decrypted.
+      2. Add the decrypted CSRF token to a cookie.
+      3. Add the encrypted CSRF token in a cookie that is HTTP-only (cannot be used by JavaScript) and Same-Site only (cannot be used by another web application)
+      4. Frontend can read the decrypted CSRF token cookie and add it into the headers of any request made to the backend
+      5. Backend reads the headers of the request and matches the decrypted CSRF token in the headers to the encrypted CSRF token in the cookies
+
+
+
+
+## HOW TO PREVENT CSRF ATTACKS IN EXPRESS {#how-to-prevent-csrf-attacks-in-express}
+
+### Preventing a CSRF Attack in Express {#preventing-a-csrf-attack-in-express}
+
+1. Backend Setup
+   1. install Node.js [csurf](https://www.npmjs.com/package/csurf)
+      npm install csurf
+   2. It generates two cookies
+      1. These ensure the input is correctly authenticated
+         1) csurf: encrypted
+         2) XSRF-TOKEN: decrypted
+      2. Backend implementation
+
+      const cookieParser \= require('cookie-parser')
+
+      // requires the cookie parser
+
+      const csrf \= require('csurf')
+
+      app.use(cookieParser())
+
+      // uses the cookie parser
+
+      app.use(
+
+          // configs the app to use the cookies
+
+        csurf({
+
+          cookie: {
+
+            secure: process.env.NODE\_ENV \=== "production",
+
+            // secure makes the server https, not http
+
+            sameSite: process.env.NODE\_ENV \=== "production" && "Lax",
+
+            // same-site makes it so the cookie needs to be coming from the same
+
+            // application that the server sent it to while in production
+
+            httpOnly: true
+
+            // makes it so the cookie can only be read by http and not JavaScript
+
+          }
+
+        })
+
+      );
+
+
+
+2. Frontend Setup
+   1. XSRF-Token header has same value as decrypted CSRF token cookie
+      1. document.cookie:
+
+		\`key1\`\=\`value1\`;\`key2\`\=\`value2\`
+// they can only read cookies that are \*\*NOT\*\* HTTP-only
+
+2. frontend setup:
+
+   const cookies \= {}
+
+
+
+   // read and pairs the keys and values of your \`document.cookie\` string
+
+   document.cookie.split(";").reduce(pair \=\> {
+
+     const \[key, value\] \= pair.split("=");
+
+     cookies\[key\] \= value;
+
+   });
+
+
+
+   const csrfToken \= cookies\["XSRF-TOKEN"\]
+
+   // use the cookie in any fetch request that isn’t a GET request
+
+   fetch("/", { method: “POST”, headers: { "XSRF-Token": csrfToken } });
+
+3. What to Expect/Require any Request from the Frontend
+   1. Any non-GET needs to include decrypted csrf header and encrypted csrf token
+   2. If key value pair not match request will fail
+
+## WHAT IS CORS? {#what-is-cors?}
+
+### What is CORS? {#what-is-cors?-1}
+
+1. Cross-Origin Resource Sharing
+   1. Allows servers to indicate valid sources (origins) from which resources may be loaded on the browser.
+      1. Only specific domains may make requests from the browser to the server
+      2. However a CORS policy can be defined via the application
+      3. [More info](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+### Practical use cases for CORS {#practical-use-cases-for-cors}
+
+1. Only approved clients have access to what they absolutely need
+
+### Why CORS? {#why-cors?}
+
+1. All info in HTTP request can be faked
+2. Not possible to verify request is from specific origin/domain if user uses browser without CORS
+
+### How does CORS work? {#how-does-cors-work?}
+
+1. Preflight request
+   1. made to server
+   2. before the actual request
+   3. will include Origin header
+   4. determines if the actual request is safe to send
+
+2. Server sends back response
+   1. includes Access-Control-Allow-Origin header
+   2. if pattern matches the value of the preflight request’s Origin header
+      1. browser will make the actual request
+   3. if not match
+      1. browser blocks request and not send
+   4. Only all works if browser supports CORS
+
+## CORS IN EXPRESS {#cors-in-express}
+
+### Setting up CORS {#setting-up-cors}
+
+1. install [cors package](https://www.npmjs.com/package/cors)
+
+npm install cors
+
+2. In Express app:
+   // Import the CORS package
+   const cors \= require('cors');
+
+   // ... Server setup
+
+   // Use CORS in your application
+   app.use(cors({
+       origin: \["http://example1.com", /\\.example2\\.com$/\]
+   }))
+   1. Origin lists the domains server will allow requests from
+   2. CORS package will automatically set the value of the Access-Control-Allow-Origin header in response to any preflight request received by the server
+   3. Any request to the server is expected to include Origin header in a browser that is CORS compliant
+3. **IMPORTANT NOTE:** This only prevents BROWSERS from not making requests to the server. If a request is made through Postman or any other client, CORS may not be enforced.
+4. **Remember,** CORS policy is only enforced on the client-side, not the server-side.
+
+## WHAT IS XSS? {#what-is-xss?}
+
+### What is XSS? {#what-is-xss?-1}
+
+1. XSS stands for Cross Site Scripting
+   1. injection and execution of JS into the HTML of an app
+   2. scripts can perform anything available within browser JS
+      1. ie manipulate HTML
+      2. ie make HTTP requests to leak sensitive info to another server
+      3. anything you can do as a frontend dev w JS
+   3. Some ways XSS can be abused for malicious use:
+      1. Injecting an HTML form to coax users for credit card or social security numbers
+      2. Injecting a script to send all localStorage information to a malicious party's application
+      3. Injecting a hyperlink to direct users to a malicious website
+
+### How do XSS attacks happen? {#how-do-xss-attacks-happen?}
+
+1. when any type of untrusted data gets rendered in the HTML
+   1. ie injecting fake descriptions into Air BnB rental titles or descriptions
+
+### Preventing XSS attacks {#preventing-xss-attacks}
+
+1. the source of XSS comes from untrusted data
+2. encoding and/or validating all points where untrusted data can come is [complicated](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+3. At aA we don’t implement this but later will use 3rd party libraries
+   1. **be aware your apps will be vulnerable to XSS attacks**
+
+## WHAT IS JWT? {#what-is-jwt?}
+
+### What is JWT? {#what-is-jwt?-1}
+
+1. JSON Web Token
+   1. pronounced “jot”
+   2. an internet standard that defines how to create JSON based access tokens
+   3. can identify that a user is logged in without server storing anything
+      1. contents can be easily read
+      2. can be verified that JWT is not tampered with
+
+### Background Information {#background-information}
+
+1. JWT’s use encoding and hashing but NOT encryption
+
+#### Encoding vs Encrypting vs Hashing Information {#encoding-vs-encrypting-vs-hashing-information}
+
+1. **Encoding**
+   1. Change characters that some systems find hard to read into readable characters
+   2. Information can be easily encoded and reversed by anyone
+   3. Do not need private or secret key to encode or reverse
+2. **Encryption**
+   1. Information only readable by those who have the private key
+   2. Private key required to convert the information before transmission
+   3. Private key required to decode the transmitted information
+   4. The process can be reversed to expose the original information
+3. **Hashing**
+   1. The process CANNOT be reversed to gain access to original information
+   2. This is the most secure way to transmit information
+
+#### How Hash Functions Work {#how-hash-functions-work}
+
+1. **hash function:**
+   1. Takes an input and returns output that cannot be reversed to get input
+   2. Putting same input into the hash function will ALWAYS result in the same output
+2. Hashing information
+   1. pseudocode representation:
+
+      function hashingFunction(input) {
+
+          // lots of hidden logic to transform the input into the output
+
+          return output
+
+      };
+
+
+
+      const input1 \= "password";
+
+      const input2 \= "newPassword";
+
+      const input3 \= "password"; // same as input1
+
+
+
+      const hashedPasswords \= \[
+
+          hashingFunction(input1), // "13p98oihgaskdhjf"
+
+          hashingFunction(input2), // "fh23984hdk1o3"
+
+          hashingFunction(input3)  // "13p98oihgaskdhjf" // same as output of input1
+
+      \];
+
+
+
+      // NOTE: Hashing functions are very complex; do not attempt to write your own\!
+
+3. Popular hash functions:
+   1. SHA1
+   2. MD5
+   3. SHA2
+   4. Scrypt
+   5. HS256
+   6. Blowfish
+
+### Conceptual Overview of a JWT: An Example {#conceptual-overview-of-a-jwt:-an-example}
+
+1. You throwing party
+   1. Big party
+   2. Everyone wants to come
+   3. Only invitees are permitted
+   4. How to be sure only invited guests are allowed?
+
+      1. Keep a guest list
+         1) You don’t want to maintain this during your party
+
+      2. Send out tamper-proof invites
+         1) email address \- unique identifier
+         2) secret key/password \- only you know it
+         3) hash function \-
+            1) Input: email address \+ secret key
+            2) Output: specific string digest
+
+         4) send invite with the specific string as code for the door
+
+      3. At the door
+         1) guest presents email and specific string digest
+         2) rehash with email and secret key
+         3) compare output to what guest presents
+            1) if it is the same the invite is valid
+            2) if no the invite has been tampered with
+               1) if someone gets the string
+               2) must also present the correct unique identifier
+   5. Notice your secret key/password was never exposed
+      1. This validating a code against the hashed output of a value and a secret key is essentially how a JWT works
+
+### Anatomy of a JWT: Three Components {#anatomy-of-a-jwt:-three-components}
+
+#### The Header {#the-header}
+
+- hashing function used
+- type of token
+
+{
+  "alg": "HS256", // the specific hashing algorithm used
+  "typ": "JWT"    // the type of token
+}
+
+*You'll be using HMAC \+ SHA256 (or HS256 for short) as the algorithm to sign the JWT.*
+
+*Note that this is Base64 encoded (NOT encrypted or \_hashed).*
+
+*As a result, this header can can be decoded and read by anyone.*
+
+#### The Payload {#the-payload}
+
+- data being stored in the token in JSON string format
+
+  *Similar to the header, it is also Base64 encoded, meaning that it can be decoded and read by anyone.*
+
+
+  *For this reason, it is vitally important that you do not include any protected information in the payload, such as a user's Social Security Number or other protected account information.*
+
+#### The Signature {#the-signature}
+
+- part of the JWT that uses hashing
+- allows for verification that the information in the payload has not been tampered with
+- it is NOT used to protect contents of payload from being exposed
+- its only purpose is to make sure the source of the JWT can be verified
+
+  *You can think of the payload of a JWT to be a claim to some information, and the signature of a JWT to be the proof that the information is valid.*
+
+
+  *The signature is a hash of the header \+ the payload \+ a secret key. It is usually hashed using the HS256 hashing algorithm.*
+
+####
+
+#### Exploring The Full JWT {#exploring-the-full-jwt}
+
+- the three parts of the JWT are separated by a period
+
+  // Note that each section is separated by a period:
+
+
+  base64Encode({ "alg": "HS256", "typ": "JWT" }) // header
+
+    .base64Encode({ "email": "johnny@gmail.com" }) // payload
+
+    .SHA1HASH(header \+ payload \+ "ILoveDogs") // signature
+
+
+  // Final JWT
+
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9 // encoded header
+
+    .eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ // encoded payload
+
+    .SkuHIxgU1sDTrNKTTUIu9yDohUu8h0\_4mbHiOMaUKwA // hashed signature
+
+- use online encoding and decoding tools to explore this example
+  - [jwt.io](http://jwt.io)
+  - choose HS256
+
+### JWT Operations and Use Cases  {#jwt-operations-and-use-cases}
+
+- more info in next sections
+
+## JWT IN JAVASCRIPT {#jwt-in-javascript}
+
+### JWT in JavaScript {#jwt-in-javascript-1}
+
+1. Use JS’s built in string methods to manually parse, encode, and decode
+2. Generate secret token using node’s crypto
+3. Install and use the jsonwebtoken package to sign, decode, and verify a JWT
+
+### Parsing, Encoding, and Decoding with JavaScript {#parsing,-encoding,-and-decoding-with-javascript}
+
+- the JWT token is just a string with components separated by periods
+
+  // JWT format
+
+  \`${header}.${payload}.${signature}\`
+
+- the actual token may look like this
+
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ.SkuHIxgU1sDTrNKTTUIu9yDohUu8h0\_4mbHiOMaUKwA
+
+#### Parsing a JWT {#parsing-a-jwt}
+
+1. use String.split() at each period
+2. destructure the returned array
+
+   // Parsing a JWT
+
+
+
+   const sampleJwt \= "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ.SkuHIxgU1sDTrNKTTUIu9yDohUu8h0\_4mbHiOMaUKwA";
+
+
+
+   const jwtArray \= sampleJwt.split("."); // returns an array
+
+       // \[ "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9",            // header
+
+       //   "eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ",          // payload
+
+       //   "SkuHIxgU1sDTrNKTTUIu9yDohUu8h0\_4mbHiOMaUKwA"      // signature
+
+       // \]
+
+
+
+   const \[ header, payload, signature \] \= jwtArray;
+
+
+
+   console.log(header);  // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+
+   console.log(payload); // "eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ"
+
+   console.log(signature); // "SkuHIxgU1sDTrNKTTUIu9yDohUu8h0\_4mbHiOMaUKwA"
+
+#### Decoding a JWT {#decoding-a-jwt}
+
+1. use Buffer.from() to decode the header and payload
+   1. this function decodes a Base64 encoded ASCII string
+   2. it gets help from .toString() to convert it back to string utf-8
+
+   // Decoding a JWT's header and payload
+
+
+
+   const decodedHeader \= Buffer.from(header, 'base64').toString();
+
+   console.log(decodedHeader);             // {"alg":"HS256","typ":"JWT"}
+
+
+
+   const decodedPayload \= Buffer.from(payload, 'base64').toString();
+
+   console.log(decodedPayload);            // {"email":"johnny@gmail.com"}
+
+#### Encoding the JWT {#encoding-the-jwt}
+
+1. By moving the base64 from Buffer.from() to .toString() the operation is reversed
+
+   // Encoding header and payload content for the JWT
+
+
+
+   const encodedHeader \= Buffer.from(decodedHeader).toString('base64');
+
+   console.log(encodedHeader);         // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9
+
+
+
+   const encodedPayload \= Buffer.from(decodedPayload).toString('base64');
+
+   console.log(encodedPayload);        // eyJlbWFpbCI6ImpvaG5ueUBnbWFpbC5jb20ifQ==
+
+#### A JWT is not secure {#a-jwt-is-not-secure}
+
+1. above are built in JS methods anyone can use to encode/decode content of JWT
+2. **never transmit protected information in the payload of a JWT**
+
+#### Signing the JWT {#signing-the-jwt}
+
+1. use node crypto to create JWT sig from the encodedHeader and encodedPayload
+
+   const signature \= require('crypto')
+
+     .createHmac('sha256', privateKey)
+
+     .update(encodedHeader \+ '.' \+ encodedPayload)
+
+     .digest('base64')
+
+#### Verify the JWT {#verify-the-jwt}
+
+1. To verify the signature, you would need to try to reproduce the signature using the same method as signing the JWT.
+2. **Note:** *you will be using an installed package to handle encoding, signing, and verifying a JWT instead of the syntax above.*
+
+### Using Node Packages to Implement JWTs {#using-node-packages-to-implement-jwts}
+
+1. When using JWTs in user authorization flow
+   1. best practice to use Node packages to:
+      - generate secret token
+      - encode/decode
+      - hashing
+      - verification
+
+#### Generate a Secret Token with crypto {#generate-a-secret-token-with-crypto}
+
+1. generate a strong secret private token
+   1. must not be easily guessable by human or computer
+   2. use crypto library to generate a random secret by executing in terminal:
+
+   require('crypto').randomBytes(64).toString('hex')
+
+
+
+   \# Example output: "dc1783e61ab05a9fa1b64d892f4b8edab51c159c7091d57feb955ad5ae8ce9191dbe3a50f95086a018654e6f3c7dbffd6215d656d63a2da811843fc746a664b2"
+
+   3. store the token in the .env
+      1. make sure this file is added to .gitignore
+      2. make sure never pushed to public repo
+
+
+   SECRET\_KEY=dc1783e61ab05a9fa1b64d892f4b8edab51c159c7091d57feb955ad5ae8ce9191dbe3a50f95086a018654e6f3c7dbffd6215d656d63a2da811843fc746a664b2
+
+#### Use jsonwebtoken to manage JWTs {#use-jsonwebtoken-to-manage-jwts}
+
+1. this package helps by allowing easy sign, decode, and verify of JWTs
+   1. install package via terminal
+
+
+   npm install jsonwebtoken
+   2. import the package into file
+
+
+   const jwt \= require('jsonwebtoken');
+   3. use these notes and the documentation to sign, decode, and verify JWTs
+
+      1\. Sign (create) a JWT
+
+      Use the sign() function to create a JWT with a required payload and the secret you generated using crypto. This method can take an optional options argument, which is an object with additional properties and values to define the JWT. The header will be defined by default, but can also be customized by defining the header property in the options object.
+
+      const jwt \= require('jsonwebtoken');
+
+      const token \= jwt.sign(payload, secret, options);
+
+
+
+      For example, if you wanted to create a token for Johnny's invite for the party, your implementation might look like this:
+
+      const jwt \= require('jsonwebtoken');
+
+
+
+      const token \= jwt.sign(
+
+          { email: "johnny@gmail.com" }, // payload object
+
+          process.env.SECRET\_KEY,        // secret token from .env file
+
+          { expiresIn: '1h' }            // options (example: Token expires in 1 hour)
+
+      );
+
+
+
+      Check out the [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+   [Links to an external site.](https://www.npmjs.com/package/jsonwebtoken)
+
+       documentation to learn more about how you can customize your token using the options object.
+
+      #### 2\. Decode a JWT Payload {#2.-decode-a-jwt-payload}
+
+      To decode a token, use the decode() function. This will decode the payload of the JWT and return it.
+
+      Continuing the example from above, with token representing the signed (created) JWT:
+
+      const jwt \= require('jsonwebtoken');
+
+
+
+      const payload \= jwt.decode(token);
+
+      // returns the decoded payload: {"email":"johnny@gmail.com"}
+
+
+
+      #### 3\. Verify a JWT {#3.-verify-a-jwt}
+
+      Finally, the jsonwebtoken package will allow you to verify that the payload information has not been tampered with during transmission by verifying the signature. Verification involves decrypting the signature, and checking to make sure that the secret is correct. If the secret is valid, the payload will be decoded and returned. If the secret is not valid, an error will be thrown.
+
+      To verify the signature, use the verify() function with two arguments. The token is the JWT itself, and the secret is the secret key stored in the **.env** file.
+
+      Continuing the example from above, with token representing the signed JWT:
+
+      const jwt \= require('jsonwebtoken');
+
+
+
+      const payload \= jwt.verify(token, secret);
+
+      // if the secret is verified, the payload is decoded and returned
+
+      // if the secret is not valid, a JsonWebTokenError is thrown
+
+      // if the token is expired, a TokenExpiredError is thrown
+
+
+
+      When using the JWT for user authorization, you will need to determine how you will handle successful and unsuccessful verification.
+
+### Wrapping Up {#wrapping-up}
+
+While JavaScript has built-in methods that could be used for parsing, encoding, and decoding the payload of a JWT
+
+- it is best practice to use Node modules and packages to manage this workflow.
+- Remember these best practices for working with JWTs in NodeJS:
+
+* Use the crypto module to generate a secret token for your JWTs, and store it securely in your **.env** file
+* Use the jsonwebtoken package to manage signing and verifying JWTs in your application
+  * Use jwt.encode() for encoding
+  * Use jwt.verify() for decoding because it will detect errors
+    * If the secret doesn't match (meaning the JWT has been tampered with)
+    * If the JWT has expired (meaning it should no longer be used)
+
+When transmitting information with a JWT, always remember that the signature is the only section that is hashed.
+
+The payload is only encoded, and can easily be decoded by anyone if they have access to it. For that reason, sensitive information should never be transmitted in a JWT.
+
+####
+
+## ROLES AND PERMISSIONS {#roles-and-permissions}
+
+- specific endpoints should only be accessible to authorized users
+
+### Roles and Permissions {#roles-and-permissions-1}
+
+1. **user permission**: authorization for a user to execute specific action on the server
+   1. they generally tend to mimic some level of functionality of a CRUD operation
+
+### What are User Roles? {#what-are-user-roles?}
+
+1. **user role:** a set of user permissions assignable to members of a group of users
+
+### User Roles vs Permissions {#user-roles-vs-permissions}
+
+1. To implement a specific permission in Sequelize you can use conditional logic
+   1. Check if a user has a specific permission
+      1. If true do x
+      2. if false do z
+
+   if (currentUserHasThisPermission) {
+
+       // get all photo urls from photo table
+
+   } else {
+
+       // display error message "You are not authorized to access that resource"
+
+   }
+
+2. To implement a role you need to first define a set of users as belonging to a group
+   1. The **scope** of the authorization must be defined
+      1. What permissions are authorized or restricted
+      2. In Sequelize the scope for each role is defined in the model
+   2. Users are generally assigned a role (or multiple roles) in the Users table of the database, with a column(s) indicating their role:
+      1. There might be an isAdmin column in the table, which would take a boolean to define whether the user had the admin privileges.
+      2. The photographer could be granted the admin role. There could also be an isCustomer or isGuest column to assign the other roles.
+
+## SCOPING MODEL ATTRIBUTES {#scoping-model-attributes}
+
+### What are Scopes? {#what-are-scopes?}
+
+1. Sequelize scopes allow you to reuse code by defining commonly used queries.
+
+   1. There are many practical applications of scopes. Consider the following examples:
+
+- In banking applications, thousands or millions of users have accounts, but each user is only authorized to view and interact with their own financial data.
+
+- Some news media sites have a "freemium" pricing structure, in which anyone can access the free content, while only logged-in paying users can access the premium content.
+
+- A library app makes it easy to search for books across multiple libraries. When you find a book in your own library, you do not need all of the library details, but if you find a book at a different library, you would need to get the details about the other library in your search results.
+
+  2. All three examples illustrate opportunities for using scoping to easily include or exclude specific information in commonly-used queries. Let's dig into the library example to see how to implement scoping.
+
+Here's the database schema for the library example:
+
+![][image1]
+
+### Defining a Sequelize Scope on a Model {#defining-a-sequelize-scope-on-a-model}
+
+- scopes are defined at the initiation stage in the init options in the model definition
+
+  class Book extends Model {}
+
+  Book.init({
+
+      // Define model attributes here
+
+      }, {
+
+      // Define options here
+
+    }
+
+  });
+
+#### Default vs. Non-Default Scopes {#default-vs.-non-default-scopes}
+
+1. Default Scope
+   1. Always applied in any query on the model
+   2. Defined with the defaultScope key
+2. Non-Default Scopes
+   1. Will not always be applied
+   2. Defined with the scopes key
+3. Both default and non-default scopes use the same options as in regular queries
+   1. Where
+   2. Limit
+   3. Include
+
+      { // options object
+
+          defaultScope: {
+
+              // Define default scope details here
+
+          },
+
+          scopes: {
+
+              \[scopeName1\]: {
+
+                  // define scope 1 details here
+
+              },
+
+              \[scopeName2\]: {
+
+                  // define scope 2 details here
+
+              },
+
+          }
+
+      };
+
+#### Include or Exclude attributes {#include-or-exclude-attributes}
+
+1. To include only specific attributes in a scope use the include key in the attributes key of the options object
+
+   defaultScope: {
+       attributes: { // included attributes; all others are excluded
+           include: \[ "title", "author", "isCheckedOut", "location" \]
+       }
+   }
+2. You can also do this in reverse with the exclude key in the same way
+
+#### Filtering Results {#filtering-results}
+
+1. To filter which records will be returned within a scope use where clause
+
+   defaultScope: { // Default scope: books that aren't checked out
+
+       where: {
+
+           isCheckedOut: false
+
+       }
+
+   }
+
+#### Dynamic Scopes {#dynamic-scopes}
+
+1. Dynamic scopes are scopes that can be changed.
+   1. Make the scope’s value a function instead of an object.
+      1. The function should return an object
+
+   scopes: {
+
+       atLibrary: function (libraryId) {
+
+           return {
+
+               where: { // filter results to be only from the specified library
+
+                   libraryId
+
+               }
+
+           }
+
+       }
+
+   }
+
+      2. They are often written like this instead
+
+   scopes: {
+
+       atLibrary(libraryId) {
+
+           return {
+
+               where: { // filter results to be only from the specified library
+
+                   libraryId
+
+               }
+
+           }
+
+       }
+
+   }
+
+#### Include Associations {#include-associations}
+
+1. Include the model name(s) to include in the query results
+
+   scopes: {
+
+       atLibrary(libraryId) {
+
+           const { Library } \= require('../models');
+
+           return {
+
+               where: { // filter results to be only from the specified library
+
+                   libraryId
+
+               },
+
+               include: \[ // include associated library details in query results
+
+                   { model: Library }
+
+               \]
+
+           }
+
+       }
+
+   }
+
+#### Defining Multiple Scopes {#defining-multiple-scopes}
+
+1. In a large application it is needed to define and manage multiple scopes at once
+
+   class Book extends Model {}
+
+   Book.init({
+
+       // Define attributes here
+
+       }, {
+
+       defaultScope: { // Default scope: Books that are not checked out
+
+           where: {
+
+               isCheckedOut: false
+
+           },
+
+           attributes: { // included attributes, all others are excluded
+
+               include: \[ "title", "author", "isCheckedOut", "location" \]
+
+           }
+
+       },
+
+       scopes: {
+
+           atLibrary(libraryId) { // Scope: Books in specified library
+
+               const { Library } \= require('../models');
+
+               return {
+
+                   where: { // filter results to be only from the specified library
+
+                       libraryId
+
+                   },
+
+                   include: \[ // include associated library details in query results
+
+                       { model: Library }
+
+                   \]
+
+               }
+
+           },
+
+           atOtherLibrary(libraryId) { // Scope: Books NOT in specified library
+
+               const { Library } \= require('../models');
+
+               return {
+
+                   where: { // filter results to NOT be from the specified library
+
+                       libraryId: {
+
+                           \[Op.ne\]: libraryId
+
+                       }
+
+                   },
+
+                   include: \[ // include associated library details in query results
+
+                       { model: Library }
+
+                   \]
+
+               }
+
+           },
+
+           checkedOut: { // Scope: Books that are checked out
+
+               where: {
+
+                   isCheckedOut: true
+
+               }
+
+           }
+
+       }
+
+     }
+
+   });
+
+### Invoking Scopes {#invoking-scopes}
+
+#### Invoking a Single Scope {#invoking-a-single-scope}
+
+1. Default Scopes
+   1. You can use findAll() method without any options to invoke the defaultScope on a model
+      1. It will use the constraints defined in the defaultScope despite being a findAll()
+
+         await Book.findAll();
+
+         // returns only the books that aren't checked out, due to defaultScope on the model
+
+2. Non-Default Scopes
+   1. If one or more are invoked the defaultScope will not be used
+   2. To invoke the non defaults use the scope method on the model
+      1. Use chaining when calling the findAll()
+
+         await Book.scope("checkedOut").findAll();
+
+         // returns all books that are checked out
+
+         // (the defaultScope does not apply because an alternate scope is invoked)
+
+#### Invoking a Dynamic Scope {#invoking-a-dynamic-scope}
+
+1. If the scope is a function
+   1. pass in an object instead of the scope
+      1. include a method key with an array containing the name of the scope and args for the function
+
+         await Book.scope({ method: \["atLibrary", 19\] }).findAll();
+
+         // returns all books ONLY from the library with a \`libraryId\` of \`19\`
+
+         // (the defaultScope does not apply because an alternate scope is invoked)
+
+#### Invoking Multiple Scopes {#invoking-multiple-scopes}
+
+1. To invoke more than one scope at the same time
+   1. Pass an array of scopes into the scope method
+      1. If there is a conflict the scope at the higher index will overwrite those defined at lower index
+
+         await Book.scope(\["defaultScope", { method: \['atLibrary', 19\] }\]).findAll()
+
+         // returns books that are not currently checked out (defaultScope),
+
+         // but ONLY from the library with a \`libraryId\` of \`19\`(atLibrary)
+
+2. [Learn more about scopes in Sequelize](https://sequelize.org/master/manual/scopes.html)
+
+## HASHING PASSWORDS {#hashing-passwords}
+
+### Storing Plain-Text Passwords {#storing-plain-text-passwords}
+
+1. *rule for web app users:* **never use same password for multiple sites**
+2. *rule for web app developers:* **never store passwords in plain-text**
+
+### How Hash Functions Work {#how-hash-functions-work-1}
+
+1. The output CANNOT be reverse to get the input
+2. Putting the same input into the hash function will ALWAYS result in same output
+
+   function hashingFunction(input) {
+
+       // lots of hidden logic to transform the input into the output
+
+       return output
+
+   };
+
+
+
+   const input1 \= "password";
+
+   const input2 \= "newPassword";
+
+   const input3 \= "password"; // same as input1
+
+
+
+   const hashedPasswords \= \[
+
+       hashingFunction(input1), // "13p98oihgaskdhjf"
+
+       hashingFunction(input2), // "fh23984hdk1o3"
+
+       hashingFunction(input3)  // "13p98oihgaskdhjf" // same as output of input1
+
+   \];
+
+
+
+   // NOTE: Hashing functions for passwords are much more complex than this example\!
+
+### Why Hashing Passwords is Important {#why-hashing-passwords-is-important}
+
+1. Adds extra security
+   1. If password leaked it is still difficult to figure out the original plain text password
+   2. Developers are responsible for storing hashed passwords
+
+## WHAT IS A RAINBOW TABLE ATTACK? {#what-is-a-rainbow-table-attack?}
+
+### Rainbow Table Attacks {#rainbow-table-attacks}
+
+1. **rainbow table:** a hash table that includes leaked passwords and their outputs
+   1. can use this table to figure out the plain text user passwords
+   2. especially for commonly used or repeated passwords
+   3. the process might go like this:
+      1. Run random potential passwords through a hashing function to get an output.
+      2. Add the plain-text password and hashed password to a hash table.
+      3. Continue steps 1-2 with as many passwords as possible to create a very large data set.
+   4. Here's an example of a rainbow table made using the SHA256 algorithm as the hashing function:
+
+![][image2]
+
+5. Then, when they are able to uncover any leaked hashed passwords, they would do the following:
+
+   1. Compare each leaked hashed password to hashed passwords in the hash table.
+      2. If there is a match, look at the corresponding plain-text password for the matched record.
+      3. Hack into that user account with the plain-text password.
+      4. This Rainbow Table Attack process works because of the way hashing functions work, as described in the previous article.
+         1) Identical inputs to a hashing function will ALWAYS produce identical outputs. So even though you cannot reverse the hashing function itself, you can infer the input if you are able to match identical outputs.
+
+### How to prevent Rainbow Table Attacks {#how-to-prevent-rainbow-table-attacks}
+
+1. **as a dev: NEVER expose hashed passwords to the client**
+2. **as a dev: use salted passwords**
+3. **as a user: ALWAYS use different passwords for every website**
+4. **as a user: consider a password manager with a safe reputation**
+
+## SALT PASSWORDS BEFORE HASHING {#salt-passwords-before-hashing}
+
+### Salt Passwords Before Hashing {#salt-passwords-before-hashing-1}
+
+1. hashing password before storing makes it more secure
+   1. hashing has a limitation in that two identical passwords would have same output
+   2. makes them vulnerable to a rainbow attack
+
+### How a Password is Salted {#how-a-password-is-salted}
+
+1. **salting:** adding a random string of characters to a plain text password before hashing
+2. **salt:** the actual string of characters that is added to the password
+   1. often 32 characters long or longer
+   2. can be added to the beginning, end, or middle of password
+   3. add before password is hashed
+
+      // most common way of applying a salt
+      hashInput  \= salt \+ plainTextPassword
+      hashOutput \= hashingFunction(hashInput)
+   4. for example:
+      1. password: “password”
+      2. salted password: "shueowbofnesosnwkrnrekeneldenekepassword"
+
+### Salted and Hashed Passwords vs Hashed Passwords {#salted-and-hashed-passwords-vs-hashed-passwords}
+
+1. passwords can be salted and hashed multiple time for added security
+   1. this makes it very difficult for a rainbow attack
+   2. will quantum computing defeat this???
+2. hashing and salting greatly increase security
+   1. but not 100%
+   2. [John the Ripper](https://www.openwall.com/john/)
+      1. uses machine learning to try to figure out plain text passwords from leaked salted and hashed passwords
+
+## PREVENT HASHED PASSWORD LEAKS {#prevent-hashed-password-leaks}
+
+### Prevent Hashed Password Leaks {#prevent-hashed-password-leaks-1}
+
+### Create a Scope for Authentication {#create-a-scope-for-authentication}
+
+1. salted and hashed passwords in the database
+   1. should only need when user is trying to log in
+      1. for security create a non-default scope on the User model
+         1) only used to retrieve the salted/hashed pw on hashedPassword attribute when you need to compare it against a plain-text password to authenticate a user
+
+         // Non-default scope defined on User model
+
+
+
+             scopes: {
+
+                 checkPassword(email) {
+
+         // using an email or any unique identifier for the current user like a username
+
+                     return {
+
+                         where: { email }
+
+                         attributes: {
+
+         // will return only the hashedPassword attribute
+
+                             include: \[ "hashedPassword" \]
+
+                         }
+
+                     }
+
+                 }
+
+             }
+
+With this scope in place, you can use the scope method to fetch the hashedPassword field when attempting to authenticate a user using an email and a plain-text password:
+
+const user \= await User.scope({ method: \["checkPassword", email\] }).findOne()
+
+And then you can use the hashedPassword field on the user returned as your argument in the bcrypt compareSync method.
+
+const isSamePassword \= bcrypt.compareSync(plainTextPassword, user.hashedPassword);
+
+Make sure to **NOT send this hashedPassword to the client**. Remember, the hashedPassword is only ever used in the server to authenticate a user.
+
+### Create a Default Scope to Exclude Hashed Password {#create-a-default-scope-to-exclude-hashed-password}
+
+1. With the checkPassword scope already in place, you can define a default scope on the User model to exclude the hashed password from all other query results.
+2. This will prevent you from accidentally accessing and possibly exposing that data to the client or frontend of the application.
+   // Default scope defined on User model
+
+   defaultScope: {
+       attributes: {  // excludes hashedPassword from all requests by default
+           exclude: \[ "hashedPassword" \]
+       }
+   }
+3. With this default scope in place, you can call User.findAll() and be confident that the hashed passwords will never be returned in the query results, because they are excluded through the default scope.
+
+## BCRYPT {#bcrypt}
+
+### bcrypt {#bcrypt-1}
+
+### What is bcrypt? {#what-is-bcrypt?}
+
+1. it is never recommended to write your own code to implement salting and hashing
+2. always use the most current trusted algorithm to implement salting and hashing
+3. **bcrypt:** a reliable hashing algorithm we use at aA
+   1. bcryptjs is the Node module
+
+### Installing bcrypt {#installing-bcrypt}
+
+1. install
+   1. npm install bcryptjs
+2. import
+   1. const bcrypt \- require(‘bcryptjs’);
+
+### Salt and Hash a Password Using bcrypt {#salt-and-hash-a-password-using-bcrypt}
+
+1. hasSync() method
+   1. required arg of plain text password
+   2. defaults to using a 10 character salt unless second optional arg passes number
+   3. returns the salted and hashed password
+   4. [Learn More](https://www.npmjs.com/package/bcryptjs#hashsyncs-salt)
+
+
+const saltedAndHashedPassword \= bcrypt.hashSync(plainTextPassword);
+
+### Compare a Salted and Hashed Password with User Input Password {#compare-a-salted-and-hashed-password-with-user-input-password}
+
+1. after using bcrypt to salt and hash you can securely store in db
+2. at login you need to compare their plain text input with the salted hashed version
+3. use bcrypt’s compareSync() method
+   1. arg1 \- plain text password
+   2. arg2 \- salted and hashed password
+   3. returns boolean
+
+
+bcrypt.compareSync(plainTextPassword, saltedAndHashedPassword);
+
+[image1]: <data:image/png;base64,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>
+
+[image2]: <data:image/png;base64,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>

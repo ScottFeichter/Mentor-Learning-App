@@ -1,0 +1,224 @@
+.content {
+  padding: 30px 40px;
+  max-width: 900px;
+  line-height: var(--paragraph-line-height);
+  color: var(--paragraph-color);
+}
+
+.content h2 {
+  margin-top: 0;
+  font-size: var(--heading-h1-size);
+  font-weight: bold;
+  color: var(--heading-h1-color);
+}
+
+.content h3, .content h4, .content h5, .content h6 {
+  margin-top: 24px;
+  margin-bottom: 12px;
+  margin-left: 20px;
+}
+
+.content h3 {
+  font-size: var(--heading-h2-size);
+  color: var(--heading-h2-color);
+}
+
+.content h4 {
+  font-size: var(--heading-h3-size);
+  color: var(--heading-h3-color);
+}
+
+.content h2 ~ *, .content h3 ~ *, .content h4 ~ *, .content h5 ~ *, .content h6 ~ * {
+  margin-left: 20px;
+}
+
+.content h2 ~ h2, .content h2 ~ h3, .content h2 ~ h4, .content h2 ~ h5, .content h2 ~ h6,
+.content h3 ~ h2, .content h3 ~ h3, .content h3 ~ h4, .content h3 ~ h5, .content h3 ~ h6,
+.content h4 ~ h2, .content h4 ~ h3, .content h4 ~ h4, .content h4 ~ h5, .content h4 ~ h6,
+.content h5 ~ h2, .content h5 ~ h3, .content h5 ~ h4, .content h5 ~ h5, .content h5 ~ h6,
+.content h6 ~ h2, .content h6 ~ h3, .content h6 ~ h4, .content h6 ~ h5, .content h6 ~ h6 {
+  margin-left: 0;
+}
+
+.content h2 ~ pre, .content h3 ~ pre, .content h4 ~ pre, .content h5 ~ pre, .content h6 ~ pre {
+  margin-left: 0;
+}
+
+.content p {
+  margin-bottom: 12px;
+  margin-left: 20px;
+}
+
+.content pre {
+  background: var(--content-code-bg);
+  color: var(--content-code-text);
+  padding: 16px;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  margin-top: 0;
+}
+
+.code-block-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 8px;
+  background: var(--content-accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-button:hover {
+  background: var(--content-accent-hover);
+}
+
+.content code {
+  background: var(--content-inline-code-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9em;
+}
+
+.content pre code {
+  background: none;
+  padding: 0;
+  color: var(--content-code-text);
+}
+
+.content ul, .content ol {
+  margin-left: 60px;
+  margin-bottom: 16px;
+}
+
+.content li {
+  margin-bottom: 8px;
+  padding-left: 8px;
+}
+
+.content ul ul, .content ol ol, .content ul ol, .content ol ul {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+.content table {
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  margin-left: 20px;
+}
+
+.content th, .content td {
+  border: 1px solid var(--content-table-border);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.content th {
+  background: var(--content-table-header-bg);
+  font-weight: bold;
+}
+
+.content blockquote {
+  border-left: 4px solid var(--content-accent);
+  padding-left: 16px;
+  margin: 16px 20px;
+  color: var(--content-text);
+  opacity: 0.8;
+}
+
+.content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.content a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+.bottom-nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.bottom-nav-buttons {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 2px;
+  width: 75%;
+}
+
+.bottom-nav-buttons button {
+  flex: 1;
+  padding: 8px;
+  cursor: pointer;
+  border: 1px solid var(--content-nav-border);
+  background: var(--content-nav-bg);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: bold;
+  color: var(--content-nav-text);
+  transition: all 0.3s ease;
+}
+
+.bottom-nav-buttons button:hover:not(:disabled) {
+  background: var(--content-nav-hover-bg);
+  color: var(--content-nav-hover-text);
+}
+
+.bottom-nav-buttons button:active:not(:disabled) {
+  background: var(--content-nav-active-bg);
+  color: var(--content-nav-active-text);
+  border-color: var(--content-nav-active-border);
+}
+
+.bottom-nav-buttons button:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+  pointer-events: none;
+}
+
+.top-button {
+  width: 75%;
+  padding: 8px;
+  margin-top: 0;
+  cursor: pointer;
+  border: 1px solid var(--content-nav-border);
+  background: var(--content-nav-bg);
+  border-radius: 4px;
+  font-weight: bold;
+  color: var(--content-nav-text);
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.top-button:hover {
+  background: var(--content-nav-hover-bg);
+  color: var(--content-nav-hover-text);
+}
+
+.top-button:active {
+  background: var(--content-nav-active-bg);
+  color: var(--content-nav-active-text);
+  border-color: var(--content-nav-active-border);
+}

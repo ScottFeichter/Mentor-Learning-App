@@ -1,0 +1,22 @@
+[data-palette="midnight"] {
+  --color-primary: #cba6f7;
+  --color-secondary: #b4befe;
+  --color-tertiary: #f38ba8;
+  --color-accent: #cba6f7;
+  --color-accent-hover: #b4befe;
+
+  --color-bg: #1e1e2e;
+  --color-bg-alt: #313244;
+  --color-bg-hover: #45475a;
+  --color-bg-active: #585b70;
+
+  --color-text: #cdd6f4;
+  --color-text-muted: #a6adc8;
+  --color-text-inverse: #11111b;
+
+  --color-border: #45475a;
+  --color-border-strong: #585b70;
+
+  --color-code-bg: #11111b;
+  --color-code-text: #cdd6f4;
+}

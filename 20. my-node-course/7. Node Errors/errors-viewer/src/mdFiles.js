@@ -1,0 +1,15 @@
+export const mdFiles = [
+  { id: 0, title: "Error Terminology", file: "00. Error Terminology.md" },
+  { id: 1, title: "Bugs vs Errors", file: "01. Bugs vs Errors.md" },
+  { id: 2, title: "Errors vs Exceptions", file: "01. Errors vs Exceptions.md" },
+  { id: 3, title: "The Error Object", file: "02. The Error Object.md" },
+  { id: 4, title: "Throwing Errors", file: "03. Throwing Errors.md" },
+  { id: 5, title: "Try Catch Finally", file: "04. Try Catch Finally.md" },
+  { id: 6, title: "JS Errors Are Blocking", file: "05. JS Errors Are Blocking.md" },
+  { id: 7, title: "JS Error Types", file: "06. JS Error Types.md" },
+  { id: 8, title: "Browser Errors", file: "07. Browser Errors.md" },
+  { id: 9, title: "Node Errors", file: "08. Node Errors.md" },
+  { id: 10, title: "Express Errors", file: "09. Express Errors.md" },
+  { id: 11, title: "Custom Errors", file: "10. Custom Errors.md" },
+  { id: 12, title: "StatusError", file: "11. StatusError.md" },
+];

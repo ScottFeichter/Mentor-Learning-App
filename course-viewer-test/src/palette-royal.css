@@ -1,0 +1,22 @@
+[data-palette="royal"] {
+  --color-primary: #4b0082;
+  --color-secondary: #6a0dad;
+  --color-tertiary: #f5c518;
+  --color-accent: #4b0082;
+  --color-accent-hover: #3a006b;
+
+  --color-bg: #ffffff;
+  --color-bg-alt: #f9f5ff;
+  --color-bg-hover: #f0e6ff;
+  --color-bg-active: #4b0082;
+
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #ddd;
+  --color-border-strong: #4b0082;
+
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #f8f8f2;
+}

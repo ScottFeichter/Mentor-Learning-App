@@ -1,0 +1,16 @@
+export const mdFiles = [
+  { id: 0, title: "Node Package Manager", file: "01. Node Package Manager.md" },
+  { id: 1, title: "Files, Modules, and Packages", file: "02. Node Files, Modules, and Packages.md" },
+  { id: 2, title: "package.json", file: "03. package.json.md" },
+  { id: 3, title: "Example package.json", file: "04. Example package.json.md" },
+  { id: 4, title: "Environments", file: "05. Environments.md" },
+  { id: 5, title: "Commands", file: "06. Commands.md" },
+  { id: 6, title: "package-lock.json", file: "07. package-lock.json.md" },
+  { id: 7, title: "Example package-lock.json", file: "08. Example package-lock.json.md" },
+  { id: 8, title: "npm And Built In Node Modules", file: "09. npm And Built In Node Modules.md" },
+  { id: 9, title: "npmjs.com", file: "10. npmjs.com.md" },
+  { id: 10, title: "npx", file: "11. npx.md" },
+  { id: 11, title: "📁 Example Module", file: "12. Example Module.md" },
+  { id: 12, title: "📁 Example Package", file: "13. Example Package.md" },
+  { id: 13, title: "📁 Example Package 2", file: "14. Example Package2.md" },
+];
