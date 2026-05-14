@@ -1,0 +1,108 @@
+.unit-sidebar {
+  position: fixed;
+  top: 231px;
+  bottom: 0;
+  background: var(--units-menu-bg);
+  border-right: 1px solid var(--units-menu-border-right);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.unit-nav-wrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.unit-nav-wrapper nav {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.unit-nav-wrapper nav::-webkit-scrollbar {
+  display: none;
+}
+
+.unit-sidebar a {
+  display: block;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--units-menu-text);
+  border-top: none;
+  border-bottom: 1px solid var(--units-menu-separator);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.85em;
+}
+
+.unit-sidebar a:first-child {
+  border-top: 1px solid var(--units-menu-separator);
+}
+
+.unit-sidebar a:hover {
+  background: var(--units-menu-hover-bg);
+}
+
+.unit-sidebar a.active {
+  background: var(--units-menu-active-bg);
+  color: var(--units-menu-active-text);
+}
+
+.unit-scrollbar-track {
+  width: 6px;
+  background: var(--units-menu-scrollbar-track);
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.unit-scrollbar-thumb {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  background: var(--units-menu-scrollbar-thumb);
+  border-radius: 6px;
+  cursor: grab;
+  min-height: 40px;
+}
+
+.unit-scrollbar-thumb:hover {
+  background: var(--units-menu-scrollbar-thumb-hover);
+}
+
+.unit-scrollbar-thumb:active {
+  cursor: grabbing;
+  background: var(--units-menu-scrollbar-thumb-hover);
+}
+
+.unit-resize-handle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 18px;
+  height: 60px;
+  cursor: ew-resize;
+  background: var(--units-menu-resize-bg);
+  border: 2px solid var(--units-menu-resize-border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--units-menu-resize-dots);
+  font-size: 14px;
+  z-index: 50;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.unit-resize-handle:hover {
+  background: var(--units-menu-resize-hover-bg);
+  color: var(--units-menu-resize-hover-dots);
+  border-color: var(--units-menu-resize-hover-border);
+}

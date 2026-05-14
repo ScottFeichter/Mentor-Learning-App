@@ -7,6 +7,7 @@ import { GiPlainArrow } from 'react-icons/gi';
 import SubjectSidebar from './SubjectSidebar';
 import OuterSidebar from './OuterSidebar';
 import InnerSidebar from './InnerSidebar';
+import UnitSidebar from './UnitSidebar';
 import Content from './Content';
 import './App.css';
 
@@ -30,7 +31,6 @@ function useStickyTitle(minLeft) {
     if (!parent) return;
     const offset = offsetRef.current;
     const viewportWidth = parent.getBoundingClientRect().width + offset;
-    // measure text width using a temporary inline style
     const prev = el.style.cssText;
     el.style.cssText = 'position:absolute;white-space:nowrap;width:auto;left:0;right:auto;visibility:hidden;';
     const textWidth = el.getBoundingClientRect().width;
@@ -53,15 +53,17 @@ function useStickyTitle(minLeft) {
 }
 
 function Viewer() {
-  const { sectionId, fileIndex } = useParams();
+  const { topicId, fileIndex } = useParams();
   const navigate = useNavigate();
 
   const [subjectVisible, setSubjectVisible] = useState(true);
-  const [outerVisible, setOuterVisible] = useState(true);
-  const [innerVisible, setInnerVisible] = useState(true);
+  const [courseVisible, setCourseVisible] = useState(true);
+  const [topicVisible, setTopicVisible] = useState(true);
+  const [unitVisible, setUnitVisible] = useState(true);
   const [subjectWidth, setSubjectWidth] = useState(200);
-  const [outerWidth, setOuterWidth] = useState(200);
-  const [innerWidth, setInnerWidth] = useState(200);
+  const [courseWidth, setCourseWidth] = useState(200);
+  const [topicWidth, setTopicWidth] = useState(200);
+  const [unitWidth, setUnitWidth] = useState(200);
   const [palette, setPalette] = useState(() => localStorage.getItem('palette') || 'grey');
 
   useEffect(() => {
@@ -71,45 +73,60 @@ function Viewer() {
 
   const subjectTitle = useStickyTitle(130);
   const courseTitle = useStickyTitle(130);
-  const topicsTitle = useStickyTitle(280);
+  const topicsTitle = useStickyTitle(130);
+  const unitsTitle = useStickyTitle(280);
 
-  const currentSection = sections.find(s => s.id === sectionId) || sections[0];
+  const currentTopic = sections.find(s => s.id === topicId) || sections[0];
   const currentFileIdx = parseInt(fileIndex) || 0;
-  const currentFile = currentSection.files[currentFileIdx];
+  const currentFile = currentTopic.files[currentFileIdx];
 
+  // Find which subject and course this topic belongs to
   const currentSubject = subjects.find(sub =>
-    sub.sections.some(s => s.id === currentSection.id)
+    sub.courses.some(c => c.topics.some(t => t.id === currentTopic.id))
   ) || subjects[0];
 
-  const getTopicTitle = (filename) => {
+  const currentCourse = currentSubject.courses.find(c =>
+    c.topics.some(t => t.id === currentTopic.id)
+  ) || currentSubject.courses[0];
+
+  const getUnitTitle = (filename) => {
     return filename.replace(/^\d+\.\s*/, '').replace(/\.md$/, '');
   };
 
   const handleSubjectChange = (subjectId) => {
     const subject = subjects.find(s => s.id === subjectId);
-    if (subject && subject.sections.length > 0) {
-      navigate(`/${subject.sections[0].id}/0`);
+    if (subject && subject.courses.length > 0 && subject.courses[0].topics.length > 0) {
+      navigate(`/${subject.courses[0].topics[0].id}/0`);
     }
   };
 
-  const handleSectionChange = (id) => {
-    navigate(`/${id}/0`);
+  const handleCourseChange = (courseId) => {
+    const course = currentSubject.courses.find(c => c.id === courseId);
+    if (course && course.topics.length > 0) {
+      navigate(`/${course.topics[0].id}/0`);
+    }
+  };
+
+  const handleTopicChange = (tId) => {
+    navigate(`/${tId}/0`);
   };
 
   const handleFileChange = (idx) => {
-    navigate(`/${currentSection.id}/${idx}`);
+    navigate(`/${currentTopic.id}/${idx}`);
   };
 
   const subjectLeft = 0;
-  const outerLeft = subjectVisible ? subjectWidth : 0;
-  const innerLeft = outerLeft + (outerVisible ? outerWidth : 0);
-  const contentMargin = innerLeft + (innerVisible ? innerWidth : 0);
+  const courseLeft = subjectVisible ? subjectWidth : 0;
+  const topicLeft = courseLeft + (courseVisible ? courseWidth : 0);
+  const unitLeft = topicLeft + (topicVisible ? topicWidth : 0);
+  const contentMargin = unitLeft + (unitVisible ? unitWidth : 0);
 
   useEffect(() => {
     subjectTitle.setOffset(0);
-    courseTitle.setOffset(outerLeft);
-    topicsTitle.setOffset(innerLeft);
-  }, [outerLeft, innerLeft, subjectVisible, outerVisible, innerVisible, subjectWidth, outerWidth, innerWidth]);
+    courseTitle.setOffset(courseLeft);
+    topicsTitle.setOffset(topicLeft);
+    unitsTitle.setOffset(unitLeft);
+  }, [courseLeft, topicLeft, unitLeft, subjectVisible, courseVisible, topicVisible, unitVisible, subjectWidth, courseWidth, topicWidth, unitWidth]);
 
   return (
     <div className="app">
@@ -143,27 +160,41 @@ function Viewer() {
         }>{currentSubject.title}</span>
       </div>
 
-      {/* Course Banner - starts after subject menu */}
-      <div className="course-banner" style={{ left: `${outerLeft}px` }}>
+      {/* Course Banner */}
+      <div className="course-banner" style={{ left: `${courseLeft}px` }}>
         <button
-          className={`toggle-btn-course${!outerVisible ? ' closed' : ''}`}
-          onClick={() => setOuterVisible(!outerVisible)}
+          className={`toggle-btn-course${!courseVisible ? ' closed' : ''}`}
+          onClick={() => setCourseVisible(!courseVisible)}
         >
           Course Menu
         </button>
         <span ref={courseTitle.ref} className="course-banner-title" style={courseTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
-          : { position: 'absolute', left: `-${outerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentSection.title}</span>
+          : { position: 'absolute', left: `-${courseLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentCourse.title}</span>
       </div>
 
-      {/* Topics Banner - starts after subject + course menus */}
-      <div className="topics-banner" style={{ left: `${innerLeft}px` }}>
+      {/* Topics Banner */}
+      <div className="topics-banner" style={{ left: `${topicLeft}px` }}>
         <button
-          className={`toggle-btn-topics${!innerVisible ? ' closed' : ''}`}
-          onClick={() => setInnerVisible(!innerVisible)}
+          className={`toggle-btn-topics${!topicVisible ? ' closed' : ''}`}
+          onClick={() => setTopicVisible(!topicVisible)}
         >
-          Topics Menu
+          Topic Menu
+        </button>
+        <span ref={topicsTitle.ref} className="topics-banner-title" style={topicsTitle.sticky
+          ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
+          : { position: 'absolute', left: `-${topicLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentTopic.title}</span>
+      </div>
+
+      {/* Units Banner */}
+      <div className="units-banner" style={{ left: `${unitLeft}px` }}>
+        <button
+          className={`toggle-btn-units${!unitVisible ? ' closed' : ''}`}
+          onClick={() => setUnitVisible(!unitVisible)}
+        >
+          Unit Menu
         </button>
         <div className="banner-nav-buttons">
           <button
@@ -176,18 +207,18 @@ function Viewer() {
           <button
             className="banner-nav-btn"
             onClick={() => handleFileChange(currentFileIdx + 1)}
-            disabled={currentFileIdx === currentSection.files.length - 1}
+            disabled={currentFileIdx === currentTopic.files.length - 1}
           >
             Next <GiPlainArrow style={{ transform: 'rotate(-90deg)' }} />
           </button>
         </div>
-        <span ref={topicsTitle.ref} className="topics-banner-title" style={topicsTitle.sticky
+        <span ref={unitsTitle.ref} className="units-banner-title" style={unitsTitle.sticky
           ? { position: 'absolute', left: '280px', pointerEvents: 'none', whiteSpace: 'nowrap' }
-          : { position: 'absolute', left: `-${innerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentFile ? getTopicTitle(currentFile) : ''}</span>
+          : { position: 'absolute', left: `-${unitLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentFile ? getUnitTitle(currentFile) : ''}</span>
       </div>
 
-      {/* Subject Menu - below top banner */}
+      {/* Subject Menu */}
       {subjectVisible && (
         <SubjectSidebar
           subjects={subjects}
@@ -198,38 +229,51 @@ function Viewer() {
         />
       )}
 
-      {/* Course Menu - below subject banner */}
-      {outerVisible && (
+      {/* Course Menu */}
+      {courseVisible && (
         <OuterSidebar
-          sections={currentSubject.sections}
-          currentSectionId={currentSection.id}
-          onSectionChange={handleSectionChange}
-          width={outerWidth}
-          left={outerLeft}
-          onWidthChange={setOuterWidth}
+          sections={currentSubject.courses}
+          currentSectionId={currentCourse.id}
+          onSectionChange={handleCourseChange}
+          width={courseWidth}
+          left={courseLeft}
+          onWidthChange={setCourseWidth}
         />
       )}
 
-      {/* Topics Menu - below course banner */}
-      {innerVisible && (
+      {/* Topic Menu */}
+      {topicVisible && (
         <InnerSidebar
-          files={currentSection.files}
+          files={currentCourse.topics.map(t => t.title)}
+          currentFileIdx={currentCourse.topics.findIndex(t => t.id === currentTopic.id)}
+          onFileChange={(idx) => handleTopicChange(currentCourse.topics[idx].id)}
+          sectionId={currentCourse.id}
+          width={topicWidth}
+          left={topicLeft}
+          onWidthChange={setTopicWidth}
+        />
+      )}
+
+      {/* Unit Menu */}
+      {unitVisible && (
+        <UnitSidebar
+          files={currentTopic.files}
           currentFileIdx={currentFileIdx}
           onFileChange={handleFileChange}
-          sectionId={currentSection.id}
-          width={innerWidth}
-          left={innerLeft}
-          onWidthChange={setInnerWidth}
+          topicId={currentTopic.id}
+          width={unitWidth}
+          left={unitLeft}
+          onWidthChange={setUnitWidth}
         />
       )}
 
       {/* Content */}
       <div className="main" style={{ marginLeft: `${contentMargin}px` }}>
         <Content
-          folder={currentSection.folder}
+          folder={currentTopic.folder}
           file={currentFile}
           currentFileIdx={currentFileIdx}
-          totalFiles={currentSection.files.length}
+          totalFiles={currentTopic.files.length}
           onFileChange={handleFileChange}
         />
       </div>
@@ -240,8 +284,8 @@ function Viewer() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/:sectionId/:fileIndex" element={<Viewer />} />
-      <Route path="/:sectionId" element={<Viewer />} />
+      <Route path="/:topicId/:fileIndex" element={<Viewer />} />
+      <Route path="/:topicId" element={<Viewer />} />
       <Route path="*" element={<Navigate to={`/${sections[0].id}/0`} replace />} />
     </Routes>
   );
