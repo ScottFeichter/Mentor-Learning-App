@@ -5,5 +5,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 8100,
+    fs: {
+      allow: ['..'],
+    },
   },
 })
