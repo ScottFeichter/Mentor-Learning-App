@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { subjects } from './subjects';
 import { sections } from './sections';
 import { GiPlainArrow } from 'react-icons/gi';
@@ -18,6 +18,40 @@ const palettes = [
   { id: 'grey', color: '#999', label: 'Grey' },
 ];
 
+function useStickyTitle(minLeft) {
+  const ref = useRef(null);
+  const offsetRef = useRef(0);
+  const [sticky, setSticky] = useState(false);
+
+  const recalc = useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    const parent = el.parentElement;
+    if (!parent) return;
+    const offset = offsetRef.current;
+    const viewportWidth = parent.getBoundingClientRect().width + offset;
+    // measure text width using a temporary inline style
+    const prev = el.style.cssText;
+    el.style.cssText = 'position:absolute;white-space:nowrap;width:auto;left:0;right:auto;visibility:hidden;';
+    const textWidth = el.getBoundingClientRect().width;
+    el.style.cssText = prev;
+    const centeredLeft = (viewportWidth - textWidth) / 2;
+    setSticky(centeredLeft < minLeft + offset);
+  }, [minLeft]);
+
+  const setOffset = useCallback((offset) => {
+    offsetRef.current = offset;
+    recalc();
+  }, [recalc]);
+
+  useEffect(() => {
+    window.addEventListener('resize', recalc);
+    return () => window.removeEventListener('resize', recalc);
+  }, [recalc]);
+
+  return { ref, sticky, setOffset, recalc };
+}
+
 function Viewer() {
   const { sectionId, fileIndex } = useParams();
   const navigate = useNavigate();
@@ -34,6 +68,10 @@ function Viewer() {
     document.documentElement.setAttribute('data-palette', palette);
     localStorage.setItem('palette', palette);
   }, [palette]);
+
+  const subjectTitle = useStickyTitle(130);
+  const courseTitle = useStickyTitle(130);
+  const topicsTitle = useStickyTitle(280);
 
   const currentSection = sections.find(s => s.id === sectionId) || sections[0];
   const currentFileIdx = parseInt(fileIndex) || 0;
@@ -67,6 +105,12 @@ function Viewer() {
   const innerLeft = outerLeft + (outerVisible ? outerWidth : 0);
   const contentMargin = innerLeft + (innerVisible ? innerWidth : 0);
 
+  useEffect(() => {
+    subjectTitle.setOffset(0);
+    courseTitle.setOffset(outerLeft);
+    topicsTitle.setOffset(innerLeft);
+  }, [outerLeft, innerLeft, subjectVisible, outerVisible, innerVisible, subjectWidth, outerWidth, innerWidth]);
+
   return (
     <div className="app">
       {/* Top Banner - full width */}
@@ -93,7 +137,10 @@ function Viewer() {
         >
           Subject Menu
         </button>
-        <span className="subject-banner-title" style={{ position: 'absolute', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }}>{currentSubject.title}</span>
+        <span ref={subjectTitle.ref} className="subject-banner-title" style={subjectTitle.sticky
+          ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
+          : { position: 'absolute', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentSubject.title}</span>
       </div>
 
       {/* Course Banner - starts after subject menu */}
@@ -104,7 +151,10 @@ function Viewer() {
         >
           Course Menu
         </button>
-        <span className="course-banner-title" style={{ position: 'absolute', left: `-${outerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }}>{currentSection.title}</span>
+        <span ref={courseTitle.ref} className="course-banner-title" style={courseTitle.sticky
+          ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
+          : { position: 'absolute', left: `-${outerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentSection.title}</span>
       </div>
 
       {/* Topics Banner - starts after subject + course menus */}
@@ -131,7 +181,10 @@ function Viewer() {
             Next <GiPlainArrow style={{ transform: 'rotate(-90deg)' }} />
           </button>
         </div>
-        <span className="topics-banner-title" style={{ position: 'absolute', left: `-${innerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }}>{currentFile ? getTopicTitle(currentFile) : ''}</span>
+        <span ref={topicsTitle.ref} className="topics-banner-title" style={topicsTitle.sticky
+          ? { position: 'absolute', left: '280px', pointerEvents: 'none', whiteSpace: 'nowrap' }
+          : { position: 'absolute', left: `-${innerLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
+        }>{currentFile ? getTopicTitle(currentFile) : ''}</span>
       </div>
 
       {/* Subject Menu - below top banner */}
