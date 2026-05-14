@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "generate": "node generate-config.js",
+    "dev": "node generate-config.js && vite",
+    "build": "node generate-config.js && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
