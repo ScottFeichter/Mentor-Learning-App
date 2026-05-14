@@ -112,14 +112,10 @@ function scanStructure() {
         allTopics.push(topic);
       }
 
-      if (course.topics.length > 0) {
-        subject.courses.push(course);
-      }
+      subject.courses.push(course);
     }
 
-    if (subject.courses.length > 0) {
-      subjects.push(subject);
-    }
+    subjects.push(subject);
   }
 
   return { subjects, allTopics };
@@ -169,7 +165,6 @@ function generateSubjectsJs(subjects) {
     lines.push(`    courses: [`);
     for (const course of subject.courses) {
       const topicIds = course.topics.filter(t => t.files.length > 0).map(t => `"${t.id}"`);
-      if (topicIds.length === 0) continue;
       lines.push(`      { id: "${course.id}", title: "${course.title}", topics: findTopics([${topicIds.join(',')}]) },`);
     }
     lines.push(`    ],`);
