@@ -56,6 +56,8 @@ function Viewer() {
   const { topicId, fileIndex } = useParams();
   const navigate = useNavigate();
 
+  const hasSelection = !!topicId;
+
   const [subjectVisible, setSubjectVisible] = useState(true);
   const [courseVisible, setCourseVisible] = useState(true);
   const [topicVisible, setTopicVisible] = useState(true);
@@ -76,18 +78,18 @@ function Viewer() {
   const topicsTitle = useStickyTitle(130);
   const unitsTitle = useStickyTitle(280);
 
-  const currentTopic = sections.find(s => s.id === topicId) || sections[0];
-  const currentFileIdx = parseInt(fileIndex) || 0;
-  const currentFile = currentTopic.files[currentFileIdx];
+  const currentTopic = hasSelection ? (sections.find(s => s.id === topicId) || sections[0]) : null;
+  const currentFileIdx = hasSelection ? (parseInt(fileIndex) || 0) : 0;
+  const currentFile = currentTopic ? currentTopic.files[currentFileIdx] : null;
 
   // Find which subject and course this topic belongs to
-  const currentSubject = subjects.find(sub =>
-    sub.courses.some(c => c.topics.some(t => t.id === currentTopic.id))
-  ) || subjects[0];
+  const currentSubject = currentTopic
+    ? (subjects.find(sub => sub.courses.some(c => c.topics.some(t => t.id === currentTopic.id))) || subjects[0])
+    : subjects[0];
 
-  const currentCourse = currentSubject.courses.find(c =>
-    c.topics.some(t => t.id === currentTopic.id)
-  ) || currentSubject.courses[0];
+  const currentCourse = currentTopic
+    ? (currentSubject.courses.find(c => c.topics.some(t => t.id === currentTopic.id)) || currentSubject.courses[0])
+    : currentSubject.courses[0];
 
   const getUnitTitle = (filename) => {
     return filename.replace(/^\d+\.\s*/, '').replace(/\.md$/, '');
@@ -171,7 +173,7 @@ function Viewer() {
         <span ref={courseTitle.ref} className="course-banner-title" style={courseTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: `-${courseLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentCourse.title}</span>
+        }>{currentCourse ? currentCourse.title : ''}</span>
       </div>
 
       {/* Topics Banner */}
@@ -185,7 +187,7 @@ function Viewer() {
         <span ref={topicsTitle.ref} className="topics-banner-title" style={topicsTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: `-${topicLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentTopic.title}</span>
+        }>{currentTopic ? currentTopic.title : ''}</span>
       </div>
 
       {/* Units Banner */}
@@ -196,7 +198,7 @@ function Viewer() {
         >
           Unit Menu
         </button>
-        <div className="banner-nav-buttons">
+        {currentTopic && <div className="banner-nav-buttons">
           <button
             className="banner-nav-btn"
             onClick={() => handleFileChange(currentFileIdx - 1)}
@@ -207,11 +209,11 @@ function Viewer() {
           <button
             className="banner-nav-btn"
             onClick={() => handleFileChange(currentFileIdx + 1)}
-            disabled={currentFileIdx === currentTopic.files.length - 1}
+            disabled={!currentTopic || currentFileIdx === currentTopic.files.length - 1}
           >
             Next <GiPlainArrow style={{ transform: 'rotate(-90deg)' }} />
           </button>
-        </div>
+        </div>}
         <span ref={unitsTitle.ref} className="units-banner-title" style={unitsTitle.sticky
           ? { position: 'absolute', left: '280px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: `-${unitLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
@@ -230,10 +232,10 @@ function Viewer() {
       )}
 
       {/* Course Menu */}
-      {courseVisible && (
+      {courseVisible && currentSubject && currentSubject.courses.length > 0 && (
         <OuterSidebar
           sections={currentSubject.courses}
-          currentSectionId={currentCourse.id}
+          currentSectionId={currentCourse ? currentCourse.id : ''}
           onSectionChange={handleCourseChange}
           width={courseWidth}
           left={courseLeft}
@@ -242,10 +244,10 @@ function Viewer() {
       )}
 
       {/* Topic Menu */}
-      {topicVisible && (
+      {topicVisible && currentCourse && (
         <InnerSidebar
           files={currentCourse.topics.map(t => t.title)}
-          currentFileIdx={currentCourse.topics.findIndex(t => t.id === currentTopic.id)}
+          currentFileIdx={currentTopic ? currentCourse.topics.findIndex(t => t.id === currentTopic.id) : -1}
           onFileChange={(idx) => handleTopicChange(currentCourse.topics[idx].id)}
           sectionId={currentCourse.id}
           width={topicWidth}
@@ -255,7 +257,7 @@ function Viewer() {
       )}
 
       {/* Unit Menu */}
-      {unitVisible && (
+      {unitVisible && currentTopic && currentTopic.files.length > 0 && (
         <UnitSidebar
           files={currentTopic.files}
           currentFileIdx={currentFileIdx}
@@ -269,13 +271,15 @@ function Viewer() {
 
       {/* Content */}
       <div className="main" style={{ marginLeft: `${contentMargin}px` }}>
-        <Content
-          folder={currentTopic.folder}
-          file={currentFile}
-          currentFileIdx={currentFileIdx}
-          totalFiles={currentTopic.files.length}
-          onFileChange={handleFileChange}
-        />
+        {currentFile ? (
+          <Content
+            folder={currentTopic.folder}
+            file={currentFile}
+            currentFileIdx={currentFileIdx}
+            totalFiles={currentTopic.files.length}
+            onFileChange={handleFileChange}
+          />
+        ) : null}
       </div>
     </div>
   );
@@ -286,7 +290,7 @@ export default function App() {
     <Routes>
       <Route path="/:topicId/:fileIndex" element={<Viewer />} />
       <Route path="/:topicId" element={<Viewer />} />
-      <Route path="*" element={<Navigate to={`/${sections[0].id}/0`} replace />} />
+      <Route path="/" element={<Viewer />} />
     </Routes>
   );
 }
