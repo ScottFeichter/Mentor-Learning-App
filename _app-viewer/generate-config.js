@@ -79,7 +79,7 @@ function scanStructure() {
       const coursePath = path.join(subjectPath, courseFolder);
       const course = {
         id: slugify(courseFolder),
-        title: courseFolder.replace(/^\d+\.?\s*/, '').replace(/^my-/, '').replace(/-course$/, ''),
+        title: courseFolder,
         topics: [],
       };
 
