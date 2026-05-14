@@ -99,7 +99,7 @@ export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectCh
           {subjects.map((subject) => (
             <a
               key={subject.id}
-              href={`/${subject.courses[0].topics[0].id}/0`}
+              href={`/${subject.courses?.[0]?.topics?.[0]?.id || ''}/0`}
               className={currentSubjectId === subject.id ? 'active' : ''}
               onClick={(e) => {
                 if (!e.ctrlKey && !e.metaKey) {
