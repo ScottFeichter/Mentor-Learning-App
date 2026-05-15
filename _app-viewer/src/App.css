@@ -32,9 +32,9 @@
 .banner-triangle {
   width: 0;
   height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 10px solid currentColor;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 14px solid currentColor;
   background: none;
   border-bottom: none;
   padding: 0;

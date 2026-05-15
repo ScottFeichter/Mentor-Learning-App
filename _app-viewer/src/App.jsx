@@ -92,7 +92,11 @@ function Viewer() {
   const topicHeight = topicBannerExpanded ? BANNER_HEIGHT : 0;
   const unitTop = topicTop + topicHeight;
   const unitHeight = unitBannerExpanded ? BANNER_HEIGHT : 0;
-  const sidebarsTop = unitTop + unitHeight;
+  const subjectSidebarTop = subjectTop + subjectHeight;
+  const courseSidebarTop = courseTop + courseHeight;
+  const topicSidebarTop = topicTop + topicHeight;
+  const unitSidebarTop = unitTop + unitHeight;
+  const contentTop = unitSidebarTop;
 
   const bannerToggles = [
     { expanded: topBannerExpanded, toggle: () => setTopBannerExpanded(!topBannerExpanded), color: 'var(--color-text)' },
@@ -267,7 +271,7 @@ function Viewer() {
           onSubjectChange={handleSubjectChange}
           width={subjectWidth}
           onWidthChange={setSubjectWidth}
-          top={sidebarsTop}
+          top={subjectSidebarTop}
         />
       )}
 
@@ -280,7 +284,7 @@ function Viewer() {
           width={courseWidth}
           left={courseLeft}
           onWidthChange={setCourseWidth}
-          top={sidebarsTop}
+          top={courseSidebarTop}
         />
       )}
 
@@ -294,7 +298,7 @@ function Viewer() {
           width={topicWidth}
           left={topicLeft}
           onWidthChange={setTopicWidth}
-          top={sidebarsTop}
+          top={topicSidebarTop}
         />
       )}
 
@@ -308,12 +312,12 @@ function Viewer() {
           width={unitWidth}
           left={unitLeft}
           onWidthChange={setUnitWidth}
-          top={sidebarsTop}
+          top={unitSidebarTop}
         />
       )}
 
       {/* Content */}
-      <div className="main" style={{ marginLeft: `${contentMargin}px`, paddingTop: `${sidebarsTop}px` }}>
+      <div className="main" style={{ marginLeft: `${contentMargin}px`, paddingTop: `${contentTop}px` }}>
         {currentFile ? (
           <Content
             folder={currentTopic.folder}
