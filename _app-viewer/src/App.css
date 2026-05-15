@@ -51,8 +51,16 @@
   transform: rotate(0deg);
 }
 
+.banner-triangle.expanded:hover {
+  transform: rotate(0deg) scale(1.3);
+}
+
 .banner-triangle:not(.expanded) {
   transform: rotate(180deg);
+}
+
+.banner-triangle:not(.expanded):hover {
+  transform: rotate(180deg) scale(1.3);
 }
 
 .top-banner-title {
