@@ -5,8 +5,8 @@ import { subjects } from './subjects';
 import { sections } from './sections';
 import { GiPlainArrow } from 'react-icons/gi';
 import SubjectSidebar from './SubjectSidebar';
-import OuterSidebar from './OuterSidebar';
-import InnerSidebar from './InnerSidebar';
+import CourseSidebar from './CourseSidebar';
+import TopicSidebar from './TopicSidebar';
 import UnitSidebar from './UnitSidebar';
 import Content from './Content';
 import './App.css';
@@ -233,7 +233,7 @@ function Viewer() {
 
       {/* Course Menu */}
       {courseVisible && currentSubject && currentSubject.courses.length > 0 && (
-        <OuterSidebar
+        <CourseSidebar
           sections={currentSubject.courses}
           currentSectionId={currentCourse ? currentCourse.id : ''}
           onSectionChange={handleCourseChange}
@@ -245,7 +245,7 @@ function Viewer() {
 
       {/* Topic Menu */}
       {topicVisible && currentCourse && (
-        <InnerSidebar
+        <TopicSidebar
           files={currentCourse.topics.map(t => t.title)}
           currentFileIdx={currentTopic ? currentCourse.topics.findIndex(t => t.id === currentTopic.id) : -1}
           onFileChange={(idx) => handleTopicChange(currentCourse.topics[idx].id)}

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
-import './OuterSidebar.css';
+import './CourseSidebar.css';
 
 export default function OuterSidebar({ sections, currentSectionId, onSectionChange, width, left, onWidthChange }) {
   const [isResizing, setIsResizing] = useState(false);

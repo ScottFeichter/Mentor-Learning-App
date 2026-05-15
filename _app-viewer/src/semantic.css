@@ -38,8 +38,10 @@
   --subject-menu-bg: var(--color-primary-light);
   --subject-menu-text: var(--color-text);
   --subject-menu-separator: var(--color-border-medium);
+
   --subject-menu-hover-bg: var(--color-secondary-alt);
   --subject-menu-active-bg: var(--color-secondary);
+  
   --subject-menu-active-text: var(--color-text-inverse);
 
   /* Subject Menu Scrollbar */
@@ -88,9 +90,12 @@
   --course-menu-bg: var(--color-primary-lighter);
   --course-menu-text: var(--color-text);
   --course-menu-separator: var(--color-border);
+
   --course-menu-hover-bg: var(--color-tertiary-alt);
+
   --course-menu-active-bg: var(--color-tertiary);
   --course-menu-active-text: var(--color-text-inverse);
+
   --course-menu-border-right: var(--color-border);
 
   /* Course Menu Scrollbar */
@@ -137,9 +142,12 @@
   --topics-menu-bg: var(--color-primary-lightest);
   --topics-menu-text: var(--color-text);
   --topics-menu-separator: var(--color-border);
+
   --topics-menu-hover-bg: var(--color-quarternary-alt);
+
   --topics-menu-active-bg: var(--color-quarternary);
   --topics-menu-active-text: var(--color-text-inverse);
+
   --topics-menu-border-right: var(--color-border);
 
   /* Topics Menu Scrollbar */
@@ -161,13 +169,13 @@
 
   /* Units Banner */
   --units-banner-bg: var(--color-quinary);
-  --units-banner-text: var(--color-text-inverse);
+  --units-banner-text: var(--color-text);
   --units-banner-border: var(--color-text-inverse);
 
   /* Units Menu Toggle Button */
   --units-menu-toggle-bg: var(--color-text-inverse);
-  --units-menu-toggle-text: var(--color-quinary);
-  --units-menu-toggle-border: var(--color-quinary);
+  --units-menu-toggle-text: var(--color-text);
+  --units-menu-toggle-border: var(--color-text);
   --units-menu-toggle-hover-bg: var(--color-text);
   --units-menu-toggle-hover-text: var(--color-text-inverse);
 
@@ -183,8 +191,8 @@
 
   /* Units Menu Prev/Next Buttons */
   --btn-bg: var(--color-text-inverse);
-  --btn-text: var(--color-quinary);
-  --btn-border: var(--color-quinary);
+  --btn-text: var(--color-text);
+  --btn-border: var(--color-text);
 
   --btn-hover-bg: var(--color-text);
   --btn-hover-text: var(--color-text-inverse);
@@ -202,10 +210,14 @@
   --units-menu-bg: var(--color-bg);
   --units-menu-text: var(--color-text);
   --units-menu-separator: var(--color-border);
+
   --units-menu-hover-bg: var(--color-quinary-alt);
+
   --units-menu-active-bg: var(--color-quinary);
-  --units-menu-active-text: var(--color-text-inverse);
+  --units-menu-active-text: var(--color-text);
+
   --units-menu-border-right: var(--color-border);
+
 
   /* Units Menu Scrollbar */
   --units-menu-scrollbar-track: var(--color-bg-alt);
@@ -214,8 +226,8 @@
 
   /* Units Menu Resize */
   --units-menu-resize-bg: var(--color-bg-alt);
-  --units-menu-resize-border: var(--color-quinary);
-  --units-menu-resize-dots: var(--color-quinary);
+  --units-menu-resize-border: var(--color-text);
+  --units-menu-resize-dots: var(--color-text);
 
   --units-menu-resize-hover-bg: var(--color-quinary-alt);
   --units-menu-resize-hover-border: var(--color-quinary);

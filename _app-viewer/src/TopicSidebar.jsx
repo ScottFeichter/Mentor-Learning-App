@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
-import './InnerSidebar.css';
+import './TopicSidebar.css';
 
 export default function InnerSidebar({ files, currentFileIdx, onFileChange, sectionId, width, left, onWidthChange }) {
   const [isResizing, setIsResizing] = useState(false);
