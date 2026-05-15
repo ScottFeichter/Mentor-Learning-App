@@ -55,11 +55,13 @@
 }
 
 .topic-scrollbar-track {
-  width: 6px;
+  width: 9px;
+  margin: 0px 1px 0px 1px;
   background: var(--topic-menu-scrollbar-track);
   position: relative;
   cursor: pointer;
-  border: .5px solid var(--topic-menu-scrollbar-track-border);
+  border-left: .5px solid var(--topic-menu-scrollbar-track-border);
+  border-right: .5px solid var(--topic-menu-scrollbar-track-border);
   flex-shrink: 0;
 }
 
@@ -68,7 +70,7 @@
   left: 1px;
   right: 1px;
   background: var(--topic-menu-scrollbar-thumb);
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: grab;
   min-height: 40px;
 }
@@ -84,7 +86,7 @@
 
 .topic-resize-handle {
   position: absolute;
-  right: 4px;
+  right: 6px;
   top: 50%;
   transform: translate(50%, -50%);
   width: 18px;

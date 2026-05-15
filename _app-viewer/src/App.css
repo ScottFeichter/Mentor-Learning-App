@@ -124,7 +124,8 @@
   align-items: center;
   padding: 0 16px;
   z-index: 70;
-  border-bottom: 1px solid var(--units-banner-border);
+  border-top: .25px solid var(--units-banner-border);
+  border-bottom: 1.5px solid var(--units-banner-border);
   overflow: hidden;
 }
 

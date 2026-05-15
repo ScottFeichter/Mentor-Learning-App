@@ -5,6 +5,7 @@
   --color-tertiary: #3D7EF0;
   --color-quarternary: rgb(171, 171, 150);
   --color-quinary: #fef5d6;
+  --color-quinary-dark: #f2e49d;
 
   /* Derived: light = base at reduced opacity */
   --color-primary-light: color-mix(in srgb, var(--color-primary) 50%, transparent);
