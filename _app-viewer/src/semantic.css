@@ -39,7 +39,7 @@
   --subject-menu-text: var(--color-text);
   --subject-menu-separator: var(--color-border-medium);
 
-  --subject-menu-hover-bg: var(--color-secondary-alt);
+  --subject-menu-hover-bg: var(--gradient-secondary-hover, var(--color-secondary-alt));
 
   --subject-menu-active-bg: var(--gradient-secondary-active, var(--color-secondary));
   --subject-menu-active-text: var(--color-text-inverse);
@@ -93,7 +93,7 @@
   --course-menu-text: var(--color-text);
   --course-menu-separator: var(--color-border);
 
-  --course-menu-hover-bg: var(--color-tertiary-alt);
+  --course-menu-hover-bg: var(--gradient-tertiary-hover, var(--color-tertiary-alt));
 
   --course-menu-active-bg: var(--gradient-tertiary-active, var(--color-tertiary));
   --course-menu-active-text: var(--color-text-inverse);
@@ -147,7 +147,7 @@
   --topic-menu-text: var(--color-text);
   --topic-menu-separator: var(--color-border);
 
-  --topic-menu-hover-bg: var(--color-quarternary-alt);
+  --topic-menu-hover-bg: var(--gradient-quarternary-hover, var(--color-quarternary-alt));
 
   --topic-menu-active-bg: var(--gradient-quarternary-active, var(--color-quarternary));
   --topic-menu-active-text: var(--color-text-inverse);
@@ -218,7 +218,7 @@
   --units-menu-text: var(--color-text);
   --units-menu-separator: var(--color-border);
 
-  --units-menu-hover-bg: var(--color-quinary-alt);
+  --units-menu-hover-bg: var(--gradient-quinary-hover, var(--color-quinary-alt));
 
   --units-menu-active-bg: var(--gradient-quinary-active, var(--color-quinary));
   --units-menu-active-text: var(--color-text);

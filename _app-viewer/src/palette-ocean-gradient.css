@@ -65,4 +65,10 @@
   --gradient-tertiary-active: linear-gradient(to right, #5b9cf5 0%, #1d4ed8 100%);
   --gradient-quarternary-active: linear-gradient(to right, #b0b09a 0%, #7a7a65 100%);
   --gradient-quinary-active: linear-gradient(to right, #fef9e8 0%, #f5eaa0 100%);
+
+  /* Gradient overrides for hover menu items - lighter */
+  --gradient-secondary-hover: linear-gradient(to right, #f0b0b0 0%, transparent 95%);
+  --gradient-tertiary-hover: linear-gradient(to right, #bdd4fc 0%, transparent 95%);
+  --gradient-quarternary-hover: linear-gradient(to right, #e0e0d4 0%, transparent 95%);
+  --gradient-quinary-hover: linear-gradient(to right, #fef5d6 0%, transparent 95%);
 }
