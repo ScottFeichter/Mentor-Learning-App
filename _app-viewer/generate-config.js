@@ -101,7 +101,7 @@ function scanStructure() {
 
         const topic = {
           id: slugify(symlinkName),
-          title: topicFolder.replace(/^\d+\.?\s*/, ''),
+          title: topicFolder,
           folder: symlinkName,
           files,
           _mdSource: mdSource,
@@ -145,9 +145,8 @@ function createSymlinks(allTopics) {
 }
 
 function generateSectionsJs(allTopics) {
-  const topicsWithFiles = allTopics.filter(t => t.files.length > 0);
   const lines = ['export const sections = ['];
-  for (const topic of topicsWithFiles) {
+  for (const topic of allTopics) {
     const filesStr = topic.files.map(f => `"${f}"`).join(',');
     lines.push(`  { id: "${topic.id}", title: "${topic.title}", folder: "${topic.folder}", files: [${filesStr}] },`);
   }
@@ -164,7 +163,7 @@ function generateSubjectsJs(subjects) {
     lines.push(`    title: "${subject.title}",`);
     lines.push(`    courses: [`);
     for (const course of subject.courses) {
-      const topicIds = course.topics.filter(t => t.files.length > 0).map(t => `"${t.id}"`);
+      const topicIds = course.topics.map(t => `"${t.id}"`);
       lines.push(`      { id: "${course.id}", title: "${course.title}", topics: findTopics([${topicIds.join(',')}]) },`);
     }
     lines.push(`    ],`);

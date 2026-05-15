@@ -93,7 +93,7 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
   };
 
   const getTitle = (filename) => {
-    return filename.replace(/^\d+\.\s*/, '').replace(/\.md$/, '');
+    return filename.replace(/\.md$/, '');
   };
 
   return (

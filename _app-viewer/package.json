@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "generate": "node generate-config.js",
-    "dev": "node generate-config.js && vite",
+    "dev": "node generate-config.js && node watch-config.js & vite",
     "build": "node generate-config.js && vite build",
     "preview": "vite preview"
   },

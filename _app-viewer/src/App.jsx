@@ -92,7 +92,7 @@ function Viewer() {
     : currentSubject.courses[0];
 
   const getUnitTitle = (filename) => {
-    return filename.replace(/^\d+\.\s*/, '').replace(/\.md$/, '');
+    return filename.replace(/\.md$/, '');
   };
 
   const handleSubjectChange = (subjectId) => {
