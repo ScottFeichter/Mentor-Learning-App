@@ -3,7 +3,7 @@
   /* ========================== TOP (1st) ================================ */
 
   /* Top Banner */
-  --top-banner-bg: var(--color-primary);
+  --top-banner-bg: var(--gradient-primary, var(--color-primary));
   --top-banner-text: var(--color-text);
   --top-banner-border: var(--color-border);
 
@@ -11,7 +11,7 @@
   /* ========================== SUBJECT (2nd) ================================ */
 
    /* Subject Banner */
-  --subject-banner-bg: var(--color-secondary);
+  --subject-banner-bg: var(--gradient-secondary, var(--color-secondary));
   --subject-banner-text: var(--color-text-inverse);
   --subject-banner-border: var(--color-border-light);
 
@@ -63,7 +63,7 @@
   /* ========================== COURSE (3rd) ================================ */
 
   /* Course Banner */
-  --course-banner-bg: var(--color-tertiary);
+  --course-banner-bg: var(--gradient-tertiary, var(--color-tertiary));
   --course-banner-text: var(--color-text-inverse);
   --course-banner-border: var(--color-border-light);
 
@@ -116,7 +116,7 @@
   /* ========================== TOPIC (4th) ================================ */
 
     /* Topic Banner */
-  --topic-banner-bg: var(--color-quarternary);
+  --topic-banner-bg: var(--gradient-quarternary, var(--color-quarternary));
   --topic-banner-text: var(--color-text-inverse);
   --topic-banner-border: var(--color-text-inverse);
 
@@ -169,7 +169,7 @@
   /* ========================== UNIT (5th) ================================ */
 
   /* Units Banner */
-  --units-banner-bg: var(--color-quinary);
+  --units-banner-bg: var(--gradient-quinary, var(--color-quinary));
   --units-banner-text: var(--color-text);
   --units-banner-border: var(--color-text-inverse);
 

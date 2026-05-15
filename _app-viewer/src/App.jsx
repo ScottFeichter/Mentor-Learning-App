@@ -13,6 +13,7 @@ import './App.css';
 
 const palettes = [
   { id: 'ocean', color: '#0ea5e9', label: 'Ocean' },
+  { id: 'ocean-gradient', color: 'linear-gradient(135deg, #2563eb, #60a5fa)', label: 'Ocean Gradient' },
   { id: 'royal', color: '#f5c518', label: 'Royal' },
   { id: 'forest', color: '#22c55e', label: 'Forest' },
   { id: 'midnight', color: '#cba6f7', label: 'Midnight' },
