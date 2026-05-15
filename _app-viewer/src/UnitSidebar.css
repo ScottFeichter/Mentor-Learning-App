@@ -1,6 +1,5 @@
 .unit-sidebar {
   position: fixed;
-  top: 231px;
   bottom: 0;
   background: var(--units-menu-bg);
   /* border-right: 1px solid var(--units-menu-border-right); */
@@ -8,6 +7,7 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
+  transition: top 0.3s ease;
 }
 
 .unit-nav-wrapper {

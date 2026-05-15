@@ -18,6 +18,36 @@
   padding: 0 16px;
   z-index: 110;
   border-bottom: 1px solid var(--top-banner-border);
+  transition: height 0.3s ease;
+}
+
+.top-banner-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.banner-triangle {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid currentColor;
+  background: none;
+  border-bottom: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.banner-triangle.expanded {
+  transform: rotate(0deg);
+}
+
+.banner-triangle:not(.expanded) {
+  transform: rotate(180deg);
 }
 
 .top-banner-title {
@@ -115,9 +145,7 @@
 /* ===== UNITS BANNER (5th) ===== */
 .units-banner {
   position: fixed;
-  top: 185px;
   right: 0;
-  height: 46px;
   background: var(--units-banner-bg);
   color: var(--units-banner-text);
   display: flex;
@@ -127,6 +155,7 @@
   border-top: .25px solid var(--units-banner-border);
   border-bottom: 1.5px solid var(--units-banner-border);
   overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease;
 }
 
 .units-banner-title {
@@ -352,8 +381,8 @@
 
 /* ===== MAIN CONTENT ===== */
 .main {
-  padding-top: 231px;
   background: var(--content-bg);
+  transition: padding-top 0.3s ease;
 }
 
 /* ===== THEME PICKER ===== */

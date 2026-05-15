@@ -1,7 +1,6 @@
 .subject-sidebar {
   position: fixed;
   left: 0;
-  top: 94px;
   bottom: 0;
   background: var(--subject-menu-bg);
   border-right: 1px solid var(--subject-menu-separator);
@@ -9,6 +8,7 @@
   display: flex;
   flex-direction: column;
   overflow: visible;
+  transition: top 0.3s ease;
 }
 
 .subject-nav-wrapper {

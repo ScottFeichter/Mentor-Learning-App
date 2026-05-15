@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import './CourseSidebar.css';
 
-export default function OuterSidebar({ sections, currentSectionId, onSectionChange, width, left, onWidthChange }) {
+export default function OuterSidebar({ sections, currentSectionId, onSectionChange, width, left, onWidthChange, top }) {
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -93,7 +93,7 @@ export default function OuterSidebar({ sections, currentSectionId, onSectionChan
   };
 
   return (
-    <div className="course-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
+    <div className="course-sidebar" style={{ width: `${width}px`, left: `${left}px`, top: `${top}px` }}>
       <div className="course-nav-wrapper">
         <nav ref={navRef}>
           {sections.map((section) => (

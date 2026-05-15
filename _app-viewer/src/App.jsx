@@ -68,10 +68,39 @@ function Viewer() {
   const [unitWidth, setUnitWidth] = useState(200);
   const [palette, setPalette] = useState(() => localStorage.getItem('palette') || 'grey');
 
+  const [topBannerExpanded, setTopBannerExpanded] = useState(true);
+  const [subjectBannerExpanded, setSubjectBannerExpanded] = useState(true);
+  const [courseBannerExpanded, setCourseBannerExpanded] = useState(true);
+  const [topicBannerExpanded, setTopicBannerExpanded] = useState(true);
+  const [unitBannerExpanded, setUnitBannerExpanded] = useState(true);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-palette', palette);
     localStorage.setItem('palette', palette);
   }, [palette]);
+
+  const TOP_COLLAPSED = 28;
+  const TOP_EXPANDED = 50;
+  const BANNER_HEIGHT = 45;
+
+  const topHeight = topBannerExpanded ? TOP_EXPANDED : TOP_COLLAPSED;
+  const subjectTop = topHeight;
+  const subjectHeight = subjectBannerExpanded ? BANNER_HEIGHT : 0;
+  const courseTop = subjectTop + subjectHeight;
+  const courseHeight = courseBannerExpanded ? BANNER_HEIGHT : 0;
+  const topicTop = courseTop + courseHeight;
+  const topicHeight = topicBannerExpanded ? BANNER_HEIGHT : 0;
+  const unitTop = topicTop + topicHeight;
+  const unitHeight = unitBannerExpanded ? BANNER_HEIGHT : 0;
+  const sidebarsTop = unitTop + unitHeight;
+
+  const bannerToggles = [
+    { expanded: topBannerExpanded, toggle: () => setTopBannerExpanded(!topBannerExpanded), color: 'var(--color-text)' },
+    { expanded: subjectBannerExpanded, toggle: () => setSubjectBannerExpanded(!subjectBannerExpanded), color: 'var(--color-secondary)' },
+    { expanded: courseBannerExpanded, toggle: () => setCourseBannerExpanded(!courseBannerExpanded), color: 'var(--color-tertiary)' },
+    { expanded: topicBannerExpanded, toggle: () => setTopicBannerExpanded(!topicBannerExpanded), color: 'var(--color-quarternary)' },
+    { expanded: unitBannerExpanded, toggle: () => setUnitBannerExpanded(!unitBannerExpanded), color: 'var(--color-quinary)' },
+  ];
 
   const subjectTitle = useStickyTitle(130);
   const courseTitle = useStickyTitle(130);
@@ -133,8 +162,18 @@ function Viewer() {
   return (
     <div className="app">
       {/* Top Banner - full width */}
-      <div className="top-banner">
-        <span className="top-banner-title">SJF Learning App</span>
+      <div className="top-banner" style={{ height: `${topHeight}px` }}>
+        <div className="top-banner-left">
+          {bannerToggles.map((bt, i) => (
+            <button
+              key={i}
+              className={`banner-triangle${bt.expanded ? ' expanded' : ''}`}
+              onClick={bt.toggle}
+              style={{ color: bt.color }}
+            />
+          ))}
+        </div>
+        {topBannerExpanded && <span className="top-banner-title">SJF Learning App</span>}
         <div className="top-banner-right">
           {palettes.map(p => (
             <button
@@ -149,7 +188,7 @@ function Viewer() {
       </div>
 
       {/* Subject Banner - full width */}
-      <div className="subject-banner">
+      <div className="subject-banner" style={{ top: `${subjectTop}px`, height: `${subjectHeight}px` }}>
         <button
           className={`toggle-btn-subject${!subjectVisible ? ' closed' : ''}`}
           onClick={() => setSubjectVisible(!subjectVisible)}
@@ -163,7 +202,7 @@ function Viewer() {
       </div>
 
       {/* Course Banner */}
-      <div className="course-banner" style={{ left: `${courseLeft}px` }}>
+      <div className="course-banner" style={{ left: `${courseLeft}px`, top: `${courseTop}px`, height: `${courseHeight}px` }}>
         <button
           className={`toggle-btn-course${!courseVisible ? ' closed' : ''}`}
           onClick={() => setCourseVisible(!courseVisible)}
@@ -177,7 +216,7 @@ function Viewer() {
       </div>
 
       {/* Topics Banner */}
-      <div className="topics-banner" style={{ left: `${topicLeft}px` }}>
+      <div className="topics-banner" style={{ left: `${topicLeft}px`, top: `${topicTop}px`, height: `${topicHeight}px` }}>
         <button
           className={`toggle-btn-topics${!topicVisible ? ' closed' : ''}`}
           onClick={() => setTopicVisible(!topicVisible)}
@@ -191,7 +230,7 @@ function Viewer() {
       </div>
 
       {/* Units Banner */}
-      <div className="units-banner" style={{ left: `${unitLeft}px` }}>
+      <div className="units-banner" style={{ left: `${unitLeft}px`, top: `${unitTop}px`, height: `${unitHeight}px` }}>
         <button
           className={`toggle-btn-units${!unitVisible ? ' closed' : ''}`}
           onClick={() => setUnitVisible(!unitVisible)}
@@ -228,6 +267,7 @@ function Viewer() {
           onSubjectChange={handleSubjectChange}
           width={subjectWidth}
           onWidthChange={setSubjectWidth}
+          top={sidebarsTop}
         />
       )}
 
@@ -240,6 +280,7 @@ function Viewer() {
           width={courseWidth}
           left={courseLeft}
           onWidthChange={setCourseWidth}
+          top={sidebarsTop}
         />
       )}
 
@@ -253,6 +294,7 @@ function Viewer() {
           width={topicWidth}
           left={topicLeft}
           onWidthChange={setTopicWidth}
+          top={sidebarsTop}
         />
       )}
 
@@ -266,11 +308,12 @@ function Viewer() {
           width={unitWidth}
           left={unitLeft}
           onWidthChange={setUnitWidth}
+          top={sidebarsTop}
         />
       )}
 
       {/* Content */}
-      <div className="main" style={{ marginLeft: `${contentMargin}px` }}>
+      <div className="main" style={{ marginLeft: `${contentMargin}px`, paddingTop: `${sidebarsTop}px` }}>
         {currentFile ? (
           <Content
             folder={currentTopic.folder}

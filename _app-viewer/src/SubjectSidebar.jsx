@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import './SubjectSidebar.css';
 
-export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectChange, width, onWidthChange }) {
+export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectChange, width, onWidthChange, top }) {
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -93,7 +93,7 @@ export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectCh
   };
 
   return (
-    <div className="subject-sidebar" style={{ width: `${width}px` }}>
+    <div className="subject-sidebar" style={{ width: `${width}px`, top: `${top}px` }}>
       <div className="subject-nav-wrapper">
         <nav ref={navRef}>
           {subjects.map((subject) => (

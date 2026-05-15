@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
 import './TopicSidebar.css';
 
-export default function InnerSidebar({ files, currentFileIdx, onFileChange, sectionId, width, left, onWidthChange }) {
+export default function InnerSidebar({ files, currentFileIdx, onFileChange, sectionId, width, left, onWidthChange, top }) {
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -97,7 +97,7 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
   };
 
   return (
-    <div className="topic-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
+    <div className="topic-sidebar" style={{ width: `${width}px`, left: `${left}px`, top: `${top}px` }}>
       <div className="topic-nav-wrapper">
         <nav ref={navRef}>
           {files.map((file, idx) => (
