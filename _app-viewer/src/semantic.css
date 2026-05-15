@@ -41,7 +41,7 @@
 
   --subject-menu-hover-bg: var(--color-secondary-alt);
   --subject-menu-active-bg: var(--color-secondary);
-  
+
   --subject-menu-active-text: var(--color-text-inverse);
 
   /* Subject Menu Scrollbar */
@@ -113,7 +113,7 @@
   --course-menu-resize-hover-dots: var(--color-text-inverse);
 
 
-  /* ========================== TOPICS (4th) ================================ */
+  /* ========================== TOPIC (4th) ================================ */
 
     /* Topics Banner */
   --topics-banner-bg: var(--color-quarternary);
@@ -165,7 +165,7 @@
   --topics-menu-resize-hover-dots: var(--color-text-inverse);
 
 
-  /* ========================== UNITS (5th) ================================ */
+  /* ========================== UNIT (5th) ================================ */
 
   /* Units Banner */
   --units-banner-bg: var(--color-quinary);
@@ -203,7 +203,7 @@
   --btn-active-border: var(--color-bg-active);
 
   --btn-disabled-bg: var(--color-bg-disabled);
-  --btn-disabled-text: var(--color-quinary);
+  --btn-disabled-text: var(--color-text-inverse);
   --btn-disabled-border: var(--color-quinary);
 
   /* Units Menu */
