@@ -93,8 +93,8 @@ export default function OuterSidebar({ sections, currentSectionId, onSectionChan
   };
 
   return (
-    <div className="outer-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
-      <div className="outer-nav-wrapper">
+    <div className="course-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
+      <div className="course-nav-wrapper">
         <nav ref={navRef}>
           {sections.map((section) => (
             <a
@@ -120,7 +120,7 @@ export default function OuterSidebar({ sections, currentSectionId, onSectionChan
           />
         </div>
       </div>
-      <div className="outer-resize-handle" onMouseDown={() => setIsResizing(true)}>
+      <div className="course-resize-handle" onMouseDown={() => setIsResizing(true)}>
         <RxDragHandleDots2 />
       </div>
     </div>

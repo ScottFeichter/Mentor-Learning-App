@@ -115,54 +115,55 @@
 
   /* ========================== TOPIC (4th) ================================ */
 
-    /* Topics Banner */
-  --topics-banner-bg: var(--color-quarternary);
-  --topics-banner-text: var(--color-text-inverse);
-  --topics-banner-border: var(--color-text-inverse);
+    /* Topic Banner */
+  --topic-banner-bg: var(--color-quarternary);
+  --topic-banner-text: var(--color-text-inverse);
+  --topic-banner-border: var(--color-text-inverse);
 
-  /* Topics Menu Toggle Button */
-  --topics-menu-toggle-bg: var(--color-text-inverse);
-  --topics-menu-toggle-text: var(--color-quarternary);
-  --topics-menu-toggle-border: var(--color-quarternary);
-  --topics-menu-toggle-hover-bg: var(--color-text);
-  --topics-menu-toggle-hover-text: var(--color-text-inverse);
+  /* Topic Menu Toggle Button */
+  --topic-menu-toggle-bg: var(--color-text-inverse);
+  --topic-menu-toggle-text: var(--color-quarternary);
+  --topic-menu-toggle-border: var(--color-quarternary);
+  --topic-menu-toggle-hover-bg: var(--color-text);
+  --topic-menu-toggle-hover-text: var(--color-text-inverse);
 
-  --topics-menu-toggle-active-bg: var(--color-bg-active);
-  --topics-menu-toggle-active-text: var(--color-text-inverse);
+  --topic-menu-toggle-active-bg: var(--color-bg-active);
+  --topic-menu-toggle-active-text: var(--color-text-inverse);
 
-  --topics-menu-toggle-closed-bg: var(--color-quarternary);
-  --topics-menu-toggle-closed-text: var(--color-text-inverse);
-  --topics-menu-toggle-closed-border: var(--color-text-inverse);
-  --topics-menu-toggle-closed-hover-bg: var(--color-bg-hover);
-  --topics-menu-toggle-closed-hover-text: var(--color-text-inverse);
-  --topics-menu-toggle-closed-hover-border: var(--color-border-strong);
+  --topic-menu-toggle-closed-bg: var(--color-quarternary);
+  --topic-menu-toggle-closed-text: var(--color-text-inverse);
+  --topic-menu-toggle-closed-border: var(--color-text-inverse);
+  --topic-menu-toggle-closed-hover-bg: var(--color-bg-hover);
+  --topic-menu-toggle-closed-hover-text: var(--color-text-inverse);
+  --topic-menu-toggle-closed-hover-border: var(--color-border-strong);
 
 
-  /* Topics Menu */
-  --topics-menu-bg: var(--color-primary-lightest);
-  --topics-menu-text: var(--color-text);
-  --topics-menu-separator: var(--color-border);
+  /* Topic Menu */
+  --topic-menu-bg: var(--color-primary-lightest);
+  --topic-menu-text: var(--color-text);
+  --topic-menu-separator: var(--color-border);
 
-  --topics-menu-hover-bg: var(--color-quarternary-alt);
+  --topic-menu-hover-bg: var(--color-quarternary-alt);
 
-  --topics-menu-active-bg: var(--color-quarternary);
-  --topics-menu-active-text: var(--color-text-inverse);
+  --topic-menu-active-bg: var(--color-quarternary);
+  --topic-menu-active-text: var(--color-text-inverse);
 
-  --topics-menu-border-right: var(--color-border);
+  --topic-menu-border-right: var(--color-border);
 
-  /* Topics Menu Scrollbar */
-  --topics-menu-scrollbar-track: var(--color-bg-alt);
-  --topics-menu-scrollbar-thumb: var(--color-quarternary);
-  --topics-menu-scrollbar-thumb-hover: var(--color-quarternary);
+  /* Topic Menu Scrollbar */
+  --topic-menu-scrollbar-track: var(--color-bg-alt);
+  --topic-menu-scrollbar-thumb: var(--color-quarternary);
+  --topic-menu-scrollbar-thumb-hover: var(--color-quarternary);
+  --topic-menu-scrollbar-track-border: var(--color-bg-disabled);
 
-  /* Topics Menu Resize */
-  --topics-menu-resize-bg: var(--color-bg-alt);
-  --topics-menu-resize-border: var(--color-quarternary);
-  --topics-menu-resize-dots: var(--color-quarternary);
+  /* Topic Menu Resize */
+  --topic-menu-resize-bg: var(--color-bg-alt);
+  --topic-menu-resize-border: var(--color-quarternary);
+  --topic-menu-resize-dots: var(--color-quarternary);
 
-  --topics-menu-resize-hover-bg: var(--color-quarternary-alt);
-  --topics-menu-resize-hover-border: var(--color-quarternary);
-  --topics-menu-resize-hover-dots: var(--color-text-inverse);
+  --topic-menu-resize-hover-bg: var(--color-quarternary-alt);
+  --topic-menu-resize-hover-border: var(--color-quarternary);
+  --topic-menu-resize-hover-dots: var(--color-text-inverse);
 
 
   /* ========================== UNIT (5th) ================================ */
@@ -219,10 +220,12 @@
   --units-menu-border-right: var(--color-border);
 
 
+
   /* Units Menu Scrollbar */
   --units-menu-scrollbar-track: var(--color-bg-alt);
   --units-menu-scrollbar-thumb: var(--color-quinary);
   --units-menu-scrollbar-thumb-hover: var(--color-quinary);
+  --units-menu-scrollbar-track-border: var(--color-bg-disabled);
 
   /* Units Menu Resize */
   --units-menu-resize-bg: var(--color-bg-alt);

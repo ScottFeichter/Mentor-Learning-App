@@ -1,87 +1,88 @@
-.inner-sidebar {
+.topic-sidebar {
   position: fixed;
   top: 185px;
   bottom: 0;
-  background: var(--topics-menu-bg);
-  border-right: 1px solid var(--topics-menu-border-right);
+  background: var(--topic-menu-bg);
+  /* border-right: 1px solid var(--topic-menu-border-right); */
   z-index: 40;
   display: flex;
   flex-direction: column;
   overflow: visible;
 }
 
-.inner-nav-wrapper {
+.topic-nav-wrapper {
   flex: 1;
   display: flex;
   overflow: hidden;
   position: relative;
 }
 
-.inner-nav-wrapper nav {
+.topic-nav-wrapper nav {
   flex: 1;
   overflow-y: auto;
   scrollbar-width: none;
 }
 
-.inner-nav-wrapper nav::-webkit-scrollbar {
+.topic-nav-wrapper nav::-webkit-scrollbar {
   display: none;
 }
 
-.inner-sidebar a {
+.topic-sidebar a {
   display: block;
   padding: 10px 14px;
   cursor: pointer;
   text-decoration: none;
-  color: var(--topics-menu-text);
+  color: var(--topic-menu-text);
   border-top: none;
-  border-bottom: 1px solid var(--topics-menu-separator);
+  border-bottom: 1px solid var(--topic-menu-separator);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 0.85em;
 }
 
-.inner-sidebar a:first-child {
-  border-top: 1px solid var(--topics-menu-separator);
+.topic-sidebar a:first-child {
+  border-top: 1px solid var(--topic-menu-separator);
 }
 
-.inner-sidebar a:hover {
-  background: var(--topics-menu-hover-bg);
+.topic-sidebar a:hover {
+  background: var(--topic-menu-hover-bg);
 }
 
-.inner-sidebar a.active {
-  background: var(--topics-menu-active-bg);
-  color: var(--topics-menu-active-text);
+.topic-sidebar a.active {
+  background: var(--topic-menu-active-bg);
+  color: var(--topic-menu-active-text);
 }
 
-.inner-scrollbar-track {
+.topic-scrollbar-track {
   width: 6px;
-  background: var(--topics-menu-scrollbar-track);
+  background: var(--topic-menu-scrollbar-track);
   position: relative;
   cursor: pointer;
+  border: .5px solid var(--topic-menu-scrollbar-track-border);
   flex-shrink: 0;
 }
 
-.inner-scrollbar-thumb {
+.topic-scrollbar-thumb {
   position: absolute;
   left: 1px;
   right: 1px;
-  background: var(--topics-menu-scrollbar-thumb);
+  background: var(--topic-menu-scrollbar-thumb);
   border-radius: 6px;
   cursor: grab;
   min-height: 40px;
 }
 
-.inner-scrollbar-thumb:hover {
-  background: var(--topics-menu-scrollbar-thumb-hover);
+.topic-scrollbar-thumb:hover {
+  background: var(--topic-menu-scrollbar-thumb-hover);
 }
 
-.inner-scrollbar-thumb:active {
+.topic-scrollbar-thumb:active {
   cursor: grabbing;
-  background: var(--topics-menu-scrollbar-thumb-hover);
+  background: var(--topic-menu-scrollbar-thumb-hover);
 }
 
-.inner-resize-handle {
+.topic-resize-handle {
   position: absolute;
   right: 4px;
   top: 50%;
@@ -89,20 +90,20 @@
   width: 18px;
   height: 60px;
   cursor: ew-resize;
-  background: var(--topics-menu-resize-bg);
-  border: 2px solid var(--topics-menu-resize-border);
+  background: var(--topic-menu-resize-bg);
+  border: 2px solid var(--topic-menu-resize-border);
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--topics-menu-resize-dots);
+  color: var(--topic-menu-resize-dots);
   font-size: 14px;
   z-index: 50;
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.inner-resize-handle:hover {
-  background: var(--topics-menu-resize-hover-bg);
-  color: var(--topics-menu-resize-hover-dots);
-  border-color: var(--topics-menu-resize-hover-border);
+.topic-resize-handle:hover {
+  background: var(--topic-menu-resize-hover-bg);
+  color: var(--topic-menu-resize-hover-dots);
+  border-color: var(--topic-menu-resize-hover-border);
 }

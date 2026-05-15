@@ -97,8 +97,8 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
   };
 
   return (
-    <div className="inner-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
-      <div className="inner-nav-wrapper">
+    <div className="topic-sidebar" style={{ width: `${width}px`, left: `${left}px` }}>
+      <div className="topic-nav-wrapper">
         <nav ref={navRef}>
           {files.map((file, idx) => (
             <a
@@ -116,15 +116,15 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
             </a>
           ))}
         </nav>
-        <div className="inner-scrollbar-track" ref={trackRef} onClick={handleTrackClick}>
+        <div className="topic-scrollbar-track" ref={trackRef} onClick={handleTrackClick}>
           <div
-            className="inner-scrollbar-thumb"
+            className="topic-scrollbar-thumb"
             style={{ top: `${thumbTop}px`, height: `${thumbHeight}px` }}
             onMouseDown={handleThumbMouseDown}
           />
         </div>
       </div>
-      <div className="inner-resize-handle" onMouseDown={() => setIsResizing(true)}>
+      <div className="topic-resize-handle" onMouseDown={() => setIsResizing(true)}>
         <RxDragHandleDots2 />
       </div>
     </div>

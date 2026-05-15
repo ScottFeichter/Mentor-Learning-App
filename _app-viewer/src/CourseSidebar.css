@@ -1,4 +1,4 @@
-.outer-sidebar {
+.course-sidebar {
   position: fixed;
   top: 139px;
   bottom: 0;
@@ -10,24 +10,24 @@
   overflow: visible;
 }
 
-.outer-nav-wrapper {
+.course-nav-wrapper {
   flex: 1;
   display: flex;
   overflow: hidden;
   position: relative;
 }
 
-.outer-nav-wrapper nav {
+.course-nav-wrapper nav {
   flex: 1;
   overflow-y: auto;
   scrollbar-width: none;
 }
 
-.outer-nav-wrapper nav::-webkit-scrollbar {
+.course-nav-wrapper nav::-webkit-scrollbar {
   display: none;
 }
 
-.outer-sidebar a {
+.course-sidebar a {
   display: block;
   padding: 14px 16px;
   cursor: pointer;
@@ -41,16 +41,16 @@
   font-size: 0.9em;
 }
 
-.outer-sidebar a:first-child {
+.course-sidebar a:first-child {
   border-top: 1px solid var(--course-menu-separator);
 }
 
-.outer-sidebar a:hover {
+.course-sidebar a:hover {
   background: var(--course-menu-hover-bg);
   color: var(--course-menu-text);
 }
 
-.outer-sidebar a.active {
+.course-sidebar a.active {
   background: var(--course-menu-active-bg);
   color: var(--course-menu-active-text);
 }
@@ -82,7 +82,7 @@
   background: var(--course-menu-scrollbar-thumb-hover);
 }
 
-.outer-resize-handle {
+.course-resize-handle {
   position: absolute;
   right: 3px;
   top: 50%;
@@ -102,7 +102,7 @@
   transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-.outer-resize-handle:hover {
+.course-resize-handle:hover {
   background: var(--course-menu-resize-hover-bg);
   color: var(--course-menu-resize-hover-dots);
   border-color: var(--course-menu-resize-hover-border);
