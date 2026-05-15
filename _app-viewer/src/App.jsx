@@ -177,7 +177,7 @@ function Viewer() {
             />
           ))}
         </div>
-        {topBannerExpanded && <span className="top-banner-title">SJF Learning App</span>}
+        {topBannerExpanded && <span className="top-banner-title">Mentor Learning App</span>}
         <div className="top-banner-right">
           {palettes.map(p => (
             <button
