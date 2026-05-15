@@ -183,7 +183,7 @@ function Viewer() {
             <button
               key={p.id}
               className={`theme-btn${palette === p.id ? ' active' : ''}`}
-              style={{ background: p.color, borderColor: palette === p.id ? p.color : undefined }}
+              style={{ background: p.color }}
               onClick={() => setPalette(p.id)}
               title={p.label}
             />
