@@ -392,7 +392,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: 2px solid white;
+  border: none;
   cursor: pointer;
   transition: transform 0.2s, opacity 0.2s;
   opacity: 0.4;
