@@ -54,7 +54,7 @@
   --color-accent-hover: color-mix(in srgb, var(--color-tertiary) 70%, black);
 
   /* Gradient overrides for banner backgrounds */
-  --gradient-primary: linear-gradient(to right, #ffffff 0%, #e8f0fe 100%);
+  --gradient-primary: var(--color-primary);
   --gradient-secondary: linear-gradient(to right, #6c0101 0%, #a01010 50%, #6c0101 100%);
   --gradient-tertiary: linear-gradient(to right, #2563eb 0%, #3D7EF0 50%, #60a5fa 100%);
   --gradient-quarternary: linear-gradient(to right, #9b9b82 0%, #ababaa 50%, #c4c4b0 100%);
