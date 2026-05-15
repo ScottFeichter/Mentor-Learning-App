@@ -5,7 +5,10 @@ import { execSync } from 'child_process';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const SUBJECT_FOLDERS = ['Computer Science', 'Human Language', 'Motor Vehicles'];
+const SUBJECT_FOLDERS = fs.readdirSync(ROOT, { withFileTypes: true })
+  .filter(d => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.'))
+  .map(d => d.name)
+  .sort();
 
 let debounceTimer = null;
 

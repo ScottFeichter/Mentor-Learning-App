@@ -8,7 +8,10 @@ const APP_DIR = __dirname;
 const MD_DIR = path.join(APP_DIR, 'public', 'md');
 const SRC_DIR = path.join(APP_DIR, 'src');
 
-const SUBJECT_FOLDERS = ['Computer Science', 'Human Language', 'Motor Vehicles'];
+const SUBJECT_FOLDERS = fs.readdirSync(ROOT, { withFileTypes: true })
+  .filter(d => d.isDirectory() && !d.name.startsWith('_') && !d.name.startsWith('.'))
+  .map(d => d.name)
+  .sort();
 
 function slugify(name) {
   return name.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '').toLowerCase();

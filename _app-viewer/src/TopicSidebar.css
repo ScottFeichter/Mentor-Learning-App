@@ -55,7 +55,7 @@
 }
 
 .topic-scrollbar-track {
-  width: 9px;
+  width: 11px;
   margin: 0px 1px 0px 1px;
   background: var(--topic-menu-scrollbar-track);
   position: relative;
@@ -67,8 +67,8 @@
 
 .topic-scrollbar-thumb {
   position: absolute;
-  left: 1px;
-  right: 1px;
+  left: 2px;
+  right: 2px;
   background: var(--topic-menu-scrollbar-thumb);
   border-radius: 10px;
   cursor: grab;

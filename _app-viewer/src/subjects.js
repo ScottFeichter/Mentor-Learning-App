@@ -44,4 +44,40 @@ export const subjects = [
     courses: [
     ],
   },
+  {
+    id: "untitled-folder",
+    title: "untitled folder",
+    courses: [
+    ],
+  },
+  {
+    id: "untitled-folder-copy",
+    title: "untitled folder copy",
+    courses: [
+    ],
+  },
+  {
+    id: "untitled-folder-copy-2",
+    title: "untitled folder copy 2",
+    courses: [
+    ],
+  },
+  {
+    id: "untitled-folder-copy-3",
+    title: "untitled folder copy 3",
+    courses: [
+    ],
+  },
+  {
+    id: "untitled-folder-copy-4",
+    title: "untitled folder copy 4",
+    courses: [
+    ],
+  },
+  {
+    id: "untitled-folder-copy-5",
+    title: "untitled folder copy 5",
+    courses: [
+    ],
+  },
 ];

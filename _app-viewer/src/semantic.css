@@ -35,17 +35,19 @@
 
 
   /* Subject Menu */
-  --subject-menu-bg: var(--color-primary-light);
+  --subject-menu-bg: var(--color-primary);
   --subject-menu-text: var(--color-text);
   --subject-menu-separator: var(--color-border-medium);
 
   --subject-menu-hover-bg: var(--color-secondary-alt);
-  --subject-menu-active-bg: var(--gradient-secondary-active, var(--color-secondary));
 
+  --subject-menu-active-bg: var(--gradient-secondary-active, var(--color-secondary));
   --subject-menu-active-text: var(--color-text-inverse);
 
   /* Subject Menu Scrollbar */
   --subject-menu-scrollbar-track: var(--color-bg-alt);
+  --subject-menu-scrollbar-track-border: color-mix(in srgb, var(--color-border) 60%, white);
+
   --subject-menu-scrollbar-thumb: var(--color-secondary);
   --subject-menu-scrollbar-thumb-hover: var(--color-secondary);
 
@@ -87,7 +89,7 @@
 
 
   /* Course Menu */
-  --course-menu-bg: var(--color-primary-lighter);
+  --course-menu-bg: var(--color-primary);
   --course-menu-text: var(--color-text);
   --course-menu-separator: var(--color-border);
 
@@ -100,6 +102,8 @@
 
   /* Course Menu Scrollbar */
   --course-menu-scrollbar-track: var(--color-bg-alt);
+  --course-menu-scrollbar-track-border: color-mix(in srgb, var(--color-border) 60%, white);
+
   --course-menu-scrollbar-thumb: var(--color-tertiary);
   --course-menu-scrollbar-thumb-hover: var(--color-tertiary);
 
@@ -139,7 +143,7 @@
 
 
   /* Topic Menu */
-  --topic-menu-bg: var(--color-primary-lightest);
+  --topic-menu-bg: var(--color-primary);
   --topic-menu-text: var(--color-text);
   --topic-menu-separator: var(--color-border);
 
@@ -152,9 +156,11 @@
 
   /* Topic Menu Scrollbar */
   --topic-menu-scrollbar-track: var(--color-bg-alt);
+  --topic-menu-scrollbar-track-border: color-mix(in srgb, var(--color-border) 60%, white);
+
   --topic-menu-scrollbar-thumb: var(--color-quarternary);
   --topic-menu-scrollbar-thumb-hover: var(--color-quarternary);
-  --topic-menu-scrollbar-track-border: var(--color-bg-disabled);
+
 
   /* Topic Menu Resize */
   --topic-menu-resize-bg: var(--color-bg-alt);
@@ -223,7 +229,7 @@
 
   /* Units Menu Scrollbar */
   --units-menu-scrollbar-track: var(--color-bg-alt);
-  --units-menu-scrollbar-track-border: var(--color-bg-disabled);
+  --units-menu-scrollbar-track-border: color-mix(in srgb, var(--color-border) 60%, white);
 
   --units-menu-scrollbar-thumb: var(--color-quinary);
   --units-menu-scrollbar-thumb-border: var(--color-bg-disabled);
