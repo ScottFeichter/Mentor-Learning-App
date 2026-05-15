@@ -32,9 +32,9 @@
 .banner-triangle {
   width: 0;
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 14px solid currentColor;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 16px solid currentColor;
   background: none;
   border-bottom: none;
   padding: 0;
@@ -66,10 +66,8 @@
 /* ===== SUBJECT BANNER (2nd) ===== */
 .subject-banner {
   position: fixed;
-  top: 50px;
   left: 0;
   right: 0;
-  height: 44px;
   background: var(--subject-banner-bg);
   color: var(--subject-banner-text);
   display: flex;
@@ -78,6 +76,7 @@
   z-index: 100;
   border-bottom: 1px solid var(--subject-banner-border);
   overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
 }
 
 .subject-banner-title {
@@ -93,9 +92,7 @@
 /* ===== COURSE BANNER (3rd) ===== */
 .course-banner {
   position: fixed;
-  top: 94px;
   right: 0;
-  height: 45px;
   background: var(--course-banner-bg);
   color: var(--course-banner-text);
   display: flex;
@@ -104,6 +101,7 @@
   z-index: 90;
   border-bottom: 1px solid var(--course-banner-border);
   overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
 }
 
 .course-banner-title {
@@ -119,9 +117,7 @@
 /* ===== TOPICS BANNER (4th) ===== */
 .topics-banner {
   position: fixed;
-  top: 139px;
   right: 0;
-  height: 46px;
   background: var(--topic-banner-bg);
   color: var(--topic-banner-text);
   display: flex;
@@ -130,6 +126,7 @@
   z-index: 80;
   border-bottom: 1px solid var(--topic-banner-border);
   overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
 }
 
 .topics-banner-title {
@@ -155,7 +152,7 @@
   border-top: .25px solid var(--units-banner-border);
   border-bottom: 1.5px solid var(--units-banner-border);
   overflow: hidden;
-  transition: height 0.3s ease, top 0.3s ease;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
 }
 
 .units-banner-title {

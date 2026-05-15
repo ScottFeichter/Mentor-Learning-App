@@ -192,7 +192,7 @@ function Viewer() {
       </div>
 
       {/* Subject Banner - full width */}
-      <div className="subject-banner" style={{ top: `${subjectTop}px`, height: `${subjectHeight}px` }}>
+      <div className="subject-banner" style={{ top: `${subjectTop}px`, height: `${subjectHeight}px`, transform: subjectBannerExpanded ? 'translateY(0)' : 'translateY(-100%)' }}>
         <button
           className={`toggle-btn-subject${!subjectVisible ? ' closed' : ''}`}
           onClick={() => setSubjectVisible(!subjectVisible)}
@@ -206,7 +206,7 @@ function Viewer() {
       </div>
 
       {/* Course Banner */}
-      <div className="course-banner" style={{ left: `${courseLeft}px`, top: `${courseTop}px`, height: `${courseHeight}px` }}>
+      <div className="course-banner" style={{ left: `${courseLeft}px`, top: `${courseTop}px`, height: `${courseHeight}px`, transform: courseBannerExpanded ? 'translateY(0)' : 'translateY(-100%)' }}>
         <button
           className={`toggle-btn-course${!courseVisible ? ' closed' : ''}`}
           onClick={() => setCourseVisible(!courseVisible)}
@@ -220,7 +220,7 @@ function Viewer() {
       </div>
 
       {/* Topics Banner */}
-      <div className="topics-banner" style={{ left: `${topicLeft}px`, top: `${topicTop}px`, height: `${topicHeight}px` }}>
+      <div className="topics-banner" style={{ left: `${topicLeft}px`, top: `${topicTop}px`, height: `${topicHeight}px`, transform: topicBannerExpanded ? 'translateY(0)' : 'translateY(-100%)' }}>
         <button
           className={`toggle-btn-topics${!topicVisible ? ' closed' : ''}`}
           onClick={() => setTopicVisible(!topicVisible)}
@@ -234,7 +234,7 @@ function Viewer() {
       </div>
 
       {/* Units Banner */}
-      <div className="units-banner" style={{ left: `${unitLeft}px`, top: `${unitTop}px`, height: `${unitHeight}px` }}>
+      <div className="units-banner" style={{ left: `${unitLeft}px`, top: `${unitTop}px`, height: `${unitHeight}px`, transform: unitBannerExpanded ? 'translateY(0)' : 'translateY(-100%)' }}>
         <button
           className={`toggle-btn-units${!unitVisible ? ' closed' : ''}`}
           onClick={() => setUnitVisible(!unitVisible)}
