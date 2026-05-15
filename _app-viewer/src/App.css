@@ -92,13 +92,13 @@
   top: 139px;
   right: 0;
   height: 46px;
-  background: var(--topics-banner-bg);
-  color: var(--topics-banner-text);
+  background: var(--topic-banner-bg);
+  color: var(--topic-banner-text);
   display: flex;
   align-items: center;
   padding: 0 16px;
   z-index: 80;
-  border-bottom: 1px solid var(--topics-banner-border);
+  border-bottom: 1px solid var(--topic-banner-border);
   overflow: hidden;
 }
 
@@ -272,9 +272,9 @@
 }
 
 .toggle-btn-topics {
-  background: var(--topics-menu-toggle-bg);
-  border: 1px solid var(--topics-menu-toggle-border);
-  color: var(--topics-menu-toggle-text);
+  background: var(--topic-menu-toggle-bg);
+  border: 1px solid var(--topic-menu-toggle-border);
+  color: var(--topic-menu-toggle-text);
   height: 28px;
   padding: 0 12px;
   border-radius: 4px;
@@ -289,25 +289,25 @@
 }
 
 .toggle-btn-topics:hover {
-  background: var(--topics-menu-toggle-hover-bg);
-  color: var(--topics-menu-toggle-hover-text);
+  background: var(--topic-menu-toggle-hover-bg);
+  color: var(--topic-menu-toggle-hover-text);
 }
 
 .toggle-btn-topics:active {
-  background: var(--topics-menu-toggle-active-bg);
-  color: var(--topics-menu-toggle-active-text);
+  background: var(--topic-menu-toggle-active-bg);
+  color: var(--topic-menu-toggle-active-text);
 }
 
 .toggle-btn-topics.closed {
-  background: var(--topics-menu-toggle-closed-bg);
-  color: var(--topics-menu-toggle-closed-text);
-  border-color: var(--topics-menu-toggle-closed-border);
+  background: var(--topic-menu-toggle-closed-bg);
+  color: var(--topic-menu-toggle-closed-text);
+  border-color: var(--topic-menu-toggle-closed-border);
 }
 
 .toggle-btn-topics.closed:hover {
-  background: var(--topics-menu-toggle-closed-hover-bg);
-  color: var(--topics-menu-toggle-closed-hover-text);
-  border-color: var(--topics-menu-toggle-closed-hover-border);
+  background: var(--topic-menu-toggle-closed-hover-bg);
+  color: var(--topic-menu-toggle-closed-hover-text);
+  border-color: var(--topic-menu-toggle-closed-hover-border);
 }
 
 .toggle-btn-units {
