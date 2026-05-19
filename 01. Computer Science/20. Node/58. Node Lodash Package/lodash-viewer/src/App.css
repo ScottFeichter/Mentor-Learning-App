@@ -1,0 +1,19 @@
+.app {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.main {
+  margin-left: 0;
+}
+
+.main h1 {
+  padding: 20px;
+  margin: 0;
+  background: #007bff;
+  color: white;
+  border-bottom: 1px solid #888;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  text-align: center;
+}
