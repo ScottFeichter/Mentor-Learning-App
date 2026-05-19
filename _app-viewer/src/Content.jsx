@@ -35,7 +35,7 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
 
   useEffect(() => {
     if (!file) return;
-    fetch(`/md/${folder}/${file}`)
+    fetch(`/md/${encodeURIComponent(folder)}/${encodeURIComponent(file)}`)
       .then(res => res.text())
       .then(text => setContent(text))
       .catch(() => setContent('Error loading file'));
