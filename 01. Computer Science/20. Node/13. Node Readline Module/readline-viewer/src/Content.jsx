@@ -34,7 +34,7 @@ export default function Content({ file, currentPage, totalPages, onPageChange })
   const [content, setContent] = useState('');
 
   useEffect(() => {
-    fetch(`/md/${file}`)
+    fetch(`/md/${encodeURIComponent(file)}`)
       .then(res => res.text())
       .then(text => setContent(text))
       .catch(err => setContent('Error loading file'));

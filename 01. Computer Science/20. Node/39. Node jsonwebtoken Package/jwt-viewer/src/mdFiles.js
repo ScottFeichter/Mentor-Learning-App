@@ -21,5 +21,7 @@ export const mdFiles = [
   { id: 19, title: "JWT Payload", file: "19. JWTPayload.md" },
   { id: 20, title: "JWT Signature", file: "20. JWTSignature.md" },
   { id: 21, title: "JWT Example", file: "21. JWTExample.md" },
-  { id: 22, title: "HTTP Status Codes", file: "22. httpstatuscodes.md" }
+  { id: 22, title: "HTTP Status Codes", file: "22. httpstatuscodes.md" },
+  { id: 23, title: "Stolen JWT", file: "23. Stolen JWT.md" },
+  { id: 24, title: "What Is The Use Of JWT?", file: "24. What Is The Use Of JWT?.md" }
 ];
