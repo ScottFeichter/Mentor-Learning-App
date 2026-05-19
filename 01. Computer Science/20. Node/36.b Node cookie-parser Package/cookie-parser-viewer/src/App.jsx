@@ -10,15 +10,15 @@ function App() {
 
   return (
     <div className="app">
-      <Sidebar 
-        pages={mdFiles} 
-        currentPage={currentPage} 
+      <Sidebar
+        pages={mdFiles}
+        currentPage={currentPage}
         onPageChange={setCurrentPage}
         onWidthChange={setSidebarWidth}
       />
       <div className="main" style={{ marginLeft: `${sidebarWidth}px` }}>
-        <h1>. Node JWT Module</h1>
-        <Content 
+        <h1>cookie-parser Package</h1>
+        <Content
           file={mdFiles[currentPage].file}
           currentPage={currentPage}
           totalPages={mdFiles.length}
