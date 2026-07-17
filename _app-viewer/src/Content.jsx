@@ -15,10 +15,13 @@
  *   &nbsp;    → spacer paragraph (class: nbsp-spacer)
  *
  * CUSTOM INLINE STYLES (raw HTML span in .md files):
- *   <span class="blue-bold">text</span>   → bold blue text
- *   <span class="purple-bold">text</span> → bold purple text
- *   <span class="highlight">text</span>   → yellow highlighted text
- *   <span class="muted">text</span>       → muted/grey text
+ *   <span class="red-bold">text</span>          → bold, same color as h2 (#6c0101)
+ *   <span class="blue-bold">text</span>         → bold, same color as h3 (#3D7EF0)
+ *   <span class="olive-bold">text</span>        → bold, same color as h4 (rgb(171,171,150))
+ *   <span class="purple-bold">text</span>       → bold purple (#a855f7)
+ *   <span class="highlight">text</span>         → yellow background highlight (#fef08a)
+ *   <span class="subheading-highlight">text</span> → background highlight, same color as h5 (#868671)
+ *   <span class="muted">text</span>            → muted/grey text (#9ca3af)
  *
  * NOTE: spans are inline — they render inside whatever block element
  * wraps them (p, li, etc.) and do not become block elements themselves.

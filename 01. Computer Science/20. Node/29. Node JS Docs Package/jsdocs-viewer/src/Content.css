@@ -189,7 +189,10 @@
 }
 
 /* custom inline span styles — used as raw HTML in .md files */
-.content .blue-bold   { color: #3b82f6; font-weight: bold; }
-.content .purple-bold { color: #a855f7; font-weight: bold; }
-.content .highlight   { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
-.content .muted       { color: #9ca3af; }
+.content .red-bold          { color: #6c0101; font-weight: bold; }
+.content .blue-bold         { color: #3D7EF0; font-weight: bold; }
+.content .olive-bold        { color: rgb(171, 171, 150); font-weight: bold; }
+.content .purple-bold       { color: #a855f7; font-weight: bold; }
+.content .highlight         { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
+.content .subheading-highlight { background: #868671; padding: 1px 3px; border-radius: 2px; }
+.content .muted             { color: #9ca3af; }
