@@ -43,7 +43,13 @@
 
 .content h5 {
   font-size: 1em;
-  color: #868671;
+  color: var(--heading-h5-color);
+  margin-left: 20px;
+}
+
+.content h6 {
+  font-size: 1em;
+  color: var(--heading-h6-color);
   margin-left: 20px;
 }
 
@@ -75,7 +81,7 @@
 .content .olive-bold        { color: rgb(171, 171, 150); font-weight: bold; }
 .content .purple-bold       { color: #a855f7; font-weight: bold; }
 .content .highlight         { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
-.content .subheading-highlight { background: #868671; padding: 1px 3px; border-radius: 2px; }
+.content .subheading-highlight { background: var(--heading-h6-color); padding: 1px 3px; border-radius: 2px; }
 .content .muted             { color: #9ca3af; }
 
 .content pre {

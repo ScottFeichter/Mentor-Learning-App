@@ -20,7 +20,7 @@
  *   <span class="olive-bold">text</span>        → bold, same color as h4 (rgb(171,171,150))
  *   <span class="purple-bold">text</span>       → bold purple (#a855f7)
  *   <span class="highlight">text</span>         → yellow background highlight (#fef08a)
- *   <span class="subheading-highlight">text</span> → background highlight, same color as h5 (#868671)
+ *   <span class="subheading-highlight">text</span> → background highlight, same color as h6 (#fef5d6)
  *   <span class="muted">text</span>            → muted/grey text (#9ca3af)
  *
  * NOTE: spans are inline — they render inside whatever block element
