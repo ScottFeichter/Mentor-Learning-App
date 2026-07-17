@@ -187,3 +187,9 @@
 .top-button:active {
   transform: scale(0.95);
 }
+
+/* custom inline span styles — used as raw HTML in .md files */
+.content .blue-bold   { color: #3b82f6; font-weight: bold; }
+.content .purple-bold { color: #a855f7; font-weight: bold; }
+.content .highlight   { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
+.content .muted       { color: #9ca3af; }

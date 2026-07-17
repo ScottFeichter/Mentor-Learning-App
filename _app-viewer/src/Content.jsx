@@ -1,6 +1,32 @@
+/*
+ * CONTENT MARKDOWN SYNTAX REFERENCE
+ *
+ * STANDARD MARKDOWN → HTML MAPPING (headings shift down one level):
+ *   # H1      → <h2>
+ *   ## H2     → <h3>
+ *   ### H3    → <h4>
+ *   #### H4   → <h5>
+ *   ##### H5  → <h6>
+ *   **text**  → <strong> (bold)
+ *   *text*    → <em> (italic)
+ *   `code`    → <code> (inline code)
+ *   ```block``` → <pre><code> (code block)
+ *   [text](url) → <a> (link, opens in new tab)
+ *   &nbsp;    → spacer paragraph (class: nbsp-spacer)
+ *
+ * CUSTOM INLINE STYLES (raw HTML span in .md files):
+ *   <span class="blue-bold">text</span>   → bold blue text
+ *   <span class="purple-bold">text</span> → bold purple text
+ *   <span class="highlight">text</span>   → yellow highlighted text
+ *   <span class="muted">text</span>       → muted/grey text
+ *
+ * NOTE: spans are inline — they render inside whatever block element
+ * wraps them (p, li, etc.) and do not become block elements themselves.
+ */
 import { useState, useEffect, useRef } from 'react';
 import Markdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import { GiPlainArrow } from 'react-icons/gi';
@@ -57,7 +83,7 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
     <div className="content">
       <Markdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight]}
+        rehypePlugins={[rehypeHighlight, rehypeRaw]}
         components={{
           h1: 'h2',
           h2: 'h3',
@@ -72,6 +98,7 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
             const isNbsp = children === '\u00a0';
             return <p className={isNbsp ? 'nbsp-spacer' : undefined}>{children}</p>;
           },
+          span: ({ className, children }) => <span className={className}>{children}</span>,
           pre: ({ children }) => {
             const code = children?.props?.children;
             return <CodeBlock>{code}</CodeBlock>;
