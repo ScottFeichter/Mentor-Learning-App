@@ -124,8 +124,10 @@ function Viewer() {
     ? (currentSubject.courses.find(c => c.topics.some(t => t.id === currentTopic.id)) || currentSubject.courses[0])
     : currentSubject.courses[0];
 
+  const stripPrefix = (str) => str?.replace(/^\d+\.\s*/, '') ?? '';
+
   const getUnitTitle = (filename) => {
-    return filename.replace(/\.md$/, '');
+    return stripPrefix(filename.replace(/\.md$/, ''));
   };
 
   const handleSubjectChange = (subjectId) => {
@@ -177,7 +179,7 @@ function Viewer() {
             />
           ))}
         </div>
-        {topBannerExpanded && <span className="top-banner-title">Mentor Learning App</span>}
+        {topBannerExpanded && <span className="top-banner-title">The Learning App</span>}
         <div className="top-banner-right">
           {palettes.map(p => (
             <button
@@ -202,7 +204,7 @@ function Viewer() {
         <span ref={subjectTitle.ref} className="subject-banner-title" style={subjectTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: 0, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentSubject.title}</span>
+        }>{stripPrefix(currentSubject.title)}</span>
       </div>
 
       {/* Course Banner */}
@@ -216,7 +218,7 @@ function Viewer() {
         <span ref={courseTitle.ref} className="course-banner-title" style={courseTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: `-${courseLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentCourse ? currentCourse.title : ''}</span>
+        }>{currentCourse ? stripPrefix(currentCourse.title) : ''}</span>
       </div>
 
       {/* Topics Banner */}
@@ -230,7 +232,7 @@ function Viewer() {
         <span ref={topicsTitle.ref} className="topics-banner-title" style={topicsTitle.sticky
           ? { position: 'absolute', left: '130px', pointerEvents: 'none', whiteSpace: 'nowrap' }
           : { position: 'absolute', left: `-${topicLeft}px`, right: 0, textAlign: 'center', pointerEvents: 'none' }
-        }>{currentTopic ? currentTopic.title : ''}</span>
+        }>{currentTopic ? stripPrefix(currentTopic.title) : ''}</span>
       </div>
 
       {/* Units Banner */}

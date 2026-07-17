@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Markdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
@@ -9,10 +9,10 @@ import './Content.css';
 
 function CodeBlock({ children }) {
   const [copied, setCopied] = useState(false);
+  const codeRef = useRef(null);
 
-  const handleCopy = (e) => {
-    const codeElement = e.currentTarget.nextElementSibling.querySelector('code');
-    const text = codeElement?.textContent || '';
+  const handleCopy = () => {
+    const text = codeRef.current?.textContent || '';
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -24,7 +24,7 @@ function CodeBlock({ children }) {
         {copied ? <MdCheck /> : <MdContentCopy />}
       </button>
       <pre>
-        <code>{children}</code>
+        <code ref={codeRef}>{typeof children === 'string' ? children.replace(/\n$/, '') : children}</code>
       </pre>
     </div>
   );
@@ -68,6 +68,10 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
           a: ({ href, children }) => (
             <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>
           ),
+          p: ({ children }) => {
+            const isNbsp = children === '\u00a0';
+            return <p className={isNbsp ? 'nbsp-spacer' : undefined}>{children}</p>;
+          },
           pre: ({ children }) => {
             const code = children?.props?.children;
             return <CodeBlock>{code}</CodeBlock>;

@@ -12,6 +12,7 @@
   color: var(--heading-h1-color);
 }
 
+
 .content h3, .content h4, .content h5, .content h6 {
   margin-top: 24px;
   margin-bottom: 12px;
@@ -32,12 +33,26 @@
   margin-left: 20px;
 }
 
-.content h2 ~ h2, .content h2 ~ h3, .content h2 ~ h4, .content h2 ~ h5, .content h2 ~ h6,
-.content h3 ~ h2, .content h3 ~ h3, .content h3 ~ h4, .content h3 ~ h5, .content h3 ~ h6,
-.content h4 ~ h2, .content h4 ~ h3, .content h4 ~ h4, .content h4 ~ h5, .content h4 ~ h6,
-.content h5 ~ h2, .content h5 ~ h3, .content h5 ~ h4, .content h5 ~ h5, .content h5 ~ h6,
-.content h6 ~ h2, .content h6 ~ h3, .content h6 ~ h4, .content h6 ~ h5, .content h6 ~ h6 {
+.content h2 ~ h2, .content h2 ~ h3, .content h2 ~ h4, .content h2 ~ h6,
+.content h3 ~ h2, .content h3 ~ h3, .content h3 ~ h4, .content h3 ~ h6,
+.content h4 ~ h2, .content h4 ~ h3, .content h4 ~ h4, .content h4 ~ h6,
+.content h5 ~ h2, .content h5 ~ h3, .content h5 ~ h4, .content h5 ~ h6,
+.content h6 ~ h2, .content h6 ~ h3, .content h6 ~ h4, .content h6 ~ h6 {
   margin-left: 0;
+}
+
+.content h5 {
+  font-size: 1em;
+  color: #868671;
+  margin-left: 20px;
+}
+
+.content h5 ~ p {
+  margin-left: 40px;
+}
+
+.content h5 ~ .code-block-wrapper {
+  margin-left: 40px;
 }
 
 .content h2 ~ pre, .content h3 ~ pre, .content h4 ~ pre, .content h5 ~ pre, .content h6 ~ pre {
@@ -47,6 +62,11 @@
 .content p {
   margin-bottom: 12px;
   margin-left: 20px;
+}
+
+.content p.nbsp-spacer {
+  line-height: 1.2;
+  margin-bottom: 0;
 }
 
 .content pre {
@@ -61,15 +81,27 @@
 
 .code-block-wrapper {
   position: relative;
+  display: block;
+  width: 66%;
   margin-bottom: 24px;
+}
+
+.code-block-wrapper pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-x: hidden;
+  padding: 16px 16px 16px 48px !important;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.4;
 }
 
 .copy-button {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 8px;
   padding: 8px;
-  background: var(--content-accent);
+  background: var(--code-copy-accent);
   color: white;
   border: none;
   border-radius: 4px;
@@ -82,7 +114,7 @@
 }
 
 .copy-button:hover {
-  background: var(--content-accent-hover);
+  background: var(--code-copy-accent-hover);
 }
 
 .content code {
