@@ -61,8 +61,14 @@
   margin-left: 40px;
 }
 
-.content h2 ~ pre, .content h3 ~ pre, .content h4 ~ pre, .content h5 ~ pre, .content h6 ~ pre {
+.content h2 ~ pre, .content h3 ~ pre, .content h4 ~ pre, .content h5 ~ pre, .content h6 ~ pre,
+.content h2 ~ hr, .content h3 ~ hr, .content h4 ~ hr, .content h5 ~ hr, .content h6 ~ hr {
   margin-left: 0;
+}
+
+.content hr {
+  margin-left: 0 !important;
+  margin-top: 30px;
 }
 
 .content p {
