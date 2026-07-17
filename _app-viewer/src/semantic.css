@@ -255,8 +255,8 @@
   --content-heading: var(--color-text);
   --content-code-bg: var(--color-code-bg);
   --content-code-text: var(--color-code-text);
-  --code-copy-accent: #6b7280;
-  --code-copy-accent-hover: #4b5563;
+  --code-copy-accent: #22c55e;
+  --code-copy-accent-hover: #16a34a;
   --content-inline-code-bg: var(--color-bg-alt);
   --content-table-border: var(--color-border);
   --content-table-header-bg: var(--color-bg-alt);
