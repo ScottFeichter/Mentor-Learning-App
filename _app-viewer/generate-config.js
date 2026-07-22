@@ -102,6 +102,8 @@ function scanStructure() {
           symlinkName = `${courseFolder}--${topicFolder}`;
         }
 
+        if (files.length === 0) continue;
+
         const topic = {
           id: slugify(symlinkName),
           title: topicFolder,
