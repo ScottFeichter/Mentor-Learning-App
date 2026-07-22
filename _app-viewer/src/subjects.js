@@ -17,7 +17,7 @@ export const subjects = [
       { id: "06-shell-grep-and-git", title: "06. Shell, Grep, and Git", topics: findTopics(["01-shell","02-grep","03-git"]) },
       { id: "07-html-and-css", title: "07. HTML and CSS", topics: findTopics(["00-html","01-css","02-browsers","03-environments-and-core-utilities","04-design-and-accessibility","05-web-builders"]) },
       { id: "08-browsers", title: "08. Browsers", topics: findTopics([]) },
-      { id: "09-javascript", title: "09. JavaScript", topics: findTopics(["images","markdown"]) },
+      { id: "09-javascript", title: "09. JavaScript", topics: findTopics(["markdown"]) },
       { id: "10-advanced-javascript", title: "10. Advanced JavaScript", topics: findTopics(["01-misc-js","02-oop-and-context","03-functions","04-callbacks","05-promises","06-async-await","07-recursion","08-closure","09-time-and-space-complexity","10-data-structures","11-algorithms","12-blind75"]) },
       { id: "11-react-redux-and-remix", title: "11. React, Redux, and Remix", topics: findTopics([]) },
       { id: "12-node", title: "12. Node", topics: findTopics(["01-node-tools-for-development-part-i","02-node-tools-for-development-part-ii","03-node-tools-for-development-part-iii","04-node-tools-for-development-part-iv","05-node-introduction","06-node-version-manager","07-node-installation","08-node-js-runtime","09-node-architecture","10-node-vs-browsers","11-node-jom","12-node-globals","13-node-errors","14-node-imports-and-exports","15-node-standard-library","16-node-os-module","17-node-path-module","18-node-fs-module","19-node-readline-module","20-node-event-loop","21-node-timers-module","22-node-event-module","23-node-stream-module","24-node-readline-module","25-node-decoder-module","26-node-http-module","27-node-https-module","28-node-package-manager","29-node-pnpm-package","30-node-yarn-package","31-node-express-part-i-server-basics","32-node-dotenv-package","33-node-nodemon-package","34-node-newman-package","35-node-js-docs-package","36-node-winston-package","37-node-swagger-package","38-node-express-part-ii-data-integrity","39-node-joi-package","40-node-validator-package","41-node-express-validator-package","42-node-express-part-iii-security","43-node-helmet-package","44-node-bcrypt-module","45-node-jsonwebtoken-package","46-node-cookie-parser-package","47-node-express-xss-sanitizer-package","48-node-express-rate-limit-package","49-node-cors-package","50-node-passport-package","51-node-express-part-iv-databases","52-node-express-part-iv-b-rdbms","53-node-mongoose-package","54-node-prisma-package","55-node-sequelize-package","56-node-express-part-v-rendering","57-node-ejs-package","58-node-react-package","59-node-express-part-vi-testing","60-node-jest-package","61-node-chai-package","62-node-mocha-package","63-node-xlsx-and-exceljs-packages","64-node-docx-docstemplater-mammoth-packages","65-node-pptxgenjs-package","66-node-puppeteer-and-pdf-lib-packages","67-node-nodemailer-package","68-deployment","69-architecture","70-node-lodash-package","71-node-pm2-package","72-node-eslint-package","73-node-vs-bun-runtime","74-node-vite","75-node-socket-io-package","76-node-moment-package","77-node-babel-package","78-node-cloudinary-package","79-software-development-kits"]) },
@@ -45,6 +45,10 @@ export const subjects = [
     id: "03-motor-vehicles",
     title: "03. Motor Vehicles",
     courses: [
+      { id: "cars", title: "Cars", topics: findTopics([]) },
+      { id: "motor-scooters", title: "Motor Scooters", topics: findTopics([]) },
+      { id: "motorcycles", title: "Motorcycles", topics: findTopics([]) },
+      { id: "trucks", title: "Trucks", topics: findTopics([]) },
     ],
   },
   {
@@ -92,6 +96,7 @@ export const subjects = [
       { id: "cooking", title: "Cooking", topics: findTopics([]) },
       { id: "health", title: "Health", topics: findTopics([]) },
       { id: "history", title: "History", topics: findTopics([]) },
+      { id: "religion", title: "Religion", topics: findTopics([]) },
       { id: "sexuality", title: "Sexuality", topics: findTopics([]) },
     ],
   },
