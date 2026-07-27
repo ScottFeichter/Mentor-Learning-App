@@ -1,0 +1,74 @@
+[data-palette="ocean-gradient"] {
+  /* Base colors - same as ocean */
+  --color-primary: #ffffff;
+  --color-secondary: #6c0101;
+  --color-tertiary: #3D7EF0;
+  --color-quarternary: rgb(171, 171, 150);
+  --color-quinary: #fef5d6;
+  --color-quinary-dark: #f2e49d;
+
+  /* Derived: light = base at reduced opacity */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  --color-secondary-light: color-mix(in srgb, var(--color-secondary) 40%, transparent);
+  --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) 65%, transparent);
+  --color-quarternary-light: color-mix(in srgb, var(--color-quarternary) 53%, transparent);
+  --color-quinary-light: color-mix(in srgb, var(--color-quinary) 50%, transparent);
+
+  /* Derived: lighter/lightest = primary at lower opacity */
+  --color-primary-lighter: color-mix(in srgb, var(--color-primary) 32%, transparent);
+  --color-primary-lightest: color-mix(in srgb, var(--color-primary) 8%, transparent);
+
+  /* Derived: alt = base mixed with white (lightened) */
+  --color-primary-alt: color-mix(in srgb, var(--color-primary) 30%, white);
+  --color-secondary-alt: color-mix(in srgb, var(--color-secondary) 30%, white);
+  --color-tertiary-alt: color-mix(in srgb, var(--color-tertiary) 35%, white);
+  --color-quarternary-alt: color-mix(in srgb, var(--color-quarternary) 40%, white);
+  --color-quinary-alt: color-mix(in srgb, var(--color-quinary) 35%, white);
+
+  /* Backgrounds - GRADIENTS */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f8fa;
+  --color-bg-hover: #040404;
+  --color-bg-active: #2ff166;
+  --color-bg-disabled: #dedede;
+
+  /* Text */
+  --color-text: #000000;
+  --color-text-muted: #64748b;
+  --color-text-inverse: var(--color-bg);
+  --color-text-disabled: var(--color-bg-disabled);
+
+  /* Borders */
+  --color-border: rgb(128, 127, 127);
+  --color-border-light: var(--color-bg);
+  --color-border-medium: var(--color-border);
+  --color-border-strong: #010101;
+  --color-border-disabled: var(--color-bg-disabled);
+
+  /* Code */
+  --color-code-bg: #1e293b;
+  --color-code-text: #e2e8f0;
+
+  /* Accent */
+  --color-accent: var(--color-tertiary);
+  --color-accent-hover: color-mix(in srgb, var(--color-tertiary) 70%, black);
+
+  /* Gradient overrides for banner backgrounds */
+  --gradient-primary: var(--color-primary);
+  --gradient-secondary: linear-gradient(to right, #6c0101 0%, #a01010 50%, #6c0101 100%);
+  --gradient-tertiary: linear-gradient(to right, #2563eb 0%, #3D7EF0 50%, #60a5fa 100%);
+  --gradient-quarternary: linear-gradient(to right, #9b9b82 0%, #ababaa 50%, #c4c4b0 100%);
+  --gradient-quinary: linear-gradient(to right, #fef5d6 0%, #f2e49d 50%, #fef5d6 100%);
+
+  /* Gradient overrides for active menu items - light left to dark right */
+  --gradient-secondary-active: linear-gradient(to right, #a01010 0%, #5a0101 100%);
+  --gradient-tertiary-active: linear-gradient(to right, #5b9cf5 0%, #1d4ed8 100%);
+  --gradient-quarternary-active: linear-gradient(to right, #b0b09a 0%, #7a7a65 100%);
+  --gradient-quinary-active: linear-gradient(to right, #fef9e8 0%, #f5eaa0 100%);
+
+  /* Gradient overrides for hover menu items - lighter */
+  --gradient-secondary-hover: linear-gradient(to right, #f0b0b0 0%, transparent 95%);
+  --gradient-tertiary-hover: linear-gradient(to right, #bdd4fc 0%, transparent 95%);
+  --gradient-quarternary-hover: linear-gradient(to right, #e0e0d4 0%, transparent 95%);
+  --gradient-quinary-hover: linear-gradient(to right, #fef5d6 0%, transparent 95%);
+}

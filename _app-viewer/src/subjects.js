@@ -12,9 +12,9 @@ export const subjects = [
       { id: "01-intro-to-computer-science", title: "01. Intro To Computer Science", topics: findTopics(["00-what-is-a-signal","01-what-is-electricity","02-what-is-a-circuit","03-circuit-components","04-logic-gates","05-transistors","06-integrated-circuits","07-what-is-a-computer","08-how-the-web-works","09-more-about-networks"]) },
       { id: "02-information-technology", title: "02. Information Technology", topics: findTopics([]) },
       { id: "03-networking", title: "03. Networking", topics: findTopics([]) },
-      { id: "04-operating-systems", title: "04. Operating Systems", topics: findTopics(["00-unix","01-linux","02-mac-os","03-windows","04-ios","05-android","06-chromium","07-graphene"]) },
+      { id: "04-operating-systems", title: "04. Operating Systems", topics: findTopics(["00-components-of-an-os","00-unix","01-linux","02-mac-os","03-windows","04-ios","05-android","06-chromium","07-graphene"]) },
       { id: "05-programing-languages", title: "05. Programing Languages", topics: findTopics(["strongly-typed-languages","weakly-typed-languages"]) },
-      { id: "06-shell-grep-and-git", title: "06. Shell, Grep, and Git", topics: findTopics(["01-shell","02-grep","03-git"]) },
+      { id: "06-shell-grep-git-github-gh-cli-md", title: "06. Shell, Grep, Git, GitHub, GH CLI.md", topics: findTopics(["01-shell","02-grep","03-git","04-github-cli"]) },
       { id: "07-html-and-css", title: "07. HTML and CSS", topics: findTopics(["00-html","01-css","02-browsers","03-environments-and-core-utilities","04-design-and-accessibility","05-web-builders"]) },
       { id: "08-browsers", title: "08. Browsers", topics: findTopics([]) },
       { id: "09-javascript", title: "09. JavaScript", topics: findTopics(["markdown"]) },
@@ -62,30 +62,35 @@ export const subjects = [
     id: "05-electricity",
     title: "05. Electricity",
     courses: [
+      { id: "forces", title: "Forces", topics: findTopics([]) },
     ],
   },
   {
     id: "06-sports",
     title: "06. Sports",
     courses: [
+      { id: "football-americano", title: "Football Americano", topics: findTopics([]) },
     ],
   },
   {
     id: "07-music",
     title: "07. Music",
     courses: [
+      { id: "blues", title: "Blues", topics: findTopics([]) },
     ],
   },
   {
     id: "08-math",
     title: "08. Math",
     courses: [
+      { id: "algebra", title: "Algebra", topics: findTopics([]) },
     ],
   },
   {
     id: "09-art",
     title: "09. Art",
     courses: [
+      { id: "forms", title: "Forms", topics: findTopics([]) },
     ],
   },
   {

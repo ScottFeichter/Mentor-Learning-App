@@ -1,0 +1,428 @@
+.app {
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* ===== TOP BANNER (1st) ===== */
+.top-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: var(--top-banner-bg);
+  color: var(--top-banner-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  z-index: 110;
+  border-bottom: 1px solid var(--top-banner-border);
+  transition: height 0.3s ease;
+}
+
+.top-banner-left {
+  position: absolute;
+  left: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.banner-triangle {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 19px solid currentColor;
+  background: none;
+  border-bottom: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 0.5px grey);
+}
+
+.banner-triangle:last-child {
+  filter: drop-shadow(0 0 1px grey);
+}
+
+.banner-triangle.expanded {
+  transform: rotate(0deg);
+}
+
+.banner-triangle.expanded:hover {
+  transform: rotate(0deg) scale(1.3);
+}
+
+.banner-triangle:not(.expanded) {
+  transform: rotate(180deg);
+}
+
+.banner-triangle:not(.expanded):hover {
+  transform: rotate(180deg) scale(1.3);
+}
+
+.top-banner-title {
+  font-weight: 1000;
+  font-size: 2em;
+}
+
+.top-banner-right {
+  position: absolute;
+  right: 16px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ===== SUBJECT BANNER (2nd) ===== */
+.subject-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: var(--subject-banner-bg);
+  color: var(--subject-banner-text);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 100;
+  border-bottom: 1px solid var(--subject-banner-border);
+  overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
+}
+
+.subject-banner-title {
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
+.subject-banner .toggle-btn-subject {
+  position: absolute;
+  left: 16px;
+}
+
+/* ===== COURSE BANNER (3rd) ===== */
+.course-banner {
+  position: fixed;
+  right: 0;
+  background: var(--course-banner-bg);
+  color: var(--course-banner-text);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 90;
+  border-bottom: 1px solid var(--course-banner-border);
+  overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
+}
+
+.course-banner-title {
+  font-weight: 700;
+  font-size: 1.35em;
+}
+
+.course-banner .toggle-btn-course {
+  position: absolute;
+  left: 16px;
+}
+
+/* ===== TOPICS BANNER (4th) ===== */
+.topics-banner {
+  position: fixed;
+  right: 0;
+  background: var(--topic-banner-bg);
+  color: var(--topic-banner-text);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 80;
+  border-bottom: 1px solid var(--topic-banner-border);
+  overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
+}
+
+.topics-banner-title {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.topics-banner .toggle-btn-topics {
+  position: absolute;
+  left: 16px;
+}
+
+/* ===== UNITS BANNER (5th) ===== */
+.units-banner {
+  position: fixed;
+  right: 0;
+  background: var(--units-banner-bg);
+  color: var(--units-banner-text);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  z-index: 70;
+  border-top: .25px solid var(--units-banner-border);
+  border-bottom: 1.5px solid var(--units-banner-border);
+  overflow: hidden;
+  transition: height 0.3s ease, top 0.3s ease, transform 0.3s ease;
+}
+
+.units-banner-title {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.units-banner .toggle-btn-units {
+  position: absolute;
+  left: 16px;
+}
+
+.banner-nav-buttons {
+  position: absolute;
+  left: 120px;
+  display: flex;
+  gap: 4px;
+}
+
+.banner-nav-btn {
+  background: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+  height: 22px;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
+  transition: all 0.3s ease;
+}
+
+.banner-nav-btn svg {
+  font-size: 11px;
+  vertical-align: middle;
+}
+
+.banner-nav-btn:hover:not(:disabled) {
+  background: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  border-color: var(--btn-hover-border);
+}
+
+.banner-nav-btn:disabled {
+  background: var(--btn-disabled-bg);
+  color: var(--btn-disabled-text);
+  border-color: var(--btn-disabled-border);
+  cursor: default;
+  pointer-events: none;
+}
+
+.banner-nav-btn:focus {
+  outline: none;
+}
+
+.banner-nav-btn:active:not(:disabled) {
+  background: var(--btn-active-bg);
+  color: var(--btn-active-text);
+  border-color: var(--btn-active-border);
+}
+
+/* ===== TOGGLE BUTTONS ===== */
+.toggle-btn-subject {
+  background: var(--subject-menu-toggle-bg);
+  border: 1px solid var(--subject-menu-toggle-border);
+  color: var(--subject-menu-toggle-text);
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn-subject:hover {
+  background: var(--subject-menu-toggle-hover-bg);
+  color: var(--subject-menu-toggle-hover-text);
+}
+
+.toggle-btn-subject:active {
+  background: var(--subject-menu-toggle-active-bg);
+  color: var(--subject-menu-toggle-active-text);
+}
+
+.toggle-btn-subject.closed {
+  background: var(--subject-menu-toggle-closed-bg);
+  color: var(--subject-menu-toggle-closed-text);
+  border-color: var(--subject-menu-toggle-closed-border);
+}
+
+.toggle-btn-subject.closed:hover {
+  background: var(--subject-menu-toggle-closed-hover-bg);
+  color: var(--subject-menu-toggle-closed-hover-text);
+  border-color: var(--subject-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-course {
+  background: var(--course-menu-toggle-bg);
+  border: 1px solid var(--course-menu-toggle-border);
+  color: var(--course-menu-toggle-text);
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn-course:hover {
+  background: var(--course-menu-toggle-hover-bg);
+  color: var(--course-menu-toggle-hover-text);
+}
+
+.toggle-btn-course:active {
+  background: var(--course-menu-toggle-active-bg);
+  color: var(--course-menu-toggle-active-text);
+}
+
+.toggle-btn-course.closed {
+  background: var(--course-menu-toggle-closed-bg);
+  color: var(--course-menu-toggle-closed-text);
+  border-color: var(--course-menu-toggle-closed-border);
+}
+
+.toggle-btn-course.closed:hover {
+  background: var(--course-menu-toggle-closed-hover-bg);
+  color: var(--course-menu-toggle-closed-hover-text);
+  border-color: var(--course-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-topics {
+  background: var(--topic-menu-toggle-bg);
+  border: 1px solid var(--topic-menu-toggle-border);
+  color: var(--topic-menu-toggle-text);
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn-topics:hover {
+  background: var(--topic-menu-toggle-hover-bg);
+  color: var(--topic-menu-toggle-hover-text);
+}
+
+.toggle-btn-topics:active {
+  background: var(--topic-menu-toggle-active-bg);
+  color: var(--topic-menu-toggle-active-text);
+}
+
+.toggle-btn-topics.closed {
+  background: var(--topic-menu-toggle-closed-bg);
+  color: var(--topic-menu-toggle-closed-text);
+  border-color: var(--topic-menu-toggle-closed-border);
+}
+
+.toggle-btn-topics.closed:hover {
+  background: var(--topic-menu-toggle-closed-hover-bg);
+  color: var(--topic-menu-toggle-closed-hover-text);
+  border-color: var(--topic-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-units {
+  background: var(--units-menu-toggle-bg);
+  border: 1px solid var(--units-menu-toggle-border);
+  color: var(--units-menu-toggle-text);
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn-units:hover {
+  background: var(--units-menu-toggle-hover-bg);
+  color: var(--units-menu-toggle-hover-text);
+}
+
+.toggle-btn-units:active {
+  background: var(--units-menu-toggle-active-bg);
+  color: var(--units-menu-toggle-active-text);
+}
+
+.toggle-btn-units.closed {
+  background: var(--units-menu-toggle-closed-bg);
+  color: var(--units-menu-toggle-closed-text);
+  border-color: var(--units-menu-toggle-closed-border);
+}
+
+.toggle-btn-units.closed:hover {
+  background: var(--units-menu-toggle-closed-hover-bg);
+  color: var(--units-menu-toggle-closed-hover-text);
+  border-color: var(--units-menu-toggle-closed-hover-border);
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+  background: var(--content-bg);
+  transition: padding-top 0.3s ease;
+}
+
+/* ===== THEME PICKER ===== */
+.theme-btn {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.theme-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 16px;
+  height: 1.5px;
+  background: var(--color-text, #000);
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+.theme-btn.active::after {
+  transform: translateX(-50%) scaleX(1);
+}

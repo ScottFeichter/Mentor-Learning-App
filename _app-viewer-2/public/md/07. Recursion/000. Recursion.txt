@@ -1,0 +1,174 @@
+Recursion: Function that calls itself (not "function as a return")
+
+BUT RECURSION CAN BE ITSELF CALLED IN THE RETURN (DIFFERENT FROM RETURNING A FUNCTION...)
+
+Recursion isn't about returning references to functions - it's about a function calling itself
+
+RECURSION CAN BE ITSELF CALLED IN THE RETURN (DIFFERENT FROM RETURNING A FUNCTION...)
+
+RECURSION = Function CALLS itself (with parentheses):
+
+return functionName(); // CALLS itself - this IS recursion
+
+
+SELF-RETURNING = Function RETURNS itself as a reference (no parentheses):
+
+return functionName; // RETURNS itself - this is NOT recursion
+
+The key is the parentheses:
+
+() = CALL = recursion
+
+No () = REFERENCE = self-returning
+
+So recursion can absolutely happen in a return statement - it's still recursion because you're calling the function, not just returning a reference to it.
+
+BUT IT DOES NOT HAVE TO BE IN THE RETURN STATEMENT - IT CAN CALL ITSELF IN THE FUNCTION BODY AND ITS RECURSION
+
+Recursion example:
+
+function countdown(n) {
+  if (n > 0) {
+    console.log(n);
+    countdown(n - 1); // function calls itself
+  }
+}
+
+
+Closures and recursion are completely separate concepts that don't depend on each other.
+
+Still, recursion and closures are completely independent concepts that can work together. The recursive function can capture and use variables from its outer scope just like any other function.
+
+
+
+Recursion creates a stack (not queue) on the call stack, and it's more than just queuing.
+
+What recursion does:
+
+function countdown(n) {
+  console.log(n);
+  if (n > 0) {
+    countdown(n - 1); // Each call adds to the stack
+  }
+}
+countdown(3);
+
+Copy
+javascript
+Call stack grows like this:
+
+countdown(0)  ← top of stack
+countdown(1)
+countdown(2)
+countdown(3)  ← bottom
+
+Copy
+Key differences from a queue:
+
+Stack: Last In, First Out (LIFO) - like stacking plates
+
+Queue: First In, First Out (FIFO) - like a line at a store
+
+Each recursive call:
+
+Adds a new frame to the call stack
+
+Preserves local variables for each call level
+
+Returns in reverse order when base case is reached
+
+So recursion builds up a stack of function calls, each with their own memory space, then unwinds them in reverse order. It's not just queuing - it's creating nested execution contexts that must complete in LIFO order.
+
+
+so any algorithm problem that requires a stack can be solved with recursion?
+
+Yes, generally true! Since recursion uses the call stack, most stack-based algorithms can be solved recursively.
+
+Examples:
+
+Tree traversal - recursive or explicit stack
+
+Depth-first search - recursive or stack
+
+Parentheses matching - recursive or stack
+
+Backtracking - recursive or stack
+
+However, there are practical considerations:
+
+Stack overflow risk:
+
+// Deep recursion can crash
+function deepRecursion(n) {
+  if (n === 0) return;
+  return deepRecursion(n - 1);
+}
+deepRecursion(100000); // May cause stack overflow
+
+Copy
+javascript
+Iterative with explicit stack is safer:
+
+function iterativeApproach(n) {
+  let stack = [n];
+  while (stack.length > 0) {
+    let current = stack.pop();
+    if (current > 0) {
+      stack.push(current - 1);
+    }
+  }
+}
+
+Copy
+javascript
+So the answer is:
+
+Theoretically: Yes, any stack algorithm can use recursion
+
+Practically: Sometimes iterative + explicit stack is better for deep operations due to call stack limits
+
+Recursion is elegant for stack problems, but you need to consider stack depth limits in real applications.
+
+is there a performance difference when solving iterative with explicit stack vs recursive stack?
+
+Yes, there are performance differences:
+
+Iterative with explicit stack is generally faster because:
+
+Function call overhead:
+
+Recursive: Each call has overhead (parameter passing, return address, stack frame setup)
+
+Iterative: No function call overhead, just array operations
+
+Memory usage:
+
+Recursive: Each call stores full execution context (variables, return address, etc.)
+
+Iterative: Only stores the data you actually need in your stack
+
+Stack limits:
+
+Recursive: Limited by call stack size (~10,000-50,000 calls typically)
+
+Iterative: Limited by available heap memory (much larger)
+
+Typical performance:
+
+// Slower - function call overhead + full context per call
+function recursiveSum(arr, index = 0) {
+  if (index >= arr.length) return 0;
+  return arr[index] + recursiveSum(arr, index + 1);
+}
+
+// Faster - just loop with minimal overhead
+function iterativeSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum;
+}
+
+
+However: Modern JavaScript engines optimize tail recursion in some cases, and recursive code is often more readable. The performance difference matters most for deep operations or performance-critical code.

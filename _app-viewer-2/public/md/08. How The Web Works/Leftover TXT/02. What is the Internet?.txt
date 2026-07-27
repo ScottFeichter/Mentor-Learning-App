@@ -1,0 +1,9 @@
+The internet is a series of internetworked systems
+
+There must be end nodes that send and receive signals (hosts)
+
+There must be a medium to carry data signals (electrical/optical/electromagnetic waves)
+
+There must be rules to have intelligible communications (protocols)
+
+If you are familiar with Morse code this is an example of a protocol

@@ -1,0 +1,148 @@
+Closure: Function that has access to variables from its outer scope, even after the outer function has finished executing
+
+Closure isn't created from recursion - it's created when an inner function accesses outer variables
+
+Closure example:
+
+function outer() {
+  let x = 10;           // 1. Variable created
+  return function inner() {
+    console.log(x);     // 2. Inner function references x
+  };                    // 3. Inner function returned
+}                       // 4. outer() execution FINISHES here
+
+let myClosure = outer(); // 5. outer() has finished executing
+myClosure();            // 6. But inner() still accesses x = 10
+
+The key point: Normally when a function finishes executing, its variables get garbage collected. But because the inner function still references x, JavaScript keeps that variable alive even after outer() is done.
+
+So when I say "outer finishes," I mean:
+
+The outer() function has completed its execution
+
+Its execution context is gone
+
+But the variable x is preserved because the returned inner function still needs it
+
+That's the "magic" of closures - the inner function "closes over" the outer variables and keeps them accessible even after the outer function is finished.
+
+
+It's the same x - not copied, not inherited. The inner function maintains a reference to the original variable.
+
+Here's proof:
+
+function outer() {
+  let x = 10;
+  return {
+    getValue: function() { return x; },
+    setValue: function(newValue) { x = newValue; }
+  };
+}
+
+let closure1 = outer();
+let closure2 = outer();
+
+console.log(closure1.getValue()); // 10
+closure1.setValue(20);
+console.log(closure1.getValue()); // 20 - same x was modified
+
+console.log(closure2.getValue()); // 10 - different x from different outer() call
+
+Copy
+javascript
+What happens:
+
+Each call to outer() creates its own x variable
+
+The returned functions keep a live reference to that specific x
+
+If you modify x through one function, other functions from the same closure see the change
+
+But different calls to outer() create separate x variables
+
+So it's not copied or inherited - it's the actual same variable being kept alive by the closure mechanism. JavaScript preserves the entire lexical environment that the inner function needs.
+
+so basically it is just a memory location that does not get garbage collected and retains a particular scope?
+
+Exactly! You've nailed it perfectly.
+
+
+A closure is essentially:
+
+Memory locations (variables) that don't get garbage collected
+
+Scope preservation - the inner function keeps the outer scope "alive"
+
+Normally when outer() finishes, its variables would be garbage collected. But because the inner function still references them, JavaScript says "wait, someone still needs this memory" and keeps it around.
+
+So yes - it's a memory location with preserved scope access. The closure mechanism prevents garbage collection of variables that are still reachable through the inner function.
+
+This is why closures can sometimes cause memory leaks if you're not careful - they keep references to variables that might otherwise be cleaned up.
+
+so basically the whole global object we work in is a closure of sorts?
+
+That's a really insightful observation! You're thinking about it correctly in terms of scope persistence, but there's a subtle difference:
+
+Global scope is more like the "root" or "outermost" scope that never gets garbage collected because it's always accessible. It doesn't need closure mechanics to stay alive.
+
+Closures specifically refer to when an inner function captures variables from an outer function's scope that would otherwise be destroyed.
+
+But you're absolutely right that conceptually they're similar - both involve:
+
+Memory that doesn't get garbage collected
+
+Persistent scope access
+
+Variables staying alive longer than their original execution context
+
+The difference is:
+
+Global scope: Always alive by design
+
+Closure: Artificially kept alive because an inner function needs it
+
+So while the global object isn't technically a closure, your thinking about "persistent scope with protected memory" is exactly the right mental model for understanding how closures work!
+
+You're connecting the concepts really well.
+
+so global scope and closures avoid garbage collection. anything else?
+
+Yes, several other things avoid garbage collection:
+
+Active references:
+
+Variables currently in scope and being used
+
+DOM elements that are still attached to the page
+
+Event listeners that haven't been removed
+
+Circular references:
+
+Objects that reference each other (though modern JS engines handle most of these)
+
+Timers and intervals:
+
+setTimeout/setInterval callbacks keep their referenced variables alive
+
+The variables stay alive until the timer is cleared
+
+Module scope:
+
+Variables in ES6 modules persist for the module's lifetime
+
+Similar to global but scoped to the module
+
+Web APIs:
+
+WebSocket connections
+
+Open database connections
+
+Active HTTP requests
+
+The key pattern is: anything that's still reachable won't be garbage collected. JavaScript's garbage collector only cleans up memory that has no remaining references pointing to it.
+
+So it's not just global scope and closures - it's really about reachability from active code.
+
+

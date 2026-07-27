@@ -1,0 +1,13 @@
+MAC Address Tables
+
+The switch makes its forwarding decision based on layer 2 information - the Ethernet header information of the Ethernet Frame.
+
+It looks at the source MAC address and checks if it already exists on its table. If not, it adds it to its table.
+
+It then checks for the destination MAC address and if not it will send it out EVERY port except the incoming port.
+
+An unknown unicast is when it does not know where to send it.
+
+When it sends it to its known addresses they look at it and check if it is a match. If not, they ignore.
+
+As it receives an unknown source MAC it will add it to its table (keeps it for about 5 minutes).

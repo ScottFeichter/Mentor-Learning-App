@@ -1,0 +1,13 @@
+Gateway - the way traffic leaves a LAN and goes to other networks. It is like the exit door.
+
+Default Gateway - on a host this is the first gateway it will try. The default gateway can be different for different hosts on the same network as long as both gateways are on the same network; however this is common because generally unnecessary. Often the router is the default gateway for all hosts on its network
+
+Each interface on a router is connected to a separate network. The IPv4 address assigned to the interface identifies which local network is connected directly to it. Each host must know the IPv4 address of the router interface connected to the network it is attached to. This address is the default gateway of the host and it can be configured on the host statically or dynamically by DHCP.
+
+It is common for the router to also be the DHCP server. Therefore it is providing its own internal IPv4 address as the default gateway to DHCP clients and it is providing the clients own IPv4 address and subnet mask (when hosts are set to DHCP).
+
+Most DHCP servers (when it is the router) are configured to assign private addresses to the hosts on the internal network rather than public addresses. The default IPv4 address on the router is usually the first host address and it will provide hosts with addresses within the same network and within a range. The size of the range can be configured by the admin.
+
+Many ISPs also use DHCP servers to provide IPv4 addresses to the internet side of the routers. The network is referred to as the external or outside network. In this case the wireless router is in the role of the client to receive the correct external network IPv4 address for the internet interface. This is usually an internet routable address (public?) and thus the hosts connected to the router have a way to access the internet.
+
+The router is therefore the boundary or go between for the local network and the external internet. It is in the role of DHCP server and client.

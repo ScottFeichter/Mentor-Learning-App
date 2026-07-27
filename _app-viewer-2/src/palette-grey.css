@@ -1,0 +1,109 @@
+:root {
+  /* Base colors */
+  --color-primary: #555;
+  --color-secondary: #777;
+  --color-tertiary: #999;
+  --color-quarternary: #bbb;
+  --color-quinary: #ddd;
+
+  /* Derived: light = base at reduced opacity */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  --color-secondary-light: color-mix(in srgb, var(--color-secondary) 40%, transparent);
+  --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) 65%, transparent);
+  --color-quarternary-light: color-mix(in srgb, var(--color-quarternary) 53%, transparent);
+  --color-quinary-light: color-mix(in srgb, var(--color-quinary) 50%, transparent);
+
+  /* Derived: lighter/lightest = primary at lower opacity */
+  --color-primary-lighter: color-mix(in srgb, var(--color-primary) 32%, transparent);
+  --color-primary-lightest: color-mix(in srgb, var(--color-primary) 8%, transparent);
+
+  /* Derived: alt = base mixed with white (lightened) */
+  --color-primary-alt: color-mix(in srgb, var(--color-primary) 30%, white);
+  --color-secondary-alt: color-mix(in srgb, var(--color-secondary) 30%, white);
+  --color-tertiary-alt: color-mix(in srgb, var(--color-tertiary) 35%, white);
+  --color-quarternary-alt: color-mix(in srgb, var(--color-quarternary) 40%, white);
+  --color-quinary-alt: color-mix(in srgb, var(--color-quinary) 35%, white);
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f5;
+  --color-bg-hover: #e8e8e8;
+  --color-bg-active: #999;
+  --color-bg-disabled: #dedede;
+
+  /* Text */
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-text-inverse: var(--color-bg);
+  --color-text-disabled: var(--color-bg-disabled);
+
+  /* Borders */
+  --color-border: #ccc;
+  --color-border-light: var(--color-bg);
+  --color-border-medium: var(--color-border);
+  --color-border-strong: #999;
+  --color-border-disabled: var(--color-bg-disabled);
+
+  /* Code */
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #f8f8f2;
+
+  /* Accent */
+  --color-accent: #333;
+  --color-accent-hover: #111;
+}
+
+[data-palette="grey"] {
+  /* Base colors */
+  --color-primary: #555;
+  --color-secondary: #777;
+  --color-tertiary: #999;
+  --color-quarternary: #bbb;
+  --color-quinary: #ddd;
+
+  /* Derived: light = base at reduced opacity */
+  --color-primary-light: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  --color-secondary-light: color-mix(in srgb, var(--color-secondary) 40%, transparent);
+  --color-tertiary-light: color-mix(in srgb, var(--color-tertiary) 65%, transparent);
+  --color-quarternary-light: color-mix(in srgb, var(--color-quarternary) 53%, transparent);
+  --color-quinary-light: color-mix(in srgb, var(--color-quinary) 50%, transparent);
+
+  /* Derived: lighter/lightest = primary at lower opacity */
+  --color-primary-lighter: color-mix(in srgb, var(--color-primary) 32%, transparent);
+  --color-primary-lightest: color-mix(in srgb, var(--color-primary) 8%, transparent);
+
+  /* Derived: alt = base mixed with white (lightened) */
+  --color-primary-alt: color-mix(in srgb, var(--color-primary) 30%, white);
+  --color-secondary-alt: color-mix(in srgb, var(--color-secondary) 30%, white);
+  --color-tertiary-alt: color-mix(in srgb, var(--color-tertiary) 35%, white);
+  --color-quarternary-alt: color-mix(in srgb, var(--color-quarternary) 40%, white);
+  --color-quinary-alt: color-mix(in srgb, var(--color-quinary) 35%, white);
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-alt: #f5f5f5;
+  --color-bg-hover: #e8e8e8;
+  --color-bg-active: #999;
+  --color-bg-disabled: #dedede;
+
+  /* Text */
+  --color-text: #333;
+  --color-text-muted: #666;
+  --color-text-inverse: var(--color-bg);
+  --color-text-disabled: var(--color-bg-disabled);
+
+  /* Borders */
+  --color-border: #ccc;
+  --color-border-light: var(--color-bg);
+  --color-border-medium: var(--color-border);
+  --color-border-strong: #999;
+  --color-border-disabled: var(--color-bg-disabled);
+
+  /* Code */
+  --color-code-bg: #2d2d2d;
+  --color-code-text: #f8f8f2;
+
+  /* Accent */
+  --color-accent: #333;
+  --color-accent-hover: #111;
+}

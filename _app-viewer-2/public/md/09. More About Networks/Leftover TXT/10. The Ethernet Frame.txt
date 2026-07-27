@@ -1,0 +1,23 @@
+The Ethernet Frame
+
+Ethernet - the NIC to NIC on the same network
+Preamble - get the receiving card in sync with the bits
+Start Frame Delimiter - indicates to the NIC that the next info will be the actual information
+Destination MAC Address - the destination device on the receiving network
+Source MAC Address - the sending device
+Length/Type - length in bytes of the data or the type of data it will be ie ipv4 packet or ipv6 packet
+Data - the actual data packet being delivered (could contain within different protocols)
+Frame Check Sequence - checks for no loss of data
+
+
+Encapsulation
+
+The process of placing one message format (the letter) inside another message format (the envelope).
+
+De-encapsulation is when the process is reversed by the recipient.
+
+Each computer message is encapsulated in a specific form called a frame.
+
+The frame is like the envelope as it provides the addresses.
+
+If it is not correctly formatted it is not successfully delivered.

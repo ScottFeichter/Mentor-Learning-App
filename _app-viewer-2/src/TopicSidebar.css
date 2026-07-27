@@ -1,0 +1,111 @@
+.topic-sidebar {
+  position: fixed;
+  bottom: 0;
+  background: var(--topic-menu-bg);
+  /* border-right: 1px solid var(--topic-menu-border-right); */
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  transition: top 0.3s ease;
+}
+
+.topic-nav-wrapper {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+.topic-nav-wrapper nav {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.topic-nav-wrapper nav::-webkit-scrollbar {
+  display: none;
+}
+
+.topic-sidebar a {
+  display: block;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--topic-menu-text);
+  border-top: none;
+  border-bottom: 1px solid var(--topic-menu-separator);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.85em;
+}
+
+.topic-sidebar a:first-child {
+  border-top: 1px solid var(--topic-menu-separator);
+}
+
+.topic-sidebar a:hover {
+  background: var(--topic-menu-hover-bg);
+}
+
+.topic-sidebar a.active {
+  background: var(--topic-menu-active-bg);
+  color: var(--topic-menu-active-text);
+}
+
+.topic-scrollbar-track {
+  width: 11px;
+  margin: 0px 1px 0px 1px;
+  background: var(--topic-menu-scrollbar-track);
+  position: relative;
+  cursor: pointer;
+  border-left: .5px solid var(--topic-menu-scrollbar-track-border);
+  border-right: .5px solid var(--topic-menu-scrollbar-track-border);
+  flex-shrink: 0;
+}
+
+.topic-scrollbar-thumb {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  background: var(--topic-menu-scrollbar-thumb);
+  border-radius: 10px;
+  cursor: grab;
+  min-height: 40px;
+}
+
+.topic-scrollbar-thumb:hover {
+  background: var(--topic-menu-scrollbar-thumb-hover);
+}
+
+.topic-scrollbar-thumb:active {
+  cursor: grabbing;
+  background: var(--topic-menu-scrollbar-thumb-hover);
+}
+
+.topic-resize-handle {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translate(50%, -50%);
+  width: 18px;
+  height: 60px;
+  cursor: ew-resize;
+  background: var(--topic-menu-resize-bg);
+  border: 2px solid var(--topic-menu-resize-border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--topic-menu-resize-dots);
+  font-size: 14px;
+  z-index: 50;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.topic-resize-handle:hover {
+  background: var(--topic-menu-resize-hover-bg);
+  color: var(--topic-menu-resize-hover-dots);
+  border-color: var(--topic-menu-resize-hover-border);
+}
