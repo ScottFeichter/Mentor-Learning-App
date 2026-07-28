@@ -9,12 +9,15 @@ import './palette-forest.css'
 import './palette-midnight.css'
 import './semantic.css'
 import './index.css'
+import { CompletionProvider } from './CompletionContext.jsx'
 import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <CompletionProvider>
+        <App />
+      </CompletionProvider>
     </BrowserRouter>
   </StrictMode>,
 )

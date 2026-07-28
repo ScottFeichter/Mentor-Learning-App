@@ -253,10 +253,50 @@
   pointer-events: none;
 }
 
-.top-button {
+.completion-row {
+  display: flex;
   width: 75%;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.completion-btn {
+  flex: 1;
   padding: 8px;
-  margin-top: 0;
+  border: 1px solid var(--content-nav-border);
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.completion-btn.available {
+  background: var(--content-nav-bg);
+  color: var(--content-nav-text);
+  cursor: pointer;
+}
+
+.completion-btn.available:hover {
+  background: var(--content-nav-hover-bg);
+  color: var(--content-nav-hover-text);
+}
+
+.completion-btn.available:active {
+  background: var(--content-nav-active-bg);
+  color: var(--content-nav-active-text);
+  border-color: var(--content-nav-active-border);
+}
+
+.completion-btn.current-state {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+  pointer-events: none;
+}
+
+.top-button {
+  flex: 1;
+  padding: 8px;
   cursor: pointer;
   border: 1px solid var(--content-nav-border);
   background: var(--content-nav-bg);
@@ -264,7 +304,6 @@
   font-weight: bold;
   color: var(--content-nav-text);
   transition: all 0.3s ease;
-  margin-bottom: 40px;
 }
 
 .top-button:hover {

@@ -206,7 +206,7 @@
   --btn-hover-border: var(--color-text);
 
   --btn-active-bg: var(--color-bg-active);
-  --btn-active-text: var(--color-bg-active);
+  --btn-active-text: var(--color-text-inverse);
   --btn-active-border: var(--color-bg-active);
 
   --btn-disabled-bg: var(--color-quinary);

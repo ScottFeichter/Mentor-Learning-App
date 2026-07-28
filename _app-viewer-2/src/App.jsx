@@ -311,6 +311,8 @@ function Viewer() {
           currentFileIdx={currentFileIdx}
           onFileChange={handleFileChange}
           topicId={currentTopic.id}
+          subjectId={currentSubject.id}
+          courseId={currentCourse.id}
           width={unitWidth}
           left={unitLeft}
           onWidthChange={setUnitWidth}
@@ -327,6 +329,7 @@ function Viewer() {
             currentFileIdx={currentFileIdx}
             totalFiles={currentTopic.files.length}
             onFileChange={handleFileChange}
+            unitKey={`${currentSubject.id}--${currentCourse.id}--${currentTopic.id}--${currentFileIdx}`}
           />
         ) : null}
       </div>

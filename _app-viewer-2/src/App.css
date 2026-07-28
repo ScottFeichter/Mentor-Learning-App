@@ -258,6 +258,7 @@
 .toggle-btn-subject:active {
   background: var(--subject-menu-toggle-active-bg);
   color: var(--subject-menu-toggle-active-text);
+  border-color: var(--subject-menu-toggle-active-bg);
 }
 
 .toggle-btn-subject.closed {
@@ -270,6 +271,12 @@
   background: var(--subject-menu-toggle-closed-hover-bg);
   color: var(--subject-menu-toggle-closed-hover-text);
   border-color: var(--subject-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-subject.closed:active {
+  background: var(--subject-menu-toggle-active-bg);
+  color: var(--subject-menu-toggle-active-text);
+  border-color: var(--subject-menu-toggle-active-bg);
 }
 
 .toggle-btn-course {
@@ -297,6 +304,7 @@
 .toggle-btn-course:active {
   background: var(--course-menu-toggle-active-bg);
   color: var(--course-menu-toggle-active-text);
+  border-color: var(--course-menu-toggle-active-bg);
 }
 
 .toggle-btn-course.closed {
@@ -309,6 +317,12 @@
   background: var(--course-menu-toggle-closed-hover-bg);
   color: var(--course-menu-toggle-closed-hover-text);
   border-color: var(--course-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-course.closed:active {
+  background: var(--course-menu-toggle-active-bg);
+  color: var(--course-menu-toggle-active-text);
+  border-color: var(--course-menu-toggle-active-bg);
 }
 
 .toggle-btn-topics {
@@ -336,6 +350,7 @@
 .toggle-btn-topics:active {
   background: var(--topic-menu-toggle-active-bg);
   color: var(--topic-menu-toggle-active-text);
+  border-color: var(--topic-menu-toggle-active-bg);
 }
 
 .toggle-btn-topics.closed {
@@ -348,6 +363,12 @@
   background: var(--topic-menu-toggle-closed-hover-bg);
   color: var(--topic-menu-toggle-closed-hover-text);
   border-color: var(--topic-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-topics.closed:active {
+  background: var(--topic-menu-toggle-active-bg);
+  color: var(--topic-menu-toggle-active-text);
+  border-color: var(--topic-menu-toggle-active-bg);
 }
 
 .toggle-btn-units {
@@ -375,6 +396,7 @@
 .toggle-btn-units:active {
   background: var(--units-menu-toggle-active-bg);
   color: var(--units-menu-toggle-active-text);
+  border-color: var(--units-menu-toggle-active-bg);
 }
 
 .toggle-btn-units.closed {
@@ -387,6 +409,12 @@
   background: var(--units-menu-toggle-closed-hover-bg);
   color: var(--units-menu-toggle-closed-hover-text);
   border-color: var(--units-menu-toggle-closed-hover-border);
+}
+
+.toggle-btn-units.closed:active {
+  background: var(--units-menu-toggle-active-bg);
+  color: var(--units-menu-toggle-active-text);
+  border-color: var(--units-menu-toggle-active-bg);
 }
 
 /* ===== MAIN CONTENT ===== */

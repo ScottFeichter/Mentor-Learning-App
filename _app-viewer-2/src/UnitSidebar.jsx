@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
+import { useCompletion } from './CompletionContext';
 import './UnitSidebar.css';
 
-export default function UnitSidebar({ files, currentFileIdx, onFileChange, topicId, width, left, onWidthChange, top }) {
+export default function UnitSidebar({ files, currentFileIdx, onFileChange, topicId, subjectId, courseId, width, left, onWidthChange, top }) {
+  const { isComplete } = useCompletion();
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -112,7 +114,10 @@ export default function UnitSidebar({ files, currentFileIdx, onFileChange, topic
                 }
               }}
             >
-              {getTitle(file)}
+              <span className="unit-title">{getTitle(file)}</span>
+              {isComplete(`${subjectId}--${courseId}--${topicId}--${idx}`) && (
+                <span className="unit-check">✓</span>
+              )}
             </a>
           ))}
         </nav>

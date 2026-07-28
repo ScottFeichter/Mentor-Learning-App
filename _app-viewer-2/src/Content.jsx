@@ -33,6 +33,7 @@ import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import { GiPlainArrow } from 'react-icons/gi';
+import { useCompletion } from './CompletionContext';
 import 'highlight.js/styles/vs2015.css';
 import './Content.css';
 
@@ -59,8 +60,10 @@ function CodeBlock({ children }) {
   );
 }
 
-export default function Content({ folder, file, currentFileIdx, totalFiles, onFileChange }) {
+export default function Content({ folder, file, currentFileIdx, totalFiles, onFileChange, unitKey }) {
   const [content, setContent] = useState('');
+  const { isComplete, markComplete, markIncomplete } = useCompletion();
+  const complete = unitKey ? isComplete(unitKey) : false;
 
   useEffect(() => {
     if (!file) return;
@@ -117,9 +120,23 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
             Next <GiPlainArrow style={{ transform: 'rotate(-90deg)' }} />
           </button>
         </div>
-        <button className="top-button" onClick={scrollToTop}>
-          Top Of Page
-        </button>
+        <div className="completion-row">
+          <button
+            className={`completion-btn${complete ? ' available' : ' current-state'}`}
+            onClick={() => unitKey && markIncomplete(unitKey)}
+          >
+            Mark Incomplete
+          </button>
+          <button className="top-button" onClick={scrollToTop}>
+            Top Of Page
+          </button>
+          <button
+            className={`completion-btn${complete ? ' current-state' : ' available'}`}
+            onClick={() => unitKey && markComplete(unitKey)}
+          >
+            Mark Complete
+          </button>
+        </div>
       </div>
     </div>
   );
