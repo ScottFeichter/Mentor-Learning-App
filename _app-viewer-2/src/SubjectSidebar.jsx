@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
+import { useCompletion } from './CompletionContext';
 import './SubjectSidebar.css';
 
 export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectChange, width, onWidthChange, top }) {
+  const { isComplete } = useCompletion();
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -96,21 +98,29 @@ export default function SubjectSidebar({ subjects, currentSubjectId, onSubjectCh
     <div className="subject-sidebar" style={{ width: `${width}px`, top: `${top}px` }}>
       <div className="subject-nav-wrapper">
         <nav ref={navRef}>
-          {subjects.map((subject) => (
-            <a
-              key={subject.id}
-              href={`/${subject.courses?.[0]?.topics?.[0]?.id || ''}/0`}
-              className={currentSubjectId === subject.id ? 'active' : ''}
-              onClick={(e) => {
-                if (!e.ctrlKey && !e.metaKey) {
-                  e.preventDefault();
-                  onSubjectChange(subject.id);
-                }
-              }}
-            >
-              {subject.title}
-            </a>
-          ))}
+          {subjects.map((subject) => {
+            const isSubjectComplete = subject.courses.length > 0 && subject.courses.every(course =>
+              course.topics.length > 0 && course.topics.every(topic =>
+                topic.files.length > 0 && topic.files.every((_, idx) => isComplete(`${subject.id}--${course.id}--${topic.id}--${idx}`))
+              )
+            );
+            return (
+              <a
+                key={subject.id}
+                href={`/${subject.courses?.[0]?.topics?.[0]?.id || ''}/0`}
+                className={currentSubjectId === subject.id ? 'active' : ''}
+                onClick={(e) => {
+                  if (!e.ctrlKey && !e.metaKey) {
+                    e.preventDefault();
+                    onSubjectChange(subject.id);
+                  }
+                }}
+              >
+                <span className="subject-title">{subject.title}</span>
+                {isSubjectComplete && <span className="subject-check">✓</span>}
+              </a>
+            );
+          })}
         </nav>
         <div className="subject-scrollbar-track" ref={trackRef} onClick={handleTrackClick}>
           <div

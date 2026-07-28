@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
+import { useCompletion } from './CompletionContext';
 import './TopicSidebar.css';
 
-export default function InnerSidebar({ files, currentFileIdx, onFileChange, sectionId, width, left, onWidthChange, top }) {
+export default function InnerSidebar({ topics, currentFileIdx, onFileChange, sectionId, subjectId, courseId, width, left, onWidthChange, top }) {
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -38,7 +39,7 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
         observer.disconnect();
       };
     }
-  }, [files]);
+  }, [topics]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -96,11 +97,18 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
     return filename.replace(/\.md$/, '');
   };
 
+  const { isComplete } = useCompletion();
+
+  const isTopicComplete = (topic) => {
+    if (!topic.files || topic.files.length === 0) return false;
+    return topic.files.every((_, idx) => isComplete(`${subjectId}--${courseId}--${topic.id}--${idx}`));
+  };
+
   return (
     <div className="topic-sidebar" style={{ width: `${width}px`, left: `${left}px`, top: `${top}px` }}>
       <div className="topic-nav-wrapper">
         <nav ref={navRef}>
-          {files.map((file, idx) => (
+          {topics.map((topic, idx) => (
             <a
               key={idx}
               href={`/${sectionId}/${idx}`}
@@ -112,7 +120,8 @@ export default function InnerSidebar({ files, currentFileIdx, onFileChange, sect
                 }
               }}
             >
-              {getTitle(file)}
+              <span className="topic-title">{topic.title}</span>
+              {isTopicComplete(topic) && <span className="topic-check">✓</span>}
             </a>
           ))}
         </nav>

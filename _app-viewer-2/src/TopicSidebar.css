@@ -28,7 +28,8 @@
 }
 
 .topic-sidebar a {
-  display: block;
+  display: flex;
+  align-items: center;
   padding: 10px 14px;
   cursor: pointer;
   text-decoration: none;
@@ -37,8 +38,22 @@
   border-bottom: 1px solid var(--topic-menu-separator);
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   font-size: 0.85em;
+}
+
+.topic-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topic-check {
+  flex-shrink: 0;
+  margin-left: 6px;
+  margin-right: 6px;
+  color: #000;
+  font-weight: bold;
+  font-size: 0.95em;
 }
 
 .topic-sidebar a:first-child {

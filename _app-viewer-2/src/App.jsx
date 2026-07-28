@@ -283,6 +283,7 @@ function Viewer() {
           sections={currentSubject.courses}
           currentSectionId={currentCourse ? currentCourse.id : ''}
           onSectionChange={handleCourseChange}
+          subjectId={currentSubject.id}
           width={courseWidth}
           left={courseLeft}
           onWidthChange={setCourseWidth}
@@ -293,10 +294,12 @@ function Viewer() {
       {/* Topic Menu */}
       {topicVisible && currentCourse && (
         <TopicSidebar
-          files={currentCourse.topics.map(t => t.title)}
+          topics={currentCourse.topics}
           currentFileIdx={currentTopic ? currentCourse.topics.findIndex(t => t.id === currentTopic.id) : -1}
           onFileChange={(idx) => handleTopicChange(currentCourse.topics[idx].id)}
           sectionId={currentCourse.id}
+          subjectId={currentSubject.id}
+          courseId={currentCourse.id}
           width={topicWidth}
           left={topicLeft}
           onWidthChange={setTopicWidth}

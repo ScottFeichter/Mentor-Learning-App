@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { RxDragHandleDots2 } from 'react-icons/rx';
+import { useCompletion } from './CompletionContext';
 import './CourseSidebar.css';
 
-export default function OuterSidebar({ sections, currentSectionId, onSectionChange, width, left, onWidthChange, top }) {
+export default function OuterSidebar({ sections, currentSectionId, onSectionChange, subjectId, width, left, onWidthChange, top }) {
   const [isResizing, setIsResizing] = useState(false);
   const [thumbTop, setThumbTop] = useState(0);
   const [thumbHeight, setThumbHeight] = useState(100);
@@ -11,6 +12,8 @@ export default function OuterSidebar({ sections, currentSectionId, onSectionChan
   const [dragStartScroll, setDragStartScroll] = useState(0);
   const navRef = useRef(null);
   const trackRef = useRef(null);
+
+  const { isComplete } = useCompletion();
 
   const updateThumb = () => {
     const nav = navRef.current;
@@ -96,21 +99,27 @@ export default function OuterSidebar({ sections, currentSectionId, onSectionChan
     <div className="course-sidebar" style={{ width: `${width}px`, left: `${left}px`, top: `${top}px` }}>
       <div className="course-nav-wrapper">
         <nav ref={navRef}>
-          {sections.map((section) => (
-            <a
-              key={section.id}
-              href={`/${section.id}/0`}
-              className={currentSectionId === section.id ? 'active' : ''}
-              onClick={(e) => {
-                if (!e.ctrlKey && !e.metaKey) {
-                  e.preventDefault();
-                  onSectionChange(section.id);
-                }
-              }}
-            >
-              {section.title}
-            </a>
-          ))}
+          {sections.map((section) => {
+            const isCourseComplete = section.topics.length > 0 && section.topics.every(topic =>
+              topic.files.length > 0 && topic.files.every((_, idx) => isComplete(`${subjectId}--${section.id}--${topic.id}--${idx}`))
+            );
+            return (
+              <a
+                key={section.id}
+                href={`/${section.id}/0`}
+                className={currentSectionId === section.id ? 'active' : ''}
+                onClick={(e) => {
+                  if (!e.ctrlKey && !e.metaKey) {
+                    e.preventDefault();
+                    onSectionChange(section.id);
+                  }
+                }}
+              >
+                <span className="course-title">{section.title}</span>
+                {isCourseComplete && <span className="course-check">✓</span>}
+              </a>
+            );
+          })}
         </nav>
         <div className="custom-scrollbar-track" ref={trackRef} onClick={handleTrackClick}>
           <div
