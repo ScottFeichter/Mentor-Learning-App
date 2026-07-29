@@ -1,1 +1,0 @@
-../../../01. Computer Science/12. Node/53. Node Mongoose Package/38. Mongo Walkthrough: Create startServer.js

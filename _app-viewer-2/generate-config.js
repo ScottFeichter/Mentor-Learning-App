@@ -57,7 +57,8 @@ function scanStructure() {
         .map(d => d.name)
         .sort();
       for (const topicFolder of topicFolders) {
-        topicNameCount[topicFolder] = (topicNameCount[topicFolder] || 0) + 1;
+        const key = slugify(topicFolder);
+        topicNameCount[key] = (topicNameCount[key] || 0) + 1;
       }
     }
   }
@@ -98,7 +99,7 @@ function scanStructure() {
 
         // Use topic folder name as symlink, disambiguate if collision
         let symlinkName = topicFolder;
-        if (topicNameCount[topicFolder] > 1) {
+        if (topicNameCount[slugify(topicFolder)] > 1) {
           symlinkName = `${courseFolder}--${topicFolder}`;
         }
 
@@ -121,9 +122,9 @@ function scanStructure() {
       if (course.topics.length === 0) {
         const files = getMdFiles(coursePath);
         if (files.length > 0) {
-          const symlinkName = courseFolder;
+          const symlinkName = `${subjectFolder}--${courseFolder}`;
           const topic = {
-            id: slugify(courseFolder),
+            id: slugify(symlinkName),
             title: courseFolder,
             folder: symlinkName,
             files,

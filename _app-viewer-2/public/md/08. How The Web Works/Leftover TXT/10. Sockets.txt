@@ -1,5 +1,0 @@
-Sockets
-
-Socket - the combination of the source IP address and source port OR the destination IP address and destination port ie 192.168.1.7:80
-
-Socket Pairs - the source and destination socket form a socket pair ie 192.168.1.7:80, 192.168.1.7:1099
