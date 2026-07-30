@@ -35,8 +35,8 @@ import { MdContentCopy, MdCheck } from 'react-icons/md';
 import { GiPlainArrow } from 'react-icons/gi';
 import { useCompletion } from './CompletionContext';
 import Quiz from './Quiz';
-import Explaining from './Explaining';
-import ExplainingGroup from './ExplainingGroup';
+import Explaining from './Explain';
+import ExplainingGroup from './ExplainGroup';
 import 'highlight.js/styles/vs2015.css';
 import './Content.css';
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Explaining from './Explaining';
-import './ExplainingGroup.css';
+import Explaining from './Explain';
+import './ExplainGroup.css';
 
 export default function ExplainingGroup({ concepts, unitKey, children }) {
   const [submitted, setSubmitted] = useState(false);

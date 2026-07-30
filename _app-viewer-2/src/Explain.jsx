@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import './Explaining.css';
+import './Explain.css';
 
 const DB_NAME = 'explaining-recordings';
 const DB_VERSION = 1;
