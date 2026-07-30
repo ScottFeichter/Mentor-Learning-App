@@ -42,7 +42,8 @@
 }
 
 .content h5 {
-  font-size: 1em;
+  font-size: 1.05em;
+  font-weight: 800;
   color: var(--heading-h5-color);
   margin-left: 20px;
 }
@@ -84,11 +85,15 @@
 /* custom inline span styles — used as raw HTML in .md files */
 .content .red-bold          { color: #ff0000; font-weight: bold; }
 .content .blue-bold         { color: #0000ff; font-weight: bold; }
-.content .olive-bold        { color: rgb(171, 171, 150); font-weight: bold; }
+.content .olive-bold        { color: #82816D; font-weight: bold; }
 .content .purple-bold       { color: #a855f7; font-weight: bold; }
 .content .highlight         { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
 .content .subheading-highlight { background: var(--heading-h6-color); padding: 1px 3px; border-radius: 2px; }
 .content .muted             { color: #9ca3af; }
+.content .indent            { margin-left: 40px; }
+.content .indent > h4,
+.content .indent > h5       { margin-left: 0; }
+.content .center            { display: flex; justify-content: center; margin-left: 0 !important; }
 
 .content pre {
   background: var(--content-code-bg);
