@@ -1,0 +1,43 @@
+.explaining-group {
+  position: relative;
+  margin-left: 0 !important;
+}
+
+.explaining-submit-all {
+  width: 260px;
+  height: 50px;
+  font-size: 1.1em;
+  font-weight: 700;
+  border-radius: 6px;
+  border: 2px solid var(--heading-h5-color);
+  background: transparent;
+  color: var(--heading-h5-color);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.explaining-submit-all:hover:not(:disabled) {
+  background: var(--heading-h5-color);
+  color: var(--content-nav-hover-text);
+}
+
+.explaining-submit-all.disabled,
+.explaining-submit-all:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+}
+
+.explaining-submit-all-top {
+  display: flex;
+  justify-content: center;
+  margin-top: 2px;
+  margin-bottom: 0;
+}
+
+.explaining-submit-all-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: 48px;
+}

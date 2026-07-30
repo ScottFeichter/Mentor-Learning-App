@@ -34,6 +34,9 @@ import remarkGfm from 'remark-gfm';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 import { GiPlainArrow } from 'react-icons/gi';
 import { useCompletion } from './CompletionContext';
+import Quiz from './Quiz';
+import Explaining from './Explaining';
+import ExplainingGroup from './ExplainingGroup';
 import 'highlight.js/styles/vs2015.css';
 import './Content.css';
 
@@ -64,6 +67,11 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
   const [content, setContent] = useState('');
   const { isComplete, markComplete, markIncomplete } = useCompletion();
   const complete = unitKey ? isComplete(unitKey) : false;
+  const conceptIndexMap = {};
+  (content.match(/data-concept="([^"]+)"/g) || []).forEach((m, i) => {
+    const concept = m.slice(14, -1);
+    if (!(concept in conceptIndexMap)) conceptIndexMap[concept] = i + 1;
+  });
 
   useEffect(() => {
     if (!file) return;
@@ -104,7 +112,27 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
             const isNbsp = children === '\u00a0';
             return <p className={isNbsp ? 'nbsp-spacer' : undefined} style={style}>{children}</p>;
           },
-          span: ({ className, style, children }) => <span className={className} style={style}>{children}</span>,
+          div: ({ className, 'data-questions': dataQuestions, 'data-quiz-id': dataQuizId, 'data-concept': dataConcept, children, ...props }) => {
+            if (className === 'quiz' && dataQuestions) {
+              try {
+                const questions = JSON.parse(dataQuestions);
+                return <Quiz questions={questions} quizId={dataQuizId || unitKey || 'default'} />;
+              } catch (e) {
+                return <div className={className} {...props}>{children}</div>;
+              }
+            }
+            if (className === 'explaining-group') {
+              const concepts = (content.match(/data-concept="([^"]+)"/g) || [])
+                .map(m => m.slice(14, -1));
+              return <ExplainingGroup concepts={concepts} unitKey={unitKey}>{children}</ExplainingGroup>;
+            }
+            if (className === 'explaining' && dataConcept) {
+              const conceptNumber = conceptIndexMap[dataConcept] ?? 0;
+              const recordingKey = `${unitKey || 'default'}--${dataConcept.slice(0, 40)}`;
+              return <Explaining concept={dataConcept} conceptNumber={conceptNumber} recordingKey={recordingKey} />;
+            }
+            return <div className={className} {...props}>{children}</div>;
+          },
           pre: ({ children }) => {
             const code = children?.props?.children;
             return <CodeBlock>{code}</CodeBlock>;

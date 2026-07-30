@@ -1,0 +1,124 @@
+.explaining {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.explaining-concept {
+  font-weight: 700;
+  font-size: var(--heading-h3-size);
+  color: var(--color-tertiary);
+  margin-bottom: 16px;
+  margin-left: 0;
+}
+
+.explaining-concept-number {
+  margin-right: 6px;
+}
+
+.explaining-viewer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 480px;
+  background: #000000;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.explaining-hidden {
+  display: none;
+}
+
+.explaining-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.explaining-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+}
+
+.explaining-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.explaining-btn {
+  height: 44px;
+  width: 120px;
+  border-radius: 4px;
+  border: 1px solid var(--content-nav-border);
+  font-weight: bold;
+  font-size: var(--heading-h4-size);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.explaining-btn-start {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.explaining-btn-start:hover:not(:disabled) {
+  background: var(--color-secondary);
+  color: var(--content-nav-hover-text);
+}
+
+.explaining-btn-start:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+}
+
+.explaining-btn-end {
+  background: var(--color-secondary);
+  color: var(--content-nav-hover-text);
+  border-color: var(--color-secondary);
+}
+
+.explaining-btn-end:hover {
+  opacity: 0.85;
+}
+
+.explaining-btn-play {
+  background: transparent;
+  color: var(--color-tertiary);
+  border-color: var(--color-tertiary);
+}
+
+.explaining-btn-play:hover:not(:disabled) {
+  background: var(--color-tertiary);
+  color: var(--content-nav-hover-text);
+}
+
+.explaining-btn-play:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+}
+
+.explaining-btn-reset {
+  background: transparent;
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.explaining-btn-reset:hover:not(:disabled) {
+  background: var(--color-secondary);
+  color: var(--content-nav-hover-text);
+}
+
+.explaining-btn-reset:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+}
