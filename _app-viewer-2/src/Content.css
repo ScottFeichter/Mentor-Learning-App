@@ -87,9 +87,10 @@
 .content .blue-bold         { color: #0000ff; font-weight: bold; }
 .content .olive-bold        { color: #82816D; font-weight: bold; }
 .content .purple-bold       { color: #a855f7; font-weight: bold; }
+.content .pink-bold       { color: #fa06a5; font-weight: bold; }
 .content .highlight         { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
 .content .subheading-highlight { background: var(--heading-h6-color); padding: 1px 3px; border-radius: 2px; }
-.content .muted             { color: #9ca3af; }
+.content .muted             { color: #6b7280; }
 .content .indent            { margin-left: 40px; }
 .content .indent > h4,
 .content .indent > h5       { margin-left: 0; }

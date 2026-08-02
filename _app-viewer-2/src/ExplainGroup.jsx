@@ -26,8 +26,6 @@ export default function ExplainingGroup({ concepts, unitKey, children }) {
 
   return (
     <div className="explaining-group">
-      <div className="explaining-submit-all-top">{btn}</div>
-
       {children}
 
       {concepts.map((concept, i) => (

@@ -106,13 +106,13 @@
 }
 
 .explaining-btn-reset {
-  background: transparent;
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: var(--content-nav-bg);
+  color: var(--content-nav-text);
+  border-color: var(--content-nav-border);
 }
 
 .explaining-btn-reset:hover:not(:disabled) {
-  background: var(--color-secondary);
+  background: var(--content-nav-hover-bg);
   color: var(--content-nav-hover-text);
 }
 

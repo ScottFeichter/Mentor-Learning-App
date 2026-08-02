@@ -89,7 +89,7 @@ export const subjects = [
     title: "09. JavaScript",
     courses: [
       { id: "images", title: "images", topics: findTopics([]) },
-      { id: "markdown", title: "markdown", topics: findTopics(["09-javascript-markdown"]) },
+      { id: "markdown", title: "markdown", topics: findTopics(["15-js-notes-breakout"]) },
     ],
   },
   {
@@ -120,7 +120,7 @@ export const subjects = [
     id: "12-node",
     title: "12. Node",
     courses: [
-      { id: "01-node-tools-for-development", title: "01. Node Tools For Development", topics: findTopics(["01-browser","02-api-client","03-integrated-developers-environment","04-command-line-interface","05-local-version-control","06-remote-version-control"]) },
+      { id: "01-node-tools-for-development", title: "01. Node Tools For Development", topics: findTopics(["01-browser","02-web-api-client","03-integrated-developers-environment","04-command-line-interface","05-local-version-control","06-remote-version-control"]) },
       { id: "02-node-introduction", title: "02. Node Introduction", topics: findTopics(["01-javascript-language","02-node-getting-started","03-node-version-manager","04-node-installation","05-node-js-runtime","06-node-vs-browsers","07-node-architecture","08-node-event-loop"]) },
       { id: "03-node-jom", title: "03. Node JOM", topics: findTopics(["01-js-objects","02-node-jom","03-node-globals","04-node-errors","05-node-imports-and-exports","06-nsl-intro"]) },
       { id: "04-node-standard-library", title: "04. Node Standard Library", topics: findTopics(["16-node-os-module","17-node-path-module","18-node-fs-module","19-node-readline-module","23-node-stream-module","24-node-readline-module","24-node-timers-module","25-node-decoder-module","25-node-event-module","26-node-http-module","27-node-https-module"]) },
