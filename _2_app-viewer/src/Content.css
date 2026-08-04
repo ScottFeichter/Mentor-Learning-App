@@ -88,7 +88,7 @@
 .content .olive-bold        { color: #82816D; font-weight: bold; }
 .content .purple-bold       { color: #a855f7; font-weight: bold; }
 .content .pink-bold       { color: #fa06a5; font-weight: bold; }
-.content .node-green      { color: #2C682C; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: 0.95em; }
+.content .node-green      { color: #2C682C; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 900; font-size: 1em; background-color: #F2F2F2; padding: 0 4px; border-radius: 0; }
 .content .js-yellow       { color: #323330; font-weight: 800; font-size: 0.9em; background-color: #FFFA2B; padding: 0 2px; border-radius: 4px; }
 .content .highlight         { background: #fef08a; padding: 1px 3px; border-radius: 2px; }
 .content .subheading-highlight { background: var(--heading-h6-color); padding: 1px 3px; border-radius: 2px; }
