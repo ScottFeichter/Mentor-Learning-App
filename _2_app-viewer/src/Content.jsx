@@ -136,6 +136,11 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
           pre: ({ children }) => {
             const code = children?.props?.children;
             return <CodeBlock>{code}</CodeBlock>;
+          },
+          code: ({ node, children, ...props }) => {
+            const isInline = node?.position?.start.line === node?.position?.end.line;
+            if (isInline) return <code className="inline-code" {...props}>{children}</code>;
+            return <code {...props}>{children}</code>;
           }
         }}
       >{content}</Markdown>

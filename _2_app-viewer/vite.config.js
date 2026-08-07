@@ -31,5 +31,8 @@ export default defineConfig({
     fs: {
       allow: ['..'],
     },
+    watch: {
+      ignored: ['!**/src/sections.js', '!**/src/subjects.js'],
+    },
   },
 })

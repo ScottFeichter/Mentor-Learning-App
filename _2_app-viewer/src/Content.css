@@ -157,10 +157,22 @@
   font-size: 0.9em;
 }
 
+.content .inline-code {
+  background: var(--content-inline-code-bg);
+  color: #000000;
+  font-weight: 400;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.85em;
+}
 .content pre code {
   background: none;
   padding: 0;
   color: var(--content-code-text);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 .content ul, .content ol {
@@ -191,7 +203,8 @@
 }
 
 .content th {
-  background: var(--content-table-header-bg);
+  background: #1a4f6e;
+  color: #ffffff;
   font-weight: bold;
 }
 
