@@ -1,8 +1,10 @@
-import { useState, useRef, useLayoutEffect } from 'react';
+import { useState, useRef, useLayoutEffect, useContext, createContext, useEffect } from 'react';
 import './SyntaxTree.css';
 
+const TreeContext = createContext(null);
+
 const DEPTH_COLORS = {
-  1: 'var(--heading-h1-color)',
+  1: '#a855f7',
   2: 'var(--heading-h2-color)',
   3: 'var(--heading-h3-color)',
   4: '#82816D',
@@ -12,19 +14,22 @@ const DEPTH_COLORS = {
   8: 'var(--color-text-muted)',
 };
 
-// node shape: { label, children: [...] } or { label, examples: { code: desc, ... } }
-// Built from nested objects: { "Label": { "Child": { "code": "desc" } } }
 // A value is examples if ALL its values are strings; otherwise it's children nodes.
 function parseNode(label, value) {
   const entries = Object.entries(value);
   const allStrings = entries.every(([, v]) => typeof v === 'string');
-  if (allStrings) {
-    return { label, examples: value };
-  }
+  if (allStrings) return { label, examples: value };
   return { label, children: entries.map(([k, v]) => parseNode(k, v)) };
 }
 
+function countExpandable(node, d) {
+  if (d === 1) return (node.children || []).reduce((s, c) => s + countExpandable(c, d + 1), 0);
+  const self = (node.children?.length > 0 || Object.keys(node.examples || {}).length > 0) ? 1 : 0;
+  return self + (node.children || []).reduce((s, c) => s + countExpandable(c, d + 1), 0);
+}
+
 function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor }) {
+  const { signal, forcedOpen, reportOpen } = useContext(TreeContext);
   const [open, setOpen] = useState(depth <= 2);
   const hasChildren = node.children && node.children.length > 0;
   const hasExamples = node.examples && Object.keys(node.examples).length > 0;
@@ -34,6 +39,19 @@ function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor 
   const lastChildNodeRef = useRef(null);
   const lastChildLabelRef2 = useRef(null);
   const [lineHeight, setLineHeight] = useState(0);
+
+  useEffect(() => {
+    if (depth === 1 || !isExpandable) return;
+    if (open) reportOpen(true, false);
+  }, []);
+
+  useEffect(() => {
+    if (depth === 1) return;
+    if (signal > 0) {
+      reportOpen(forcedOpen, open);
+      setOpen(forcedOpen);
+    }
+  }, [signal]);
 
   useLayoutEffect(() => {
     if (!open || !childrenRef.current || !lastChildLabelRef2.current) {
@@ -52,6 +70,14 @@ function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor 
     return () => ro.disconnect();
   }, [open]);
 
+  const toggle = () => {
+    if (!showArrow) return;
+    setOpen(o => {
+      reportOpen(!o, o);
+      return !o;
+    });
+  };
+
   const myColor = DEPTH_COLORS[depth] || 'var(--color-text-muted)';
 
   return (
@@ -63,7 +89,7 @@ function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor 
       <div
         className={`st-label${showArrow ? ' st-expandable' : ''}`}
         ref={lastChildLabelRef || null}
-        onClick={() => showArrow && setOpen(o => !o)}
+        onClick={toggle}
       >
         {showArrow && (
           <span className={`st-arrow${open ? ' st-open' : ''}`} style={{ color: parentColor || myColor }}>▶</span>
@@ -122,9 +148,33 @@ export default function SyntaxTree({ data }) {
     ? parseNode(entries[0][0], entries[0][1])
     : { label: 'Syntax', children: entries.map(([k, v]) => parseNode(k, v)) };
 
+  const [signal, setSignal] = useState(0);
+  const [forcedOpen, setForcedOpen] = useState(true);
+  const openCountRef = useRef(0);
+  const totalCountRef = useRef(countExpandable(root, 1));
+  const [anyOpen, setAnyOpen] = useState(false);
+  const [allOpen, setAllOpen] = useState(false);
+
+  // called by nodes: newVal = the value being set, oldVal = previous value
+  const reportOpen = (newVal, oldVal) => {
+    if (newVal === oldVal) return;
+    openCountRef.current += newVal ? 1 : -1;
+    setAnyOpen(openCountRef.current > 0);
+    setAllOpen(openCountRef.current >= totalCountRef.current);
+  };
+
+  const expandAll = () => { setForcedOpen(true); setSignal(s => s + 1); };
+  const collapseAll = () => { setForcedOpen(false); setSignal(s => s + 1); };
+
   return (
-    <div className="syntax-tree-component">
-      <SyntaxNode node={root} depth={1} />
-    </div>
+    <TreeContext.Provider value={{ signal, forcedOpen, reportOpen }}>
+      <div className="st-controls">
+        <button className="top-button" onClick={expandAll} disabled={allOpen}>Expand All</button>
+        <button className="top-button" onClick={collapseAll} disabled={!anyOpen}>Collapse All</button>
+      </div>
+      <div className="syntax-tree-component">
+        <SyntaxNode node={root} depth={1} />
+      </div>
+    </TreeContext.Provider>
   );
 }

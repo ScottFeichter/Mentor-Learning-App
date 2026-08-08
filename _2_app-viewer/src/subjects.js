@@ -41,9 +41,9 @@ export const subjects = [
     id: "04-advanced-javascript",
     title: "04. Advanced JavaScript",
     courses: [
-      { id: "01-first-principles", title: "01. First Principles", topics: findTopics(["01-nomenclature","02-types-of-values","03-syntax","04-execution-context","05-functions","07-callbacks"]) },
-      { id: "02-deep-topics", title: "02. Deep Topics", topics: findTopics(["08-promises","09-async-await","10-recursion","11-closure","12-object-oriented-programming"]) },
-      { id: "03-misc-js", title: "03. Misc JS", topics: findTopics(["01-syntactic-sugars","02-common-operations"]) },
+      { id: "01-first-principles", title: "01. First Principles", topics: findTopics(["01-nomenclature","02-syntax","03-values-and-types","05-execution-context","06-functions"]) },
+      { id: "02-deep-topics", title: "02. Deep Topics", topics: findTopics(["07-callbacks","08-promises","09-async-await","10-recursion","11-closure"]) },
+      { id: "03-misc-js", title: "03. Misc JS", topics: findTopics(["01-syntactic-sugars","02-common-operations","12-object-oriented-programming"]) },
       { id: "04-performance-solving", title: "04. Performance & Solving", topics: findTopics(["12-time-and-space-complexity","13-data-structures","14-algorithms","15-blind75"]) },
     ],
   },

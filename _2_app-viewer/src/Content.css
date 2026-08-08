@@ -338,3 +338,11 @@
   color: var(--content-nav-active-text);
   border-color: var(--content-nav-active-border);
 }
+
+.top-button:disabled {
+  background: var(--content-nav-disabled-bg);
+  color: var(--content-nav-disabled-text);
+  border-color: var(--content-nav-disabled-border);
+  cursor: default;
+  pointer-events: none;
+}
