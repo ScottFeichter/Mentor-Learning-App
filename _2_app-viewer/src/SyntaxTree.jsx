@@ -29,6 +29,7 @@ function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor 
   const hasChildren = node.children && node.children.length > 0;
   const hasExamples = node.examples && Object.keys(node.examples).length > 0;
   const isExpandable = hasChildren || hasExamples;
+  const showArrow = isExpandable && depth > 1;
   const childrenRef = useRef(null);
   const lastChildNodeRef = useRef(null);
   const lastChildLabelRef2 = useRef(null);
@@ -60,14 +61,14 @@ function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor 
       style={{ '--st-node-color': myColor, '--st-vline-color': myColor, '--st-hline-color': parentColor || myColor }}
     >
       <div
-        className={`st-label${isExpandable ? ' st-expandable' : ''}`}
+        className={`st-label${showArrow ? ' st-expandable' : ''}`}
         ref={lastChildLabelRef || null}
-        onClick={() => isExpandable && setOpen(o => !o)}
+        onClick={() => showArrow && setOpen(o => !o)}
       >
-        {isExpandable && (
-          <span className={`st-arrow${open ? ' st-open' : ''}`}>▶</span>
+        {showArrow && (
+          <span className={`st-arrow${open ? ' st-open' : ''}`} style={{ color: parentColor || myColor }}>▶</span>
         )}
-        {!isExpandable && <span className="st-arrow-placeholder" />}
+        {!showArrow && depth > 1 && <span className="st-arrow-placeholder" />}
         <span className="st-label-text">{node.label}</span>
       </div>
       {open && hasChildren && (

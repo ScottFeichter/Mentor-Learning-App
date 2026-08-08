@@ -16,10 +16,22 @@
   font-weight: bold;
   font-size: var(--heading-h1-size);
 }
-.st-depth-1 > .st-label .st-arrow { color: var(--heading-h1-color); }
+
+.st-depth-1 > .st-children {
+  margin-left: 2rem;
+}
+
+.st-depth-1 > .st-children > .st-vline {
+  left: -1.5rem;
+}
+
+.st-depth-1 > .st-children > .st-node > .st-label::before {
+  left: -1.5rem;
+  width: 1.4rem;
+}
 
 .st-children {
-  margin-left: 2rem;
+  margin-left: 3.5rem;
   padding-left: 0;
   position: relative;
   overflow: visible;
@@ -27,7 +39,7 @@
 
 .st-vline {
   position: absolute;
-  left: -1.5rem;
+  left: -2rem;
   top: 0;
   width: 2px;
   background: var(--st-vline-color, var(--color-border));
@@ -46,8 +58,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -1.5rem;
-  width: 1.4rem;
+  left: -2rem;
+  width: 1.9rem;
   height: 2px;
   background: var(--st-hline-color, var(--color-border));
 }
@@ -57,8 +69,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -1.5rem;
-  width: 1.4rem;
+  left: -2rem;
+  width: 1.9rem;
   height: 2px;
   background: var(--st-hline-color, var(--color-text-muted));
 }
@@ -105,50 +117,43 @@
   font-weight: bold;
   font-size: 1.6rem;
 }
-.st-depth-2 > .st-label .st-arrow { color: var(--heading-h2-color); }
 
 .st-depth-3 > .st-label .st-label-text {
   color: var(--heading-h3-color);
   font-weight: bold;
   font-size: 1.45rem;
 }
-.st-depth-3 > .st-label .st-arrow { color: var(--heading-h3-color); }
 
 .st-depth-4 > .st-label .st-label-text {
   color: #82816D;
   font-weight: 600;
   font-size: 1.3rem;
 }
-.st-depth-4 > .st-label .st-arrow { color: #82816D; }
 
 .st-depth-5 > .st-label .st-label-text {
   color: #4b5563;
   font-weight: 500;
   font-size: 1.18rem;
 }
-.st-depth-5 > .st-label .st-arrow { color: #4b5563; }
 
 .st-depth-6 > .st-label .st-label-text {
   color: #2C682C;
   font-size: 1.1rem;
 }
-.st-depth-6 > .st-label .st-arrow { color: #2C682C; }
 
 .st-depth-7 > .st-label .st-label-text {
   color: var(--color-text-muted);
   font-size: 1.05rem;
 }
-.st-depth-7 > .st-label .st-arrow { color: var(--color-text-muted); }
 
 .st-depth-8 > .st-label .st-label-text {
   color: var(--color-text-muted);
   font-size: 0.9rem;
 }
-.st-depth-8 > .st-label .st-arrow { color: var(--color-text-muted); }
 
 /* Examples — vertical line stops at last row */
 .st-examples {
-  margin-left: 2rem;
+  margin-left: 3.5rem;
   padding-left: 0;
   position: relative;
   margin-bottom: 0.4rem;
