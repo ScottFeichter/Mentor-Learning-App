@@ -25,7 +25,7 @@ function parseNode(label, value) {
 }
 
 function SyntaxNode({ node, depth, lastChildRef, lastChildLabelRef, parentColor }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(depth <= 2);
   const hasChildren = node.children && node.children.length > 0;
   const hasExamples = node.examples && Object.keys(node.examples).length > 0;
   const isExpandable = hasChildren || hasExamples;
