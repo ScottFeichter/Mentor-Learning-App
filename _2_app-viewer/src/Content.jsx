@@ -37,6 +37,7 @@ import { useCompletion } from './CompletionContext';
 import Quiz from './Quiz';
 import Explaining from './Explain';
 import ExplainingGroup from './ExplainGroup';
+import SyntaxTree from './SyntaxTree';
 import 'highlight.js/styles/vs2015.css';
 import './Content.css';
 
@@ -112,7 +113,7 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
             const isNbsp = children === '\u00a0';
             return <p className={isNbsp ? 'nbsp-spacer' : undefined} style={style}>{children}</p>;
           },
-          div: ({ className, 'data-questions': dataQuestions, 'data-quiz-id': dataQuizId, 'data-concept': dataConcept, children, ...props }) => {
+          div: ({ className, 'data-questions': dataQuestions, 'data-quiz-id': dataQuizId, 'data-concept': dataConcept, 'data-tree': dataTree, children, ...props }) => {
             if (className === 'quiz' && dataQuestions) {
               try {
                 const questions = JSON.parse(dataQuestions);
@@ -125,6 +126,9 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
               const concepts = (content.match(/data-concept="([^"]+)"/g) || [])
                 .map(m => m.slice(14, -1));
               return <ExplainingGroup concepts={concepts} unitKey={unitKey}>{children}</ExplainingGroup>;
+            }
+            if (className === 'syntax-tree') {
+              return <SyntaxTree data={dataTree} />;
             }
             if (className === 'explaining' && dataConcept) {
               const conceptNumber = conceptIndexMap[dataConcept] ?? 0;
