@@ -54,12 +54,20 @@
   margin-left: 20px;
 }
 
-.content h5 ~ p {
-  margin-left: 40px;
+.content .md-indent {
+  margin-left: 20px;
 }
 
-.content h5 ~ .code-block-wrapper {
-  margin-left: 40px;
+.content .md-indent .code-block-wrapper {
+  margin-left: 20px;
+}
+
+.content .no-indent {
+  margin-left: 0 !important;
+}
+
+.content .de-indent {
+  margin-left: -20px;
 }
 
 .content h2 ~ pre, .content h3 ~ pre, .content h4 ~ pre, .content h5 ~ pre, .content h6 ~ pre,

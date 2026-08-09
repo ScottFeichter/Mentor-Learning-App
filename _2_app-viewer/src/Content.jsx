@@ -41,6 +41,43 @@ import SyntaxTree from './SyntaxTree';
 import 'highlight.js/styles/vs2015.css';
 import './Content.css';
 
+function rehypeIndentHeadings() {
+  return (tree) => {
+    const wrapHeadingContent = (nodes) => {
+      const result = [];
+      let i = 0;
+      while (i < nodes.length) {
+        const node = nodes[i];
+        const isH4 = node.type === 'element' && node.tagName === 'h4';
+        const isH5 = node.type === 'element' && node.tagName === 'h5';
+        const hasNoIndent = (isH4 || isH5) && node.properties?.className?.includes('no-indent');
+        if ((isH4 || isH5) && !hasNoIndent) {
+          result.push(node);
+          i++;
+          const children = [];
+          while (i < nodes.length) {
+            const next = nodes[i];
+            const tag = next.type === 'element' ? next.tagName : null;
+            if (tag === 'h1' || tag === 'h2' || tag === 'h3' || tag === 'h4' || tag === 'h5') break;
+            children.push(next);
+            i++;
+          }
+          if (children.length) {
+            result.push({ type: 'element', tagName: 'div', properties: { className: ['md-indent'] }, children });
+          }
+        } else {
+          if (node.children) node.children = wrapHeadingContent(node.children);
+          result.push(node);
+          i++;
+        }
+      }
+      return result;
+    };
+    tree.children = wrapHeadingContent(tree.children);
+  };
+}
+
+
 function CodeBlock({ children }) {
   const [copied, setCopied] = useState(false);
   const codeRef = useRef(null);
@@ -98,7 +135,7 @@ export default function Content({ folder, file, currentFileIdx, totalFiles, onFi
     <div className="content">
       <Markdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeHighlight, rehypeRaw]}
+        rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeIndentHeadings]}
         components={{
           h1: 'h2',
           h2: 'h3',
