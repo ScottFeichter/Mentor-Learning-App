@@ -50,8 +50,9 @@ function rehypeIndentHeadings() {
         const node = nodes[i];
         const isH4 = node.type === 'element' && node.tagName === 'h4';
         const isH5 = node.type === 'element' && node.tagName === 'h5';
-        const hasNoIndent = (isH4 || isH5) && node.properties?.className?.includes('no-indent');
-        if ((isH4 || isH5) && !hasNoIndent) {
+        const isH6 = node.type === 'element' && node.tagName === 'h6';
+        const hasNoIndent = (isH4 || isH5 || isH6) && node.properties?.className?.includes('no-indent');
+        if ((isH4 || isH5 || isH6) && !hasNoIndent) {
           result.push(node);
           i++;
           const children = [];
