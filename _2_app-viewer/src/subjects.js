@@ -38,8 +38,8 @@ export const subjects = [
     ],
   },
   {
-    id: "04-advanced-javascript",
-    title: "04. Advanced JavaScript",
+    id: "04-advanced-js",
+    title: "04. Advanced JS",
     courses: [
       { id: "01-first-principles", title: "01. First Principles", topics: findTopics(["01-nomenclature","02-syntax-part-i-introduction","03-syntax-part-ii-expressions","04-binding-and-value-types","05-execution-context","06-functions"]) },
       { id: "02-deeper-topics", title: "02. Deeper Topics", topics: findTopics(["07-callbacks","08-promises","09-async-await","10-recursion","11-closure"]) },
